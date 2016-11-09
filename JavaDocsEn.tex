@@ -1,0 +1,6583 @@
+% Added by DocsPostProcessor:
+\setlength{\parskip}{0.125in}
+% \\ Added by DocsPostProcessor.
+
+% Replaced by DocsPostProcessor:
+% \documentclass[11pt]{report}
+\documentclass[a4paper]{report}
+% \\ Replaced by DocsPostProcessor.
+
+\def\bl{\mbox{}\newline\mbox{}\newline{}}
+
+% Added by DocsPostProcessor:
+\usepackage{amssymb,latexsym,amsmath,amscd,mathtext,ifthen}
+\usepackage[unicode]{hyperref}
+\usepackage{listings}
+\usepackage{literat}
+\usepackage{graphicx}
+\usepackage[top = 2.0cm]{geometry}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\input glyphtounicode
+\pdfgentounicode=1
+
+\setlength{\skip\footins}{0.5cm}
+\setlength{\footnotesep}{0.5cm}
+
+\newcommand\abs[1]{\left|#1\right|}
+% \\ Added by DocsPostProcessor.
+
+\usepackage{ifthen}
+\newcommand{\hide}[2]{
+\ifthenelse{\equal{#1}{inherited}}%
+{}%
+{}%
+}
+\newcommand{\entityintro}[3]{%
+  \hbox to \hsize{%
+    \vbox{%
+      \hbox to .2in{}%
+    }%
+    {\bf #1}%
+    \dotfill\pageref{#2}%
+  }
+  \makebox[\hsize]{%
+    \parbox{.4in}{}%
+    \parbox[l]{5in}{%
+      \vspace{1mm}\it%
+      #3%
+      \vspace{1mm}%
+    }%
+  }%
+}
+\newcommand{\isep}[0]{%
+\setlength{\itemsep}{-.4ex}
+}
+\newcommand{\sld}[0]{%
+\setlength{\topsep}{0em}
+\setlength{\partopsep}{0em}
+\setlength{\parskip}{0em}
+\setlength{\parsep}{-1em}
+}
+\newcommand{\headref}[3]{%
+\ifthenelse{#1 = 1}{%
+\addcontentsline{toc}{section}{\hspace{\qquad}\protect\numberline{}{#3}}%
+}{}%
+\ifthenelse{#1 = 2}{%
+\addcontentsline{toc}{subsection}{\hspace{\qquad}\protect\numerline{}{#3}}%
+}{}%
+\ifthenelse{#1 = 3}{%
+\addcontentsline{toc}{subsubsection}{\hspace{\qquad}\protect\numerline{}{#3}}%
+}{}%
+\label{#3}%
+\makebox[\textwidth][l]{#2 #3}%
+}%
+\newcommand{\membername}[1]{{\it #1}\linebreak}
+\newcommand{\divideents}[1]{\vskip -1em\indent\rule{2in}{.5mm}}
+\newcommand{\refdefined}[1]{
+\expandafter\ifx\csname r@#1\endcsname\relax
+\relax\else
+{$($ in \ref{#1}, page \pageref{#1}$)$}
+\fi}
+\newcommand{\startsection}[4]{
+\gdef\classname{#2}
+\subsection{\label{#3}{\bf {\sc #1} #2}}{
+\rule[1em]{\hsize}{4pt}\vskip -1em
+\vskip .1in 
+#4
+}%
+}
+\newcommand{\startsubsubsection}[2]{
+\subsubsection{\sc #1}{%
+\rule[1em]{\hsize}{2pt}%
+#2}
+}
+\usepackage{color}
+
+% Replaced by DocsPostProcessor:
+% \date{DoNotModifyDateHere}
+\date{November --- December, 2016}
+% \\ Replaced by DocsPostProcessor.
+
+
+% Removed by DocsPostProcessor:
+% \pagestyle{myheadings}
+% \\ Removed by DocsPostProcessor.
+
+\addtocontents{toc}{\protect\def\protect\packagename{}}
+\addtocontents{toc}{\protect\def\protect\classname{}}
+\markboth{\protect\packagename -- \protect\classname}{\protect\packagename -- \protect\classname}
+\oddsidemargin 0in
+\evensidemargin 0in
+% \topmargin -.8in
+\chardef\bslash=`\\
+\textheight 9.4in
+\textwidth 6.5in
+
+% Replaced by DocsPostProcessor:
+% \title{DoNotModifyTitleHere}
+\title{
+\includegraphics{images/raic-2015-logo-302x140.png}\\
+\vspace{0.61in}
+\textsc{\Huge CodeWizards 2016}\\
+\vspace{0.50in}
+\textsc{\LARGE Rules}\\
+\textsc{\small Версия 1.0.0}\\
+\vspace{2.75in}
+\includegraphics{images/mail-ru-and-ssu-logo.png}
+}
+% \\ Replaced by DocsPostProcessor.
+
+\begin{document}
+\maketitle
+\sloppy
+\raggedright
+\tableofcontents
+
+% Added by DocsPostProcessor:
+\markboth{qqq}{{\footnotesize CodeWizards 2016}}
+\input TutorialEn.tex
+\raggedright
+\sloppy
+% \\ Added by DocsPostProcessor.
+
+\gdef\packagename{}
+\gdef\classname{}
+\newpage
+\def\packagename{model}
+\chapter{\bf Package model}{
+\vskip -.25in
+\hbox to \hsize{\it Package Contents\hfil Page}
+\rule{\hsize}{.7mm}
+\vskip .13in
+\hbox{\bf Classes}
+\entityintro{ActionType}{l0}{Available wizard actions.}
+\entityintro{Bonus}{l1}{This class describes a bonus.}
+\entityintro{BonusType}{l2}{Bonus type.}
+\entityintro{Building}{l3}{This class describes a building.}
+\entityintro{BuildingType}{l4}{Building type.}
+\entityintro{CircularUnit}{l5}{This base class describes any circular unit in the game world.}
+\entityintro{Faction}{l6}{Unit or player faction.}
+\entityintro{Game}{l7}{An instance of this class contains all game constants.}
+\entityintro{LaneType}{l8}{Lane type.}
+\entityintro{LivingUnit}{l9}{This base class is inherited from a circular unit and describes any living unit in the game world.}
+\entityintro{Message}{l10}{This class describes a message, that master wizard can send to other wizards of his faction.}
+\entityintro{Minion}{l11}{This class is inherited from a living unit and describes a minion.}
+\entityintro{MinionType}{l12}{Minion type.}
+\entityintro{Move}{l13}{An encapsulated result of each move of your strategy.}
+\entityintro{Player}{l14}{The instance of this class contains all the data about player state.}
+\entityintro{Projectile}{l15}{This class is inherited from a circular unit and describes a projectile.}
+\entityintro{ProjectileType}{l16}{Projectile type.}
+\entityintro{SkillType}{l17}{Skill type.}
+\entityintro{Status}{l18}{A magical status, affecting living unit.}
+\entityintro{StatusType}{l19}{Status type.}
+\entityintro{Tree}{l20}{This class is inherited from a living unit and describes a tree.}
+\entityintro{Unit}{l21}{Base class that describes any object (``unit'') in the game world.}
+\entityintro{Wizard}{l22}{This class is inherited from a living unit and describes a wizard.}
+\entityintro{World}{l23}{This class describes a game world.}
+
+% Removed by DocsPostProcessor:
+% \vskip .1in
+% \rule{\hsize}{.7mm}
+% \\ Removed by DocsPostProcessor.
+
+\vskip .1in
+\newpage
+\section{Classes}{
+\startsection{Class}{ActionType}{l0}{%
+{\small Available wizard actions.
+ \bl 
+ A wizard can not perform any new action, if he is not yet recovered from his previous action
+ ({\tt wizard.remainingActionCooldownTicks} is greater than {\tt 0}).
+ \bl 
+ A wizard can not perform the specific new action, if it is not yet recovered from its previous usage
+ ({\tt remainingCooldownTicksByAction[actionType.ordinal()]} is greater than {\tt 0}).}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+ActionType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final ActionType NONE\begin{itemize}\item{\vskip -.9ex Do nothing.}\end{itemize}
+}
+\item{
+public static final ActionType STAFF\begin{itemize}\item{\vskip -.9ex Perform a melee attack with a staff.
+ \bl 
+ This attack damages all living units in a sector of {\tt -game.staffSector $/$ 2.0} to
+ {\tt game.staffSector $/$ 2.0}. The distance between wizard and target centers should not exceed
+ {\tt game.staffRange + livingUnit.radius}.}\end{itemize}
+}
+\item{
+public static final ActionType MAGIC\_MISSILE\begin{itemize}\item{\vskip -.9ex Cast a magic missile.
+ \bl 
+ Magic missile is a basic spell of any wizard. Inflicts some damage upon a direct hit.
+ \bl 
+ The center of a newly created magic missile is the same as the center of a caster wizard. The angle of a
+ projectile is equal to {\tt wizard.angle + move.castAngle}, and its speed is {\tt game.magicMissileSpeed}.
+ All collisions between a projectile and its caster are ignored by the game engine.
+ \bl 
+ Requires {\tt game.magicMissileManacost} manapoints.}\end{itemize}
+}
+\item{
+public static final ActionType FROST\_BOLT\begin{itemize}\item{\vskip -.9ex Cast a frost bolt.
+ \bl 
+ A frost bolt inflicts some damage upon a direct hit and freezes a target.
+ \bl 
+ The center of a newly created frost bolt is the same as the center of a caster wizard. The angle of a
+ projectile is equal to {\tt wizard.angle + move.castAngle}, and its speed is {\tt game.frostBoltSpeed}.
+ All collisions between a projectile and its caster are ignored by the game engine.
+ \bl 
+ Requires the {\tt FROST\_BOLT} skill and {\tt game.frostBoltManacost} manapoints.}\end{itemize}
+}
+\item{
+public static final ActionType FIREBALL\begin{itemize}\item{\vskip -.9ex Cast a fireball.
+ \bl 
+ A fireball explodes when reaching maximal cast range or upon a collision with living unit.
+ Damages and burns all living units nearby.
+ \bl 
+ The center of a newly created fireball is the same as the center of a caster wizard. The angle of a
+ projectile is equal to {\tt wizard.angle + move.castAngle}, and its speed is {\tt game.fireballSpeed}.
+ All collisions between a projectile and its caster are ignored by the game engine.
+ \bl 
+ Requires the {\tt FIREBALL} skill and {\tt game.fireballManacost} manapoints.}\end{itemize}
+}
+\item{
+public static final ActionType HASTE\begin{itemize}\item{\vskip -.9ex Cast a haste spell, that temporarily speedups the friendly wizard with ID equal to {\tt move.statusTargetId}
+ or the caster himself if the game engine can not find such wizard.
+ \bl 
+ Requires the {\tt HASTE} skill and {\tt game.hasteManacost} manapoints.}\end{itemize}
+}
+\item{
+public static final ActionType SHIELD\begin{itemize}\item{\vskip -.9ex Cast a shield spell, that temporarily protects the friendly wizard with ID equal to {\tt move.statusTargetId}
+ or the caster himself if the game engine can not find such wizard.
+ \bl 
+ Requires the {\tt SHIELD} skill and {\tt game.shieldManacost} manapoints.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Bonus}{l1}{%
+{\small This class describes a bonus. Bonus is a static useful circular unit.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Bonus}}
+\noindent\hbox{\vbox{{\bf extends} CircularUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Bonus}
+% {\tt public {\bf Bonus}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt BonusType } {\bf type} )
+% \label{l25}\label{l26}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public BonusType {\bf getType}(  )
+\label{l27}\label{l28}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the bonus type. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{BonusType}{l2}{%
+{\small Bonus type.
+ \bl 
+ Besides the primary effect each taken bonus gives {\tt game.bonusScoreAmount} score points to the player. The
+ wizard gains the same amount as xp.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+BonusType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final BonusType EMPOWER\begin{itemize}\item{\vskip -.9ex Dramatically increases the damage of ranged and melee attacks for some time.}\end{itemize}
+}
+\item{
+public static final BonusType HASTE\begin{itemize}\item{\vskip -.9ex Grants the {\tt HASTENED} status to the wizard.
+ \bl 
+ Duration of the status is longer than usually.}\end{itemize}
+}
+\item{
+public static final BonusType SHIELD\begin{itemize}\item{\vskip -.9ex Grants the {\tt SHIELDED} status to the wizard.
+ \bl 
+ Duration of the status is longer than usually.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Building}{l3}{%
+{\small This class describes a building. Faction building automatically attack a random enemy in a certain range.
+ \bl 
+ A building can not be ({\tt FROZEN}).}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Building}}
+\noindent\hbox{\vbox{{\bf extends} LivingUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Building}
+% {\tt public {\bf Building}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses},
+% {\tt BuildingType } {\bf type},
+% {\tt double } {\bf visionRange},
+% {\tt double } {\bf attackRange},
+% {\tt int } {\bf damage},
+% {\tt int } {\bf cooldownTicks},
+% {\tt int } {\bf remainingActionCooldownTicks} )
+% \label{l29}\label{l30}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAttackRange}
+{\tt public double {\bf getAttackRange}(  )
+\label{l31}\label{l32}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which this building can attack other units. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getCooldownTicks}
+{\tt public int {\bf getCooldownTicks}(  )
+\label{l33}\label{l34}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the delay between attacks. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDamage}
+\item{\vskip -1.9ex 
+\membername{getDamage}
+{\tt public int {\bf getDamage}(  )
+\label{l35}\label{l36}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage of one attack. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingActionCooldownTicks}
+{\tt public int {\bf getRemainingActionCooldownTicks}(  )
+\label{l37}\label{l38}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the amount of ticks remaining before the next attack. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public BuildingType {\bf getType}(  )
+\label{l39}\label{l40}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the building type. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVisionRange}
+\item{\vskip -1.9ex 
+\membername{getVisionRange}
+{\tt public double {\bf getVisionRange}(  )
+\label{l41}\label{l42}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which this building can detect other units. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt LivingUnit}}{
+\par{\small 
+\refdefined{l9}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the magical statuses affecting this living unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{BuildingType}{l4}{%
+{\small Building type.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+BuildingType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final BuildingType GUARDIAN\_TOWER\begin{itemize}\item{\vskip -.9ex Guardian tower.}\end{itemize}
+}
+\item{
+public static final BuildingType FACTION\_BASE\begin{itemize}\item{\vskip -.9ex Faction base.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{CircularUnit}{l5}{%
+{\small This base class describes any circular unit in the game world.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public abstract 
+class 
+CircularUnit}}
+\noindent\hbox{\vbox{{\bf extends} Unit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{CircularUnit}
+% {\tt protected {\bf CircularUnit}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius} )
+% \label{l43}\label{l44}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+\label{l45}\label{l46}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Faction}{l6}{%
+{\small Unit or player faction.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+Faction}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final Faction ACADEMY\begin{itemize}\item{\vskip -.9ex Wizards, minions and buildings of Academy.}\end{itemize}
+}
+\item{
+public static final Faction RENEGADES\begin{itemize}\item{\vskip -.9ex Wizards, minions and buildings of Renegades.}\end{itemize}
+}
+\item{
+public static final Faction NEUTRAL\begin{itemize}\item{\vskip -.9ex Neutral units. Do not attack first, but will strike back when damaged.}\end{itemize}
+}
+\item{
+public static final Faction OTHER\begin{itemize}\item{\vskip -.9ex All other units in the game world.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Game}{l7}{%
+{\small An instance of this class contains all game constants.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Game}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Game}
+% {\tt public {\bf Game}( {\tt long } {\bf randomSeed},
+% {\tt int } {\bf tickCount},
+% {\tt double } {\bf mapSize},
+% {\tt boolean } {\bf skillsEnabled},
+% {\tt boolean } {\bf rawMessagesEnabled},
+% {\tt double } {\bf friendlyFireDamageFactor},
+% {\tt double } {\bf buildingDamageScoreFactor},
+% {\tt double } {\bf buildingEliminationScoreFactor},
+% {\tt double } {\bf minionDamageScoreFactor},
+% {\tt double } {\bf minionEliminationScoreFactor},
+% {\tt double } {\bf wizardDamageScoreFactor},
+% {\tt double } {\bf wizardEliminationScoreFactor},
+% {\tt double } {\bf teamWorkingScoreFactor},
+% {\tt int } {\bf victoryScore},
+% {\tt double } {\bf scoreGainRange},
+% {\tt int } {\bf rawMessageMaxLength},
+% {\tt double } {\bf rawMessageTransmissionSpeed},
+% {\tt double } {\bf wizardRadius},
+% {\tt double } {\bf wizardCastRange},
+% {\tt double } {\bf wizardVisionRange},
+% {\tt double } {\bf wizardForwardSpeed},
+% {\tt double } {\bf wizardBackwardSpeed},
+% {\tt double } {\bf wizardStrafeSpeed},
+% {\tt int } {\bf wizardBaseLife},
+% {\tt int } {\bf wizardLifeGrowthPerLevel},
+% {\tt int } {\bf wizardBaseMana},
+% {\tt int } {\bf wizardManaGrowthPerLevel},
+% {\tt double } {\bf wizardBaseLifeRegeneration},
+% {\tt double } {\bf wizardLifeRegenerationGrowthPerLevel},
+% {\tt double } {\bf wizardBaseManaRegeneration},
+% {\tt double } {\bf wizardManaRegenerationGrowthPerLevel},
+% {\tt double } {\bf wizardMaxTurnAngle},
+% {\tt int } {\bf wizardMaxResurrectionDelayTicks},
+% {\tt int } {\bf wizardMinResurrectionDelayTicks},
+% {\tt int } {\bf wizardActionCooldownTicks},
+% {\tt int } {\bf staffCooldownTicks},
+% {\tt int } {\bf magicMissileCooldownTicks},
+% {\tt int } {\bf frostBoltCooldownTicks},
+% {\tt int } {\bf fireballCooldownTicks},
+% {\tt int } {\bf hasteCooldownTicks},
+% {\tt int } {\bf shieldCooldownTicks},
+% {\tt int } {\bf magicMissileManacost},
+% {\tt int } {\bf frostBoltManacost},
+% {\tt int } {\bf fireballManacost},
+% {\tt int } {\bf hasteManacost},
+% {\tt int } {\bf shieldManacost},
+% {\tt int } {\bf staffDamage},
+% {\tt double } {\bf staffSector},
+% {\tt double } {\bf staffRange},
+% {\tt int[]} {\bf levelUpXpValues},
+% {\tt double } {\bf minionRadius},
+% {\tt double } {\bf minionVisionRange},
+% {\tt double } {\bf minionSpeed},
+% {\tt double } {\bf minionMaxTurnAngle},
+% {\tt int } {\bf minionLife},
+% {\tt int } {\bf factionMinionAppearanceIntervalTicks},
+% {\tt int } {\bf orcWoodcutterActionCooldownTicks},
+% {\tt int } {\bf orcWoodcutterDamage},
+% {\tt double } {\bf orcWoodcutterAttackSector},
+% {\tt double } {\bf orcWoodcutterAttackRange},
+% {\tt int } {\bf fetishBlowdartActionCooldownTicks},
+% {\tt double } {\bf fetishBlowdartAttackRange},
+% {\tt double } {\bf fetishBlowdartAttackSector},
+% {\tt double } {\bf bonusRadius},
+% {\tt int } {\bf bonusAppearanceIntervalTicks},
+% {\tt int } {\bf bonusScoreAmount},
+% {\tt double } {\bf dartRadius},
+% {\tt double } {\bf dartSpeed},
+% {\tt int } {\bf dartDirectDamage},
+% {\tt double } {\bf magicMissileRadius},
+% {\tt double } {\bf magicMissileSpeed},
+% {\tt int } {\bf magicMissileDirectDamage},
+% {\tt double } {\bf frostBoltRadius},
+% {\tt double } {\bf frostBoltSpeed},
+% {\tt int } {\bf frostBoltDirectDamage},
+% {\tt double } {\bf fireballRadius},
+% {\tt double } {\bf fireballSpeed},
+% {\tt double } {\bf fireballExplosionMaxDamageRange},
+% {\tt double } {\bf fireballExplosionMinDamageRange},
+% {\tt int } {\bf fireballExplosionMaxDamage},
+% {\tt int } {\bf fireballExplosionMinDamage},
+% {\tt double } {\bf guardianTowerRadius},
+% {\tt double } {\bf guardianTowerVisionRange},
+% {\tt double } {\bf guardianTowerLife},
+% {\tt double } {\bf guardianTowerAttackRange},
+% {\tt int } {\bf guardianTowerDamage},
+% {\tt int } {\bf guardianTowerCooldownTicks},
+% {\tt double } {\bf factionBaseRadius},
+% {\tt double } {\bf factionBaseVisionRange},
+% {\tt double } {\bf factionBaseLife},
+% {\tt double } {\bf factionBaseAttackRange},
+% {\tt int } {\bf factionBaseDamage},
+% {\tt int } {\bf factionBaseCooldownTicks},
+% {\tt int } {\bf burningDurationTicks},
+% {\tt int } {\bf burningSummaryDamage},
+% {\tt int } {\bf empoweredDurationTicks},
+% {\tt double } {\bf empoweredDamageFactor},
+% {\tt int } {\bf frozenDurationTicks},
+% {\tt int } {\bf hastenedDurationTicks},
+% {\tt double } {\bf hastenedBonusDurationFactor},
+% {\tt double } {\bf hastenedMovementBonusFactor},
+% {\tt double } {\bf hastenedRotationBonusFactor},
+% {\tt int } {\bf shieldedDurationTicks},
+% {\tt double } {\bf shieldedBonusDurationFactor},
+% {\tt double } {\bf shieldedDirectDamageAbsorptionFactor},
+% {\tt double } {\bf auraSkillRange},
+% {\tt double } {\bf rangeBonusPerSkillLevel},
+% {\tt int } {\bf magicalDamageBonusPerSkillLevel},
+% {\tt int } {\bf staffDamageBonusPerSkillLevel},
+% {\tt double } {\bf movementBonusFactorPerSkillLevel},
+% {\tt int } {\bf magicalDamageAbsorptionPerSkillLevel} )
+% \label{l47}\label{l48}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAuraSkillRange}
+{\tt public double {\bf getAuraSkillRange}(  )
+\label{l49}\label{l50}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the range of an aura skill. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBonusAppearanceIntervalTicks}
+\item{\vskip -1.9ex 
+\membername{getBonusAppearanceIntervalTicks}
+{\tt public int {\bf getBonusAppearanceIntervalTicks}(  )
+\label{l51}\label{l52}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the interval at which appears a bonus.
+ \bl 
+ Every time after the specified interval, the game engine checks the number of bonuses on the map and creates a
+ new bonus if it is zero. The bonus is created at a randomly selected point from the two available
+ ({\tt mapSize * 0.3}, {\tt mapSize * 0.3}) and ({\tt mapSize * 0.7}, {\tt mapSize * 0.7}). If any part of
+ the bonus area is already occupied by a wizard, the game engine will attempt to create a bonus at a different
+ point in the list. In case of failure, the creation of a bonus will not happen and will be delayed until the end
+ of the next interval. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBonusRadius}
+\item{\vskip -1.9ex 
+\membername{getBonusRadius}
+{\tt public double {\bf getBonusRadius}(  )
+\label{l53}\label{l54}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a bonus. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBonusScoreAmount}
+\item{\vskip -1.9ex 
+\membername{getBonusScoreAmount}
+{\tt public int {\bf getBonusScoreAmount}(  )
+\label{l55}\label{l56}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the amount of score and experience points for taking a bonus. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBuildingDamageScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getBuildingDamageScoreFactor}
+{\tt public double {\bf getBuildingDamageScoreFactor}(  )
+\label{l57}\label{l58}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the factor of the experience points gained by the wizard for the damage dealt to the opposite faction
+ buildings. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBuildingEliminationScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getBuildingEliminationScoreFactor}
+{\tt public double {\bf getBuildingEliminationScoreFactor}(  )
+\label{l59}\label{l60}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the factor of the experience points gained by the wizard for destroying the opposite faction building.
+ \bl 
+ Applies to the maximal amount of building's hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBurningDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getBurningDurationTicks}
+{\tt public int {\bf getBurningDurationTicks}(  )
+\label{l61}\label{l62}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the duration of the {\tt BURNING} status. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBurningSummaryDamage}
+\item{\vskip -1.9ex 
+\membername{getBurningSummaryDamage}
+{\tt public int {\bf getBurningSummaryDamage}(  )
+\label{l63}\label{l64}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the total damage of the {\tt BURNING} status. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDartDirectDamage}
+\item{\vskip -1.9ex 
+\membername{getDartDirectDamage}
+{\tt public int {\bf getDartDirectDamage}(  )
+\label{l65}\label{l66}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the dart damage. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDartRadius}
+\item{\vskip -1.9ex 
+\membername{getDartRadius}
+{\tt public double {\bf getDartRadius}(  )
+\label{l67}\label{l68}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a dart. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDartSpeed}
+\item{\vskip -1.9ex 
+\membername{getDartSpeed}
+{\tt public double {\bf getDartSpeed}(  )
+\label{l69}\label{l70}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the dart speed. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getEmpoweredDamageFactor}
+\item{\vskip -1.9ex 
+\membername{getEmpoweredDamageFactor}
+{\tt public double {\bf getEmpoweredDamageFactor}(  )
+\label{l71}\label{l72}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage multiplier of empowered living unit. DOT (damage over time) is excluded. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getEmpoweredDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getEmpoweredDurationTicks}
+{\tt public int {\bf getEmpoweredDurationTicks}(  )
+\label{l73}\label{l74}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the duration of the {\tt EMPOWERED} status. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseAttackRange}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseAttackRange}
+{\tt public double {\bf getFactionBaseAttackRange}(  )
+\label{l75}\label{l76}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which a faction base can attack other units. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseCooldownTicks}
+{\tt public int {\bf getFactionBaseCooldownTicks}(  )
+\label{l77}\label{l78}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two attacks of a faction base. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseDamage}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseDamage}
+{\tt public int {\bf getFactionBaseDamage}(  )
+\label{l79}\label{l80}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage of one attack of a faction base. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseLife}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseLife}
+{\tt public double {\bf getFactionBaseLife}(  )
+\label{l81}\label{l82}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of faction base's hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseRadius}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseRadius}
+{\tt public double {\bf getFactionBaseRadius}(  )
+\label{l83}\label{l84}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a faction base. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseVisionRange}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseVisionRange}
+{\tt public double {\bf getFactionBaseVisionRange}(  )
+\label{l85}\label{l86}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which a faction base can detect other units. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionMinionAppearanceIntervalTicks}
+\item{\vskip -1.9ex 
+\membername{getFactionMinionAppearanceIntervalTicks}
+{\tt public int {\bf getFactionMinionAppearanceIntervalTicks}(  )
+\label{l87}\label{l88}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the interval at which appear the minions of the two opposing factions ({\tt ACADEMY} and
+ {\tt RENEGADES}).
+ \bl 
+ The minions of each of these factions appear in three groups near their base (one group per lane). Each group
+ consists of three orcs and one fetish. The minions immediately begin to advance on their lane toward the opposite
+ faction base, attacking all enemies in their path. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFetishBlowdartActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getFetishBlowdartActionCooldownTicks}
+{\tt public int {\bf getFetishBlowdartActionCooldownTicks}(  )
+\label{l89}\label{l90}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two attacks of a fetish. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFetishBlowdartAttackRange}
+\item{\vskip -1.9ex 
+\membername{getFetishBlowdartAttackRange}
+{\tt public double {\bf getFetishBlowdartAttackRange}(  )
+\label{l91}\label{l92}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal dart fly range. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFetishBlowdartAttackSector}
+\item{\vskip -1.9ex 
+\membername{getFetishBlowdartAttackSector}
+{\tt public double {\bf getFetishBlowdartAttackSector}(  )
+\label{l93}\label{l94}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the dart throw sector.
+ \bl 
+ The relative angle of a dart is in range of {\tt -fetishBlowdartAttackSector $/$ 2.0} to
+ {\tt fetishBlowdartAttackSector $/$ 2.0}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getFireballCooldownTicks}
+{\tt public int {\bf getFireballCooldownTicks}(  )
+\label{l95}\label{l96}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two ``Fireball'' spell casts. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballExplosionMaxDamage}
+\item{\vskip -1.9ex 
+\membername{getFireballExplosionMaxDamage}
+{\tt public int {\bf getFireballExplosionMaxDamage}(  )
+\label{l97}\label{l98}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage of the fireball at the epicenter of the explosion.
+ \bl 
+ A living unit takes the {\tt fireballExplosionMaxDamage} if the distance from the center of the explosion to
+ the nearest point of this unit does not exceed the {\tt fireballExplosionMaxDamageRange}. As you increase the
+ distance to the {\tt fireballExplosionMinDamageRange}, the damage of the fireball decreases in a linear manner
+ and reaches {\tt fireballExplosionMinDamage}. If the distance from the center of the explosion to the nearest
+ point of the living unit exceeds {\tt fireballExplosionMinDamageRange}, this unit takes no damage.
+ \bl 
+ If a living unit takes any damage from the fireball explosion, it receives a {\tt BURNING} status. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballExplosionMaxDamageRange}
+\item{\vskip -1.9ex 
+\membername{getFireballExplosionMaxDamageRange}
+{\tt public double {\bf getFireballExplosionMaxDamageRange}(  )
+\label{l99}\label{l100}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of the area in which living units are taking maximal damage from the fireball projectile
+ explosion. 
+}%end item
+\item{{\bf See Also}
+  \begin{itemize}
+   \item{{\tt Game.getFireballExplosionMaxDamage()} {\small 
+\refdefined{l101}}%end \small
+}%end item
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballExplosionMinDamage}
+\item{\vskip -1.9ex 
+\membername{getFireballExplosionMinDamage}
+{\tt public int {\bf getFireballExplosionMinDamage}(  )
+\label{l102}\label{l103}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage of the fireball on the periphery of the explosion. 
+}%end item
+\item{{\bf See Also}
+  \begin{itemize}
+   \item{{\tt Game.getFireballExplosionMaxDamage()} {\small 
+\refdefined{l101}}%end \small
+}%end item
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballExplosionMinDamageRange}
+\item{\vskip -1.9ex 
+\membername{getFireballExplosionMinDamageRange}
+{\tt public double {\bf getFireballExplosionMinDamageRange}(  )
+\label{l104}\label{l105}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of the area in which living units are taking any damage from the fireball projectile
+ explosion. 
+}%end item
+\item{{\bf See Also}
+  \begin{itemize}
+   \item{{\tt Game.getFireballExplosionMaxDamage()} {\small 
+\refdefined{l101}}%end \small
+}%end item
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballManacost}
+\item{\vskip -1.9ex 
+\membername{getFireballManacost}
+{\tt public int {\bf getFireballManacost}(  )
+\label{l106}\label{l107}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ``Fireball'' spell manacost. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballRadius}
+\item{\vskip -1.9ex 
+\membername{getFireballRadius}
+{\tt public double {\bf getFireballRadius}(  )
+\label{l108}\label{l109}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a fireball projectile. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballSpeed}
+\item{\vskip -1.9ex 
+\membername{getFireballSpeed}
+{\tt public double {\bf getFireballSpeed}(  )
+\label{l110}\label{l111}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the fireball projectile speed. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFriendlyFireDamageFactor}
+\item{\vskip -1.9ex 
+\membername{getFriendlyFireDamageFactor}
+{\tt public double {\bf getFriendlyFireDamageFactor}(  )
+\label{l112}\label{l113}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Returns the damage part dealt by the wizards one faction to each other as a result of friendly fire.
+ \bl 
+ The value depends on the game mode, but is always in range of {\tt 0.0} to {\tt 1.0}.
+ \bl 
+ Regardless of the game mode, wizards can not damage friendly minions and buildings. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltCooldownTicks}
+{\tt public int {\bf getFrostBoltCooldownTicks}(  )
+\label{l114}\label{l115}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two ``Frost bolt'' spell casts. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltDirectDamage}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltDirectDamage}
+{\tt public int {\bf getFrostBoltDirectDamage}(  )
+\label{l116}\label{l117}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the frost bolt projectile damage. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltManacost}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltManacost}
+{\tt public int {\bf getFrostBoltManacost}(  )
+\label{l118}\label{l119}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ``Frost bolt'' spell manacost. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltRadius}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltRadius}
+{\tt public double {\bf getFrostBoltRadius}(  )
+\label{l120}\label{l121}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a frost bolt projectile. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltSpeed}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltSpeed}
+{\tt public double {\bf getFrostBoltSpeed}(  )
+\label{l122}\label{l123}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the frost bolt projectile speed. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrozenDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getFrozenDurationTicks}
+{\tt public int {\bf getFrozenDurationTicks}(  )
+\label{l124}\label{l125}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the duration of the {\tt FROZEN} status. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerAttackRange}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerAttackRange}
+{\tt public double {\bf getGuardianTowerAttackRange}(  )
+\label{l126}\label{l127}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which a guardian tower can attack other units. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerCooldownTicks}
+{\tt public int {\bf getGuardianTowerCooldownTicks}(  )
+\label{l128}\label{l129}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two attacks of a guardian tower. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerDamage}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerDamage}
+{\tt public int {\bf getGuardianTowerDamage}(  )
+\label{l130}\label{l131}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage of one attack of a guardian tower. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerLife}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerLife}
+{\tt public double {\bf getGuardianTowerLife}(  )
+\label{l132}\label{l133}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of guardian tower's hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerRadius}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerRadius}
+{\tt public double {\bf getGuardianTowerRadius}(  )
+\label{l134}\label{l135}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a guardian tower. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerVisionRange}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerVisionRange}
+{\tt public double {\bf getGuardianTowerVisionRange}(  )
+\label{l136}\label{l137}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which a guardian tower can detect other units. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHasteCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getHasteCooldownTicks}
+{\tt public int {\bf getHasteCooldownTicks}(  )
+\label{l138}\label{l139}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two ``Haste'' spell casts. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHasteManacost}
+\item{\vskip -1.9ex 
+\membername{getHasteManacost}
+{\tt public int {\bf getHasteManacost}(  )
+\label{l140}\label{l141}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ``Haste'' spell manacost. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHastenedBonusDurationFactor}
+\item{\vskip -1.9ex 
+\membername{getHastenedBonusDurationFactor}
+{\tt public double {\bf getHastenedBonusDurationFactor}(  )
+\label{l142}\label{l143}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the {\tt HASTENED} status duration multiplier (in case of taking a bonus). 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHastenedDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getHastenedDurationTicks}
+{\tt public int {\bf getHastenedDurationTicks}(  )
+\label{l144}\label{l145}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the duration of the {\tt HASTENED} status. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHastenedMovementBonusFactor}
+\item{\vskip -1.9ex 
+\membername{getHastenedMovementBonusFactor}
+{\tt public double {\bf getHastenedMovementBonusFactor}(  )
+\label{l146}\label{l147}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the relative move speed boost of a hastened unit.
+ \bl 
+ The maximal possible wizard speed is
+ {\tt 1.0 + 4.0 * movementBonusFactorPerSkillLevel + hastenedMovementBonusFactor} of the base speed. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHastenedRotationBonusFactor}
+\item{\vskip -1.9ex 
+\membername{getHastenedRotationBonusFactor}
+{\tt public double {\bf getHastenedRotationBonusFactor}(  )
+\label{l148}\label{l149}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the relative turn speed boost of a hastened unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getLevelUpXpValues}
+\item{\vskip -1.9ex 
+\membername{getLevelUpXpValues}
+{\tt public int[] {\bf getLevelUpXpValues}(  )
+\label{l150}\label{l151}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the non-negative integers.
+ \bl 
+ The numbers of items is equal to the number of levels a wizard can gain. An item {\tt N} mean a number of
+ experience points a wizard of level {\tt N} should get to reach the next level. Thus, the amount of experience
+ required for the zero level wizard to get to the level {\tt N}, is the sum of the first {\tt N} elements. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicalDamageAbsorptionPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getMagicalDamageAbsorptionPerSkillLevel}
+{\tt public int {\bf getMagicalDamageAbsorptionPerSkillLevel}(  )
+\label{l152}\label{l153}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the absolute decrease of the incoming magical damage for each learned skill, which is one of the
+ prerequisites of the {\tt SHIELD} skill. DOT (damage over time) is excluded. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicalDamageBonusPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getMagicalDamageBonusPerSkillLevel}
+{\tt public int {\bf getMagicalDamageBonusPerSkillLevel}(  )
+\label{l154}\label{l155}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the absolute increase of the wizard spell damage for each learned skill, which is one of the
+ prerequisites of the {\tt FROST\_BOLT} skill. DOT (damage over time) is excluded. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileCooldownTicks}
+{\tt public int {\bf getMagicMissileCooldownTicks}(  )
+\label{l156}\label{l157}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two ``Magic missile'' spell casts. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileDirectDamage}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileDirectDamage}
+{\tt public int {\bf getMagicMissileDirectDamage}(  )
+\label{l158}\label{l159}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the magic missile projectile damage. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileManacost}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileManacost}
+{\tt public int {\bf getMagicMissileManacost}(  )
+\label{l160}\label{l161}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ``Magic missile'' spell manacost. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileRadius}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileRadius}
+{\tt public double {\bf getMagicMissileRadius}(  )
+\label{l162}\label{l163}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a magic missile projectile. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileSpeed}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileSpeed}
+{\tt public double {\bf getMagicMissileSpeed}(  )
+\label{l164}\label{l165}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the magic missile projectile speed. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMapSize}
+\item{\vskip -1.9ex 
+\membername{getMapSize}
+{\tt public double {\bf getMapSize}(  )
+\label{l166}\label{l167}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the size (both width and height) of the map. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionDamageScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getMinionDamageScoreFactor}
+{\tt public double {\bf getMinionDamageScoreFactor}(  )
+\label{l168}\label{l169}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the factor of the experience points gained by the wizard for the damage dealt to the other faction
+ minions. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionEliminationScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getMinionEliminationScoreFactor}
+{\tt public double {\bf getMinionEliminationScoreFactor}(  )
+\label{l170}\label{l171}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the factor of the experience points gained by the wizard for killing the other faction minion.
+ \bl 
+ Applies to the maximal amount of minion's hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionLife}
+\item{\vskip -1.9ex 
+\membername{getMinionLife}
+{\tt public int {\bf getMinionLife}(  )
+\label{l172}\label{l173}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of minion's hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionMaxTurnAngle}
+\item{\vskip -1.9ex 
+\membername{getMinionMaxTurnAngle}
+{\tt public double {\bf getMinionMaxTurnAngle}(  )
+\label{l174}\label{l175}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal turn speed of a minion. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionRadius}
+\item{\vskip -1.9ex 
+\membername{getMinionRadius}
+{\tt public double {\bf getMinionRadius}(  )
+\label{l176}\label{l177}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a minion. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionSpeed}
+\item{\vskip -1.9ex 
+\membername{getMinionSpeed}
+{\tt public double {\bf getMinionSpeed}(  )
+\label{l178}\label{l179}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the forward speed of a minion.
+ \bl 
+ A minion can not strafe or move backward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionVisionRange}
+\item{\vskip -1.9ex 
+\membername{getMinionVisionRange}
+{\tt public double {\bf getMinionVisionRange}(  )
+\label{l180}\label{l181}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which a minion can detect other units. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMovementBonusFactorPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getMovementBonusFactorPerSkillLevel}
+{\tt public double {\bf getMovementBonusFactorPerSkillLevel}(  )
+\label{l182}\label{l183}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the relative increase of the move speed for each learned skill, which is one of the
+ prerequisites of the {\tt HASTE} skill.
+ \bl 
+ The maximal possible wizard speed is
+ {\tt 1.0 + 4.0 * movementBonusFactorPerSkillLevel + hastenedMovementBonusFactor} of the base speed. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOrcWoodcutterActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getOrcWoodcutterActionCooldownTicks}
+{\tt public int {\bf getOrcWoodcutterActionCooldownTicks}(  )
+\label{l184}\label{l185}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two attacks of an orc. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOrcWoodcutterAttackRange}
+\item{\vskip -1.9ex 
+\membername{getOrcWoodcutterAttackRange}
+{\tt public double {\bf getOrcWoodcutterAttackRange}(  )
+\label{l186}\label{l187}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the orc's axe range.
+ \bl 
+ An axe attack damages all living units if the distance between orc's and target's centers is not greater than
+ {\tt orcWoodcutterAttackRange + livingUnit.radius}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOrcWoodcutterAttackSector}
+\item{\vskip -1.9ex 
+\membername{getOrcWoodcutterAttackSector}
+{\tt public double {\bf getOrcWoodcutterAttackSector}(  )
+\label{l188}\label{l189}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the orc's axe sector.
+ \bl 
+ An axe attack damages all living units in a sector of {\tt -orcWoodcutterAttackSector $/$ 2.0} to
+ {\tt orcWoodcutterAttackSector $/$ 2.0}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOrcWoodcutterDamage}
+\item{\vskip -1.9ex 
+\membername{getOrcWoodcutterDamage}
+{\tt public int {\bf getOrcWoodcutterDamage}(  )
+\label{l190}\label{l191}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage of one attack of an orc. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRandomSeed}
+\item{\vskip -1.9ex 
+\membername{getRandomSeed}
+{\tt public long {\bf getRandomSeed}(  )
+\label{l192}\label{l193}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the number that your strategy may use to initialize a generator of random numbers. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRangeBonusPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getRangeBonusPerSkillLevel}
+{\tt public double {\bf getRangeBonusPerSkillLevel}(  )
+\label{l194}\label{l195}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the absolute increase of the wizard cast range for each learned skill, which is one of the
+ prerequisites of the {\tt ADVANCED\_MAGIC\_MISSILE} skill. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRawMessageMaxLength}
+\item{\vskip -1.9ex 
+\membername{getRawMessageMaxLength}
+{\tt public int {\bf getRawMessageMaxLength}(  )
+\label{l196}\label{l197}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal possible length of a raw message.
+ \bl 
+ If a message has higher length, then it will be completely ignored. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRawMessageTransmissionSpeed}
+\item{\vskip -1.9ex 
+\membername{getRawMessageTransmissionSpeed}
+{\tt public double {\bf getRawMessageTransmissionSpeed}(  )
+\label{l198}\label{l199}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the raw message transmission speed.
+ \bl 
+ If the raw message is empty, the addressee will receive it in the next game tick. In other case, the time of
+ receipt of the message will be delayed for {\tt ceil(message.rawMessage.length $/$ rawMessageTransmissionSpeed)}
+ game ticks. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getScoreGainRange}
+\item{\vskip -1.9ex 
+\membername{getScoreGainRange}
+{\tt public double {\bf getScoreGainRange}(  )
+\label{l200}\label{l201}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range, at which a wizard gains experience points in case, if a friendly unit kills an other
+ faction unit.
+ \bl 
+ The experience is evenly distributed between all the wizards not farther than {\tt scoreGainRange} from a
+ killed unit, and the killer unit if he is also a wizard.
+ \bl 
+ If the damage is not fatal, this parameter is not used. If the attacker is a wizard, than the experience
+ completely goes to this wizard. If the attacker is a minion or a building, nobody gains an experience.
+ \bl 
+ The range is considered as the range between units' centers. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getShieldCooldownTicks}
+{\tt public int {\bf getShieldCooldownTicks}(  )
+\label{l202}\label{l203}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two ``Shield'' spell casts. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldedBonusDurationFactor}
+\item{\vskip -1.9ex 
+\membername{getShieldedBonusDurationFactor}
+{\tt public double {\bf getShieldedBonusDurationFactor}(  )
+\label{l204}\label{l205}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the {\tt SHIELDED} status duration multiplier (in case of taking a bonus). 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldedDirectDamageAbsorptionFactor}
+\item{\vskip -1.9ex 
+\membername{getShieldedDirectDamageAbsorptionFactor}
+{\tt public double {\bf getShieldedDirectDamageAbsorptionFactor}(  )
+\label{l206}\label{l207}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage part absorbed by shield. DOT (damage over time) is excluded. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldedDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getShieldedDurationTicks}
+{\tt public int {\bf getShieldedDurationTicks}(  )
+\label{l208}\label{l209}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the {\tt SHIELDED} duration. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldManacost}
+\item{\vskip -1.9ex 
+\membername{getShieldManacost}
+{\tt public int {\bf getShieldManacost}(  )
+\label{l210}\label{l211}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ``Shield'' spell manacost. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getStaffCooldownTicks}
+{\tt public int {\bf getStaffCooldownTicks}(  )
+\label{l212}\label{l213}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two staff attacks. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffDamage}
+\item{\vskip -1.9ex 
+\membername{getStaffDamage}
+{\tt public int {\bf getStaffDamage}(  )
+\label{l214}\label{l215}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the base staff damage.
+ \bl 
+ The effective damage may be higher depending on skills of the wizard and auras of nearby friendly wizards. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffDamageBonusPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getStaffDamageBonusPerSkillLevel}
+{\tt public int {\bf getStaffDamageBonusPerSkillLevel}(  )
+\label{l216}\label{l217}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the absolute increase of the wizard staff damage for each learned skill, which is one of the
+ prerequisites of the {\tt FIREBALL} skill. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffRange}
+\item{\vskip -1.9ex 
+\membername{getStaffRange}
+{\tt public double {\bf getStaffRange}(  )
+\label{l218}\label{l219}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the wizard's staff range.
+ \bl 
+ A staff attack damages all living units if the distance between wizard's and target's centers is not greater than
+ {\tt staffRange + livingUnit.radius}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffSector}
+\item{\vskip -1.9ex 
+\membername{getStaffSector}
+{\tt public double {\bf getStaffSector}(  )
+\label{l220}\label{l221}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the wizard's staff sector.
+ \bl 
+ A staff attack damages all living units in a sector of {\tt -staffSector $/$ 2.0} to {\tt staffSector $/$ 2.0}.
+ This also applies to the status spells and to the relative projectile angle. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTeamWorkingScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getTeamWorkingScoreFactor}
+{\tt public double {\bf getTeamWorkingScoreFactor}(  )
+\label{l222}\label{l223}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the experience multiplier applied in case, if the enemy unit died near two or more friendly wizards.
+ \bl 
+ After applying this multiplier, the amount of the experience is rounded down. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTickCount}
+\item{\vskip -1.9ex 
+\membername{getTickCount}
+{\tt public int {\bf getTickCount}(  )
+\label{l224}\label{l225}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the base game duration in ticks. A real game duration may be lower. Equals to {\tt world.tickCount}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVictoryScore}
+\item{\vskip -1.9ex 
+\membername{getVictoryScore}
+{\tt public int {\bf getVictoryScore}(  )
+\label{l226}\label{l227}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the amount of experience points received by each player of the faction in case of victory. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getWizardActionCooldownTicks}
+{\tt public int {\bf getWizardActionCooldownTicks}(  )
+\label{l228}\label{l229}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible interval between any two actions of a wizard. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBackwardSpeed}
+\item{\vskip -1.9ex 
+\membername{getWizardBackwardSpeed}
+{\tt public double {\bf getWizardBackwardSpeed}(  )
+\label{l230}\label{l231}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the base limit of wizard's backward speed.
+ \bl 
+ The effective backward speed may be higher depending on skills of the wizard and auras of nearby friendly
+ wizards. The {\tt HASTENED} status can also greatly speed up a wizard. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBaseLife}
+\item{\vskip -1.9ex 
+\membername{getWizardBaseLife}
+{\tt public int {\bf getWizardBaseLife}(  )
+\label{l232}\label{l233}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of wizard's hitpoints at initial level. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBaseLifeRegeneration}
+\item{\vskip -1.9ex 
+\membername{getWizardBaseLifeRegeneration}
+{\tt public double {\bf getWizardBaseLifeRegeneration}(  )
+\label{l234}\label{l235}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the regeneration speed of wizard's hitpoints at initial level. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBaseMana}
+\item{\vskip -1.9ex 
+\membername{getWizardBaseMana}
+{\tt public int {\bf getWizardBaseMana}(  )
+\label{l236}\label{l237}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of wizard's manapoints at initial level. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBaseManaRegeneration}
+\item{\vskip -1.9ex 
+\membername{getWizardBaseManaRegeneration}
+{\tt public double {\bf getWizardBaseManaRegeneration}(  )
+\label{l238}\label{l239}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the regeneration speed of wizard's manapoints at initial level. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardCastRange}
+\item{\vskip -1.9ex 
+\membername{getWizardCastRange}
+{\tt public double {\bf getWizardCastRange}(  )
+\label{l240}\label{l241}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the base cast range of a wizard.
+ \bl 
+ The effective cast range ({\tt wizard.castRange}) may be higher depending on skills of the wizard and auras of
+ nearby friendly wizards. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardDamageScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getWizardDamageScoreFactor}
+{\tt public double {\bf getWizardDamageScoreFactor}(  )
+\label{l242}\label{l243}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the factor of the experience points gained by the wizard for the damage dealt to the opposite faction
+ wizards. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardEliminationScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getWizardEliminationScoreFactor}
+{\tt public double {\bf getWizardEliminationScoreFactor}(  )
+\label{l244}\label{l245}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the factor of the experience points gained by the wizard for killing the opposite faction wizard.
+ \bl 
+ Applies to the maximal amount of wizard's hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardForwardSpeed}
+\item{\vskip -1.9ex 
+\membername{getWizardForwardSpeed}
+{\tt public double {\bf getWizardForwardSpeed}(  )
+\label{l246}\label{l247}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the base limit of wizard's forward speed.
+ \bl 
+ The effective forward speed may be higher depending on skills of the wizard and auras of nearby friendly
+ wizards. The {\tt HASTENED} status can also greatly speed up a wizard. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardLifeGrowthPerLevel}
+\item{\vskip -1.9ex 
+\membername{getWizardLifeGrowthPerLevel}
+{\tt public int {\bf getWizardLifeGrowthPerLevel}(  )
+\label{l248}\label{l249}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the growth of wizard's hitpoints per level. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardLifeRegenerationGrowthPerLevel}
+\item{\vskip -1.9ex 
+\membername{getWizardLifeRegenerationGrowthPerLevel}
+{\tt public double {\bf getWizardLifeRegenerationGrowthPerLevel}(  )
+\label{l250}\label{l251}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the growth of the regeneration speed of wizard's hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardManaGrowthPerLevel}
+\item{\vskip -1.9ex 
+\membername{getWizardManaGrowthPerLevel}
+{\tt public int {\bf getWizardManaGrowthPerLevel}(  )
+\label{l252}\label{l253}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the growth of wizard's manapoints per level. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardManaRegenerationGrowthPerLevel}
+\item{\vskip -1.9ex 
+\membername{getWizardManaRegenerationGrowthPerLevel}
+{\tt public double {\bf getWizardManaRegenerationGrowthPerLevel}(  )
+\label{l254}\label{l255}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the growth of the regeneration speed of wizard's manapoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardMaxResurrectionDelayTicks}
+\item{\vskip -1.9ex 
+\membername{getWizardMaxResurrectionDelayTicks}
+{\tt public int {\bf getWizardMaxResurrectionDelayTicks}(  )
+\label{l256}\label{l257}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal possible delay of a wizard's revival. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardMaxTurnAngle}
+\item{\vskip -1.9ex 
+\membername{getWizardMaxTurnAngle}
+{\tt public double {\bf getWizardMaxTurnAngle}(  )
+\label{l258}\label{l259}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the base limit of wizard's turn speed.
+ \bl 
+ The {\tt HASTENED} status increases this limit by {\tt 1.0 + hastenedRotationBonusFactor} times. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardMinResurrectionDelayTicks}
+\item{\vskip -1.9ex 
+\membername{getWizardMinResurrectionDelayTicks}
+{\tt public int {\bf getWizardMinResurrectionDelayTicks}(  )
+\label{l260}\label{l261}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minimal possible delay of a wizard's revival. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardRadius}
+\item{\vskip -1.9ex 
+\membername{getWizardRadius}
+{\tt public double {\bf getWizardRadius}(  )
+\label{l262}\label{l263}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of a wizard. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardStrafeSpeed}
+\item{\vskip -1.9ex 
+\membername{getWizardStrafeSpeed}
+{\tt public double {\bf getWizardStrafeSpeed}(  )
+\label{l264}\label{l265}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the base limit of wizard's strafe speed.
+ \bl 
+ The effective strafe speed may be higher depending on skills of the wizard and auras of nearby friendly
+ wizards. The {\tt HASTENED} status can also greatly speed up a wizard. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardVisionRange}
+\item{\vskip -1.9ex 
+\membername{getWizardVisionRange}
+{\tt public double {\bf getWizardVisionRange}(  )
+\label{l266}\label{l267}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which a wizard can detect other units. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isRawMessagesEnabled}
+\item{\vskip -1.9ex 
+\membername{isRawMessagesEnabled}
+{\tt public boolean {\bf isRawMessagesEnabled}(  )
+\label{l268}\label{l269}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+{\tt true} if and only if the master wizards in this game can send raw messages. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isSkillsEnabled}
+\item{\vskip -1.9ex 
+\membername{isSkillsEnabled}
+{\tt public boolean {\bf isSkillsEnabled}(  )
+\label{l270}\label{l271}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+{\tt true} if and only if the wizards in this game can gain new levels and learn skills. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{LaneType}{l8}{%
+{\small Lane type.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+LaneType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final LaneType TOP\begin{itemize}\item{\vskip -.9ex Top lane. It goes through the lower left, the upper left and the upper right corners of the map.}\end{itemize}
+}
+\item{
+public static final LaneType MIDDLE\begin{itemize}\item{\vskip -.9ex Middle lane. Directly connects the lower left and the upper right corners of the map.}\end{itemize}
+}
+\item{
+public static final LaneType BOTTOM\begin{itemize}\item{\vskip -.9ex Bottom lane. It goes through the lower left, the lower right and the upper right corners of the map.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{LivingUnit}{l9}{%
+{\small This base class is inherited from a circular unit and describes any living unit in the game world.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public abstract 
+class 
+LivingUnit}}
+\noindent\hbox{\vbox{{\bf extends} CircularUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{LivingUnit}
+% {\tt protected {\bf LivingUnit}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses} )
+% \label{l272}\label{l273}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+\label{l274}\label{l275}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+\label{l276}\label{l277}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+\label{l278}\label{l279}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the magical statuses affecting this living unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Message}{l10}{%
+{\small This class describes a message, that master wizard can send to other wizards of his faction.
+ \bl 
+ The message is sent personally to each wizard. Other wizards are unable to intercept him.
+ \bl 
+ The recipient receives the message in the next game tick or later, depending on the size of the message.
+ \bl 
+ The wizard is free to ignore as any part of the message and the entire message, however this can lead to the defeat
+ of wizard's faction.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Message}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Message}
+% {\tt public {\bf Message}( {\tt LaneType } {\bf lane},
+% {\tt SkillType } {\bf skillToLearn},
+% {\tt byte[]} {\bf rawMessage} )
+% \label{l280}\label{l281}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLane}
+{\tt public LaneType {\bf getLane}(  )
+\label{l282}\label{l283}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the order to control the specified lane. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRawMessage}
+\item{\vskip -1.9ex 
+\membername{getRawMessage}
+{\tt public byte[] {\bf getRawMessage}(  )
+\label{l284}\label{l285}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the text message in a forgotten ancient language.
+ \bl 
+ The maximal message length is {\tt game.rawMessageMaxLength}. The speed of sending a message depends on its
+ length. If the text part of the message is empty, the addressee will receive it in the next game tick. In other
+ case, the time of receipt of the message will be delayed for
+ {\tt ceil(rawMessage.length $/$ game.rawMessageTransmissionSpeed)} game ticks.
+ \bl 
+ The field value may not be available in all game modes. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSkillToLearn}
+\item{\vskip -1.9ex 
+\membername{getSkillToLearn}
+{\tt public SkillType {\bf getSkillToLearn}(  )
+\label{l286}\label{l287}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the order to learn the specified skill.\bl  This skill may require to learn other skills or be unavailable for learning at the moment due to the low level.
+ The wizard should remember the order and move towards its achievement. The later the order, the higher the
+ priority.
+ \bl 
+ The field value may not be available in all game modes. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Minion}{l11}{%
+{\small This class is inherited from a living unit and describes a minion.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Minion}}
+\noindent\hbox{\vbox{{\bf extends} LivingUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Minion}
+% {\tt public {\bf Minion}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses},
+% {\tt MinionType } {\bf type},
+% {\tt double } {\bf visionRange},
+% {\tt int } {\bf damage},
+% {\tt int } {\bf cooldownTicks},
+% {\tt int } {\bf remainingActionCooldownTicks} )
+% \label{l288}\label{l289}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getCooldownTicks}
+{\tt public int {\bf getCooldownTicks}(  )
+\label{l290}\label{l291}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the delay between attacks. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDamage}
+\item{\vskip -1.9ex 
+\membername{getDamage}
+{\tt public int {\bf getDamage}(  )
+\label{l292}\label{l293}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the damage of one attack. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingActionCooldownTicks}
+{\tt public int {\bf getRemainingActionCooldownTicks}(  )
+\label{l294}\label{l295}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the amount of ticks remaining before the next attack. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public MinionType {\bf getType}(  )
+\label{l296}\label{l297}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the minion type. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVisionRange}
+\item{\vskip -1.9ex 
+\membername{getVisionRange}
+{\tt public double {\bf getVisionRange}(  )
+\label{l298}\label{l299}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which this minion can detect other units. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt LivingUnit}}{
+\par{\small 
+\refdefined{l9}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the magical statuses affecting this living unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{MinionType}{l12}{%
+{\small Minion type.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+MinionType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final MinionType ORC\_WOODCUTTER\begin{itemize}\item{\vskip -.9ex A melee fighter. No so strong as orc warrior, but still dangerous.}\end{itemize}
+}
+\item{
+public static final MinionType FETISH\_BLOWDART\begin{itemize}\item{\vskip -.9ex A magical creature with sharp darts.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Move}{l13}{%
+{\small An encapsulated result of each move of your strategy.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Move}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Move}
+% {\tt public {\bf Move}(  )
+% \label{l300}\label{l301}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAction}
+{\tt public ActionType {\bf getAction}(  )
+\label{l302}\label{l303}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current wizard action. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getCastAngle}
+\item{\vskip -1.9ex 
+\membername{getCastAngle}
+{\tt public double {\bf getCastAngle}(  )
+\label{l304}\label{l305}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current cast angle. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxCastDistance}
+\item{\vskip -1.9ex 
+\membername{getMaxCastDistance}
+{\tt public double {\bf getMaxCastDistance}(  )
+\label{l306}\label{l307}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current maximal cast distance. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMessages}
+\item{\vskip -1.9ex 
+\membername{getMessages}
+{\tt public Message[] {\bf getMessages}(  )
+\label{l308}\label{l309}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current messages for friendly wizards. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinCastDistance}
+\item{\vskip -1.9ex 
+\membername{getMinCastDistance}
+{\tt public double {\bf getMinCastDistance}(  )
+\label{l310}\label{l311}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current minimal cast distance. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSkillToLearn}
+\item{\vskip -1.9ex 
+\membername{getSkillToLearn}
+{\tt public SkillType {\bf getSkillToLearn}(  )
+\label{l312}\label{l313}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the currently selected skill to learn. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeed}
+\item{\vskip -1.9ex 
+\membername{getSpeed}
+{\tt public double {\bf getSpeed}(  )
+\label{l314}\label{l315}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current move speed. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatusTargetId}
+\item{\vskip -1.9ex 
+\membername{getStatusTargetId}
+{\tt public long {\bf getStatusTargetId}(  )
+\label{l316}\label{l317}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current ID of the status spell target. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrafeSpeed}
+\item{\vskip -1.9ex 
+\membername{getStrafeSpeed}
+{\tt public double {\bf getStrafeSpeed}(  )
+\label{l318}\label{l319}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current strafe speed. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTurn}
+\item{\vskip -1.9ex 
+\membername{getTurn}
+{\tt public double {\bf getTurn}(  )
+\label{l320}\label{l321}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current turn angle. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{setAction}
+\item{\vskip -1.9ex 
+\membername{setAction}
+{\tt public void {\bf setAction}( {\tt ActionType } {\bf action} )
+\label{l322}\label{l323}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets the action for one tick.
+ \bl 
+ The specified action can be ignored by the game engine, if the controlling wizard has insufficient manapoints or
+ this action is on cooldown.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setCastAngle}
+\item{\vskip -1.9ex 
+\membername{setCastAngle}
+{\tt public void {\bf setCastAngle}( {\tt double } {\bf castAngle} )
+\label{l324}\label{l325}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets the cast angle for one tick.
+ \bl 
+ The cast angle is in radians and is relative to the current angle of the wizard.
+ The cast angle is in range of {\tt -game.staffSector $/$ 2.0} to {\tt game.staffSector $/$ 2.0}.
+ \bl 
+ If a specified value is out of the range, than it become equal to the nearest value of the range.
+ The positive values mean turning clockwise.
+ \bl 
+ If the specified action is not a projectile spell, than the game engine will simply ignore this parameter.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setMaxCastDistance}
+\item{\vskip -1.9ex 
+\membername{setMaxCastDistance}
+{\tt public void {\bf setMaxCastDistance}( {\tt double } {\bf maxCastDistance} )
+\label{l326}\label{l327}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets the maximal cast distance for one tick.
+ \bl 
+ If the distance from the center of the projectile to the point of its occurrence is greater than the value of
+ this parameter, the projectile will be removed from the game world. In this case, the {\tt FIREBALL} projectile
+ detonates.
+ \bl 
+ The default value of this parameter is higher than the maximal flying range of any projectile in the game.
+ \bl 
+ If the specified action is not a projectile spell, than the game engine will simply ignore this parameter.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setMessages}
+\item{\vskip -1.9ex 
+\membername{setMessages}
+{\tt public void {\bf setMessages}( {\tt Message[]} {\bf messages} )
+\label{l328}\label{l329}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets the messages for the wizards of the same faction.
+ \bl 
+ Available only to the master wizard. If not empty, the number of messages must be strictly equal to the number of
+ wizards of the friendly faction (dead or alive) except the master wizard.
+ \bl 
+ Messages are addressed in ascending order of wizard IDs. Some messages can be empty ({\tt null}), if supported
+ by the programming language used by strategy. In other case all items should be the correct messages.
+ \bl 
+ The game engine may ignore the message to a specific wizard, if there is another pending message to the same
+ wizard. If the addressed wizard is dead, then the message will be removed from the game world and the wizard will
+ never get it.
+ \bl 
+ Not all game modes support the messages.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setMinCastDistance}
+\item{\vskip -1.9ex 
+\membername{setMinCastDistance}
+{\tt public void {\bf setMinCastDistance}( {\tt double } {\bf minCastDistance} )
+\label{l330}\label{l331}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets the minimal cast distance for one tick.
+ \bl 
+ If the distance from the center of the projectile to the point of its occurrence is less than the value of this
+ parameter, the battle properties of the projectile are ignored. The projectile passes freely through all other
+ game objects, except trees.
+ \bl 
+ Default value is {\tt 0.0}. All collisions between a projectile and its caster are ignored by the game engine.
+ \bl 
+ If the specified action is not a projectile spell, than the game engine will simply ignore this parameter.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setSkillToLearn}
+\item{\vskip -1.9ex 
+\membername{setSkillToLearn}
+{\tt public void {\bf setSkillToLearn}( {\tt SkillType } {\bf skillToLearn} )
+\label{l332}\label{l333}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Selects the skill to learn before the start of the next tick.
+ \bl 
+ The setting will be ignored by the game engine if the current wizard level is less than or equal to the number of
+ the already learned skills. Some skills may also require learning other skills.
+ \bl 
+ In some game modes a wizard can not learn skills.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setSpeed}
+\item{\vskip -1.9ex 
+\membername{setSpeed}
+{\tt public void {\bf setSpeed}( {\tt double } {\bf speed} )
+\label{l334}\label{l335}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets move speed for one tick.
+ \bl 
+ By default the speed is in range of {\tt -game.wizardBackwardSpeed} to {\tt game.wizardForwardSpeed}.
+ These limits can be extended depending on skills of moving wizard and auras of nearby friendly wizards.
+ The {\tt HASTENED} status can also greatly speed up a wizard.
+ \bl 
+ If a specified value is out of the range, than it become equal to the nearest value of the range.
+ The positive values mean moving forward.
+ \bl 
+ If the value {\tt hypot(speed $/$ maxSpeed, strafeSpeed $/$ maxStrafeSpeed)} is greater than {\tt 1.0}, than both
+ {\tt speed} and {\tt strafeSpeed} will be divided by this value.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setStatusTargetId}
+\item{\vskip -1.9ex 
+\membername{setStatusTargetId}
+{\tt public void {\bf setStatusTargetId}( {\tt long } {\bf statusTargetId} )
+\label{l336}\label{l337}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets the ID of the target living unit to cast a status spell.
+ \bl 
+ According to the game rules, the valid targets are only the wizards of the same faction. If the wizard with the
+ specified ID is not found, the status is applied directly to the wizard performing the action. The relative angle
+ to the target should be in range of {\tt -game.staffSector $/$ 2.0} to {\tt game.staffSector $/$ 2.0}. The
+ distance to the target is limited by {\tt wizard.castRange}.
+ \bl 
+ The default value of this parameter is {\tt -1} (wrong ID).
+ \bl 
+ If the specified action is not a status spell, than the game engine will simply ignore this parameter.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setStrafeSpeed}
+\item{\vskip -1.9ex 
+\membername{setStrafeSpeed}
+{\tt public void {\bf setStrafeSpeed}( {\tt double } {\bf strafeSpeed} )
+\label{l338}\label{l339}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets the strafe speed for one tick.
+ \bl 
+ By default the strafe speed is in range of {\tt -game.wizardStrafeSpeed} to {\tt game.wizardStrafeSpeed}.
+ These limits can be extended depending on skills of moving wizard and auras of nearby friendly wizards.
+ The {\tt HASTENED} status can also greatly speed up a wizard.
+ \bl 
+ If a specified value is out of the range, than it become equal to the nearest value of the range.
+ The positive values mean moving to the right.
+ \bl 
+ If the value {\tt hypot(speed $/$ maxSpeed, strafeSpeed $/$ maxStrafeSpeed)} is greater than {\tt 1.0}, than both
+ {\tt speed} and {\tt strafeSpeed} will be divided by this value.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setTurn}
+\item{\vskip -1.9ex 
+\membername{setTurn}
+{\tt public void {\bf setTurn}( {\tt double } {\bf turn} )
+\label{l340}\label{l341}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Sets the turn angle for one tick.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ The turn angle is in radians and is relative to the current angle of the wizard.
+ By default the turn angle is in range of {\tt -game.wizardMaxTurnAngle} to {\tt game.wizardMaxTurnAngle}.
+ The {\tt HASTENED} status increases bot limits by {\tt 1.0 + game.hastenedRotationBonusFactor} times.
+ \bl 
+ If a specified value is out of the range, than it become equal to the nearest value of the range.
+ The positive values mean turning clockwise.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Player}{l14}{%
+{\small The instance of this class contains all the data about player state.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Player}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Player}
+% {\tt public {\bf Player}( {\tt long } {\bf id},
+% {\tt boolean } {\bf me},
+% {\tt String } {\bf name},
+% {\tt boolean } {\bf strategyCrashed},
+% {\tt int } {\bf score},
+% {\tt Faction } {\bf faction} )
+% \label{l342}\label{l343}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+\label{l344}\label{l345}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this player. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+\label{l346}\label{l347}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique player ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getName}
+\item{\vskip -1.9ex 
+\membername{getName}
+{\tt public String {\bf getName}(  )
+\label{l348}\label{l349}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the name of the player. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getScore}
+\item{\vskip -1.9ex 
+\membername{getScore}
+{\tt public int {\bf getScore}(  )
+\label{l350}\label{l351}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the amount of score points. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isMe}
+\item{\vskip -1.9ex 
+\membername{isMe}
+{\tt public boolean {\bf isMe}(  )
+\label{l352}\label{l353}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+{\tt true} if and only if this is your player. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isStrategyCrashed}
+\item{\vskip -1.9ex 
+\membername{isStrategyCrashed}
+{\tt public boolean {\bf isStrategyCrashed}(  )
+\label{l354}\label{l355}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+{\tt true} if and only if the strategy of this player is crashed. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Projectile}{l15}{%
+{\small This class is inherited from a circular unit and describes a projectile.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Projectile}}
+\noindent\hbox{\vbox{{\bf extends} CircularUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Projectile}
+% {\tt public {\bf Projectile}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt ProjectileType } {\bf type},
+% {\tt long } {\bf ownerUnitId},
+% {\tt long } {\bf ownerPlayerId} )
+% \label{l356}\label{l357}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getOwnerPlayerId}
+{\tt public long {\bf getOwnerPlayerId}(  )
+\label{l358}\label{l359}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ID of the player, which unit created this projectile, or {\tt -1}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOwnerUnitId}
+\item{\vskip -1.9ex 
+\membername{getOwnerUnitId}
+{\tt public long {\bf getOwnerUnitId}(  )
+\label{l360}\label{l361}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ID of the unit created this projectile. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public ProjectileType {\bf getType}(  )
+\label{l362}\label{l363}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the type of the projectile. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{ProjectileType}{l16}{%
+{\small Projectile type.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+ProjectileType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final ProjectileType MAGIC\_MISSILE\begin{itemize}\item{\vskip -.9ex A small piece of pure energy, that inflicts damage to a living unit upon a direct hit.}\end{itemize}
+}
+\item{
+public static final ProjectileType FROST\_BOLT\begin{itemize}\item{\vskip -.9ex Inflicts damage upon a direct hit and freezes a target for {\tt game.frozenDurationTicks}.
+ A frozen unit can not move or perform any actions.}\end{itemize}
+}
+\item{
+public static final ProjectileType FIREBALL\begin{itemize}\item{\vskip -.9ex Explodes when reaching maximal cast range or upon a collision with living unit.
+ Damages and burns any living unit, if a distance to the center of this unit is not greater than
+ {\tt game.fireballExplosionMinDamageRange + livingUnit.radius}.
+ The greater the distance, the less the instant damage.}\end{itemize}
+}
+\item{
+public static final ProjectileType DART\begin{itemize}\item{\vskip -.9ex Sharp thing flying at high speed. Inflicts damage upon a direct hit.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{SkillType}{l17}{%
+{\small Skill type. In some game modes a wizard can not learn skills (see {\tt game.skillsEnabled}).
+ \bl 
+ There is three skill groups: active, passive and auras.
+ \begin{itemize}
+ \item{\vskip -.8ex 
+ Active skills provide an ability to perform a new action, not available before.
+ \textless $/$li\textgreater 
+ }
+\item{\vskip -.8ex 
+ Passive skills are constantly improving some characteristic of the wizard for a certain value.
+ \textless $/$li\textgreater 
+ }
+\item{\vskip -.8ex 
+ Auras are constantly improving some characteristic of the wizard and all friendly wizards in the
+ {\tt game.auraSkillRange}.
+ \textless $/$li\textgreater 
+ }
+\end{itemize}
+}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+SkillType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final SkillType RANGE\_BONUS\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Passive skill. Increases cast range by {\tt game.rangeBonusPerSkillLevel}.}\end{itemize}
+}
+\item{
+public static final SkillType RANGE\_BONUS\_AURA\_1\begin{itemize}\item{\vskip -.9ex Aura. Increases cast range by {\tt game.rangeBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt RANGE\_BONUS\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType RANGE\_BONUS\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Passive skill. Increases cast range by {\tt 2.0 * game.rangeBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt RANGE\_BONUS\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType RANGE\_BONUS\_AURA\_2\begin{itemize}\item{\vskip -.9ex Aura. Increases cast range by {\tt 2.0 * game.rangeBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt RANGE\_BONUS\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType ADVANCED\_MAGIC\_MISSILE\begin{itemize}\item{\vskip -.9ex Passive skill. Removes the {\tt MAGIC\_MISSILE} spell delay.
+ The common action delay {\tt game.wizardActionCooldownTicks} still applies.
+ \bl 
+ Requires {\tt RANGE\_BONUS\_AURA\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_BONUS\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Passive skill. Increases instant magical damage by {\tt game.magicalDamageBonusPerSkillLevel}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_BONUS\_AURA\_1\begin{itemize}\item{\vskip -.9ex Aura. Increases instant magical damage by {\tt game.magicalDamageBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt MAGICAL\_DAMAGE\_BONUS\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_BONUS\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Passive skill. Increases instant magical damage by {\tt 2.0 * game.magicalDamageBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt MAGICAL\_DAMAGE\_BONUS\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_BONUS\_AURA\_2\begin{itemize}\item{\vskip -.9ex Aura. Increases instant magical damage by {\tt 2.0 * game.magicalDamageBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt MAGICAL\_DAMAGE\_BONUS\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType FROST\_BOLT\begin{itemize}\item{\vskip -.9ex Active skill. A wizard can now use the {\tt FROST\_BOLT} spell.
+ \bl 
+ Requires {\tt MAGICAL\_DAMAGE\_BONUS\_AURA\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType STAFF\_DAMAGE\_BONUS\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Passive skill. Increases staff damage by {\tt game.staffDamageBonusPerSkillLevel}.}\end{itemize}
+}
+\item{
+public static final SkillType STAFF\_DAMAGE\_BONUS\_AURA\_1\begin{itemize}\item{\vskip -.9ex Aura. Increases staff damage by  {\tt game.staffDamageBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt STAFF\_DAMAGE\_BONUS\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType STAFF\_DAMAGE\_BONUS\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Passive skill. Increases staff damage by {\tt 2.0 * game.staffDamageBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt STAFF\_DAMAGE\_BONUS\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType STAFF\_DAMAGE\_BONUS\_AURA\_2\begin{itemize}\item{\vskip -.9ex Aura. Increases staff damage by {\tt 2.0 * game.staffDamageBonusPerSkillLevel}.
+ \bl 
+ Requires {\tt STAFF\_DAMAGE\_BONUS\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType FIREBALL\begin{itemize}\item{\vskip -.9ex Active skill. A wizard can now use the {\tt FIREBALL} spell.
+ \bl 
+ Requires {\tt STAFF\_DAMAGE\_BONUS\_AURA\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Passive skill. Increases movement speed by {\tt 1.0 + game.movementBonusFactorPerSkillLevel} times.
+ \bl 
+ Summarily {\tt MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_2} and {\tt MOVEMENT\_BONUS\_FACTOR\_AURA\_2} increase movement
+ speed by {\tt 1.0 + 4.0 * game.movementBonusFactorPerSkillLevel} times.}\end{itemize}
+}
+\item{
+public static final SkillType MOVEMENT\_BONUS\_FACTOR\_AURA\_1\begin{itemize}\item{\vskip -.9ex Aura. Increases movement speed by {\tt 1.0 + game.movementBonusFactorPerSkillLevel} times.
+ \bl 
+ Requires {\tt MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Passive skill. Increases movement speed by {\tt 1.0 + 2.0 * game.movementBonusFactorPerSkillLevel} times.
+ \bl 
+ Requires {\tt MOVEMENT\_BONUS\_FACTOR\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MOVEMENT\_BONUS\_FACTOR\_AURA\_2\begin{itemize}\item{\vskip -.9ex Aura. Increases movement speed by {\tt 1.0 + 2.0 * game.movementBonusFactorPerSkillLevel} times.
+ \bl 
+ Requires {\tt MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType HASTE\begin{itemize}\item{\vskip -.9ex Active skill. A wizard can now use the {\tt HASTE} spell.
+ \bl 
+ Requires {\tt MOVEMENT\_BONUS\_FACTOR\_AURA\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_ABSORPTION\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Passive skill. Decreases received magical damage by {\tt game.magicalDamageAbsorptionPerSkillLevel}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_ABSORPTION\_AURA\_1\begin{itemize}\item{\vskip -.9ex Aura. Decreases received magical damage by {\tt game.magicalDamageAbsorptionPerSkillLevel}.
+ \bl 
+ Requires {\tt MAGICAL\_DAMAGE\_ABSORPTION\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_ABSORPTION\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Passive skill. Decreases received magical damage by {\tt 2.0 * game.magicalDamageAbsorptionPerSkillLevel}.
+ \bl 
+ Requires {\tt MAGICAL\_DAMAGE\_ABSORPTION\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_ABSORPTION\_AURA\_2\begin{itemize}\item{\vskip -.9ex Aura. Decreases received magical damage by {\tt 2.0 * game.magicalDamageAbsorptionPerSkillLevel}.
+ \bl 
+ Requires {\tt MAGICAL\_DAMAGE\_ABSORPTION\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType SHIELD\begin{itemize}\item{\vskip -.9ex Active skill. A wizard can now use the {\tt SHIELD} spell.
+ \bl 
+ Requires {\tt MAGICAL\_DAMAGE\_ABSORPTION\_AURA\_2}.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Status}{l18}{%
+{\small A magical status, affecting living unit.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Status}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Status}
+% {\tt public {\bf Status}( {\tt long } {\bf id},
+% {\tt StatusType } {\bf type},
+% {\tt long } {\bf wizardId},
+% {\tt long } {\bf playerId},
+% {\tt int } {\bf remainingDurationTicks} )
+% \label{l364}\label{l365}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+\label{l366}\label{l367}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique status ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPlayerId}
+\item{\vskip -1.9ex 
+\membername{getPlayerId}
+{\tt public long {\bf getPlayerId}(  )
+\label{l368}\label{l369}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ID of the player, which unit casted this status, or {\tt -1}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingDurationTicks}
+{\tt public int {\bf getRemainingDurationTicks}(  )
+\label{l370}\label{l371}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the remaining status duration. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public StatusType {\bf getType}(  )
+\label{l372}\label{l373}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the status type. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardId}
+\item{\vskip -1.9ex 
+\membername{getWizardId}
+{\tt public long {\bf getWizardId}(  )
+\label{l374}\label{l375}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ID of the wizard casted this status or $\{$code -1$\}$. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{StatusType}{l19}{%
+{\small Status type.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+StatusType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final StatusType BURNING\begin{itemize}\item{\vskip -.9ex A living unit receives some damage each time tick.}\end{itemize}
+}
+\item{
+public static final StatusType EMPOWERED\begin{itemize}\item{\vskip -.9ex A living unit inflicts more damage than usually, excluding DOT (damage over time).}\end{itemize}
+}
+\item{
+public static final StatusType FROZEN\begin{itemize}\item{\vskip -.9ex A living unit can not move or perform any actions.}\end{itemize}
+}
+\item{
+public static final StatusType HASTENED\begin{itemize}\item{\vskip -.9ex A living unit has increased move and turn speed.}\end{itemize}
+}
+\item{
+public static final StatusType SHIELDED\begin{itemize}\item{\vskip -.9ex A living unit receives less damage than usually, excluding DOT (damage over time).}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Tree}{l20}{%
+{\small This class is inherited from a living unit and describes a tree.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Tree}}
+\noindent\hbox{\vbox{{\bf extends} LivingUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Tree}
+% {\tt public {\bf Tree}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses} )
+% \label{l376}\label{l377}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt LivingUnit}}{
+\par{\small 
+\refdefined{l9}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the magical statuses affecting this living unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Unit}{l21}{%
+{\small Base class that describes any object (``unit'') in the game world.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public abstract 
+class 
+Unit}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Unit}
+% {\tt protected {\bf Unit}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction} )
+% \label{l378}\label{l379}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+\label{l380}\label{l381}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+\label{l382}\label{l383}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+\label{l384}\label{l385}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+\label{l386}\label{l387}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+\label{l388}\label{l389}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+\label{l390}\label{l391}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+\label{l392}\label{l393}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+\label{l394}\label{l395}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+\label{l396}\label{l397}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+\label{l398}\label{l399}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+\label{l400}\label{l401}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Wizard}{l22}{%
+{\small This class is inherited from a living unit and describes a wizard.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Wizard}}
+\noindent\hbox{\vbox{{\bf extends} LivingUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Wizard}
+% {\tt public {\bf Wizard}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses},
+% {\tt long } {\bf ownerPlayerId},
+% {\tt boolean } {\bf me},
+% {\tt int } {\bf mana},
+% {\tt int } {\bf maxMana},
+% {\tt double } {\bf visionRange},
+% {\tt double } {\bf castRange},
+% {\tt int } {\bf xp},
+% {\tt int } {\bf level},
+% {\tt SkillType[]} {\bf skills},
+% {\tt int } {\bf remainingActionCooldownTicks},
+% {\tt int[]} {\bf remainingCooldownTicksByAction},
+% {\tt boolean } {\bf master},
+% {\tt Message[]} {\bf messages} )
+% \label{l402}\label{l403}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getCastRange}
+{\tt public double {\bf getCastRange}(  )
+\label{l404}\label{l405}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal cast range.. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getLevel}
+\item{\vskip -1.9ex 
+\membername{getLevel}
+{\tt public int {\bf getLevel}(  )
+\label{l406}\label{l407}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current wizard level.
+ \bl 
+ Each wizard starts at level {\tt 0} and can level up up to {\tt game.levelUpXpValues.length} times.
+ \bl 
+ In some game modes a wizard can not gain new levels. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMana}
+\item{\vskip -1.9ex 
+\membername{getMana}
+{\tt public int {\bf getMana}(  )
+\label{l408}\label{l409}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current amount of manapoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxMana}
+\item{\vskip -1.9ex 
+\membername{getMaxMana}
+{\tt public int {\bf getMaxMana}(  )
+\label{l410}\label{l411}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of manapoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMessages}
+\item{\vskip -1.9ex 
+\membername{getMessages}
+{\tt public Message[] {\bf getMessages}(  )
+\label{l412}\label{l413}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the messages addressed to this wizard.
+ \bl 
+ A strategy can only read messages of the controlling wizard. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOwnerPlayerId}
+\item{\vskip -1.9ex 
+\membername{getOwnerPlayerId}
+{\tt public long {\bf getOwnerPlayerId}(  )
+\label{l414}\label{l415}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the ID of the owner player. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingActionCooldownTicks}
+{\tt public int {\bf getRemainingActionCooldownTicks}(  )
+\label{l416}\label{l417}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the amount of ticks remaining before any new action.
+ \bl 
+ A wizard can perform the action {\tt actionType} if and only if both {\tt remainingActionCooldownTicks} and
+ {\tt remainingCooldownTicksByAction[actionType.ordinal()]} are equal to zero. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingCooldownTicksByAction}
+\item{\vskip -1.9ex 
+\membername{getRemainingCooldownTicksByAction}
+{\tt public int[] {\bf getRemainingCooldownTicksByAction}(  )
+\label{l418}\label{l419}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the non-negative integer numbers. Each item is equal to the amount of ticks remaining before the next
+ action with the corresponding index.
+ \bl 
+ For example, {\tt remainingCooldownTicksByAction[0]} corresponds to {\tt NONE} action and always equal to
+ zero. {\tt remainingCooldownTicksByAction[1]} corresponds to {\tt STAFF} action and equal to the amount of
+ ticks remaining before the next staff attack.
+ \bl 
+ A wizard can perform the action {\tt actionType} if and only if both {\tt remainingActionCooldownTicks} and
+ {\tt remainingCooldownTicksByAction[actionType.ordinal()]} are equal to zero. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSkills}
+\item{\vskip -1.9ex 
+\membername{getSkills}
+{\tt public SkillType[] {\bf getSkills}(  )
+\label{l420}\label{l421}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the skills of this wizard. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVisionRange}
+\item{\vskip -1.9ex 
+\membername{getVisionRange}
+{\tt public double {\bf getVisionRange}(  )
+\label{l422}\label{l423}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal range (between units' centers), at which this wizard can detect other units. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getXp}
+\item{\vskip -1.9ex 
+\membername{getXp}
+{\tt public int {\bf getXp}(  )
+\label{l424}\label{l425}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current amount of experience points. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isMaster}
+\item{\vskip -1.9ex 
+\membername{isMaster}
+{\tt public boolean {\bf isMaster}(  )
+\label{l426}\label{l427}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+{\tt true} if and only if this wizard is master.
+ \bl 
+ There is exactly one master wizard per faction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isMe}
+\item{\vskip -1.9ex 
+\membername{isMe}
+{\tt public boolean {\bf isMe}(  )
+\label{l428}\label{l429}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+{\tt true} if and only if this wizard is your. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt LivingUnit}}{
+\par{\small 
+\refdefined{l9}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the maximal amount of hitpoints. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the magical statuses affecting this living unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the radius of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the turn angle in radians of this unit. Direction of the X-axis has zero angle.
+ Positive angle corresponds to the rotation in a clockwise direction. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the angle to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the specified point.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the angle to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the relative angle to the center of the specified unit.
+ The angle is in range of {\tt -PI} to {\tt PI} both inclusive. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-coordinate of the point to get the distance to.}
+   \item{
+\sld
+{\tt y} - Y-coordinate of the point to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the specified point and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - the unit to get the distance to.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+the range between the center of the specified unit and the center of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the faction of this unit. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the unique unit ID. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X speed component or the last tick X-coordinate change, if this unit can instantly change its speed.
+ The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y speed component or the last tick Y-coordinate change, if this unit can instantly change its speed.
+ The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the X of the unit's center. The X-axis is directed from left to right. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the Y of the unit's center. The Y-axis is directed downward. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{World}{l23}{%
+{\small This class describes a game world. A world contains all players and game objects (``units'').}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+World}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{World}
+% {\tt public {\bf World}( {\tt int } {\bf tickIndex},
+% {\tt int } {\bf tickCount},
+% {\tt double } {\bf width},
+% {\tt double } {\bf height},
+% {\tt Player[]} {\bf players},
+% {\tt Wizard[]} {\bf wizards},
+% {\tt Minion[]} {\bf minions},
+% {\tt Projectile[]} {\bf projectiles},
+% {\tt Bonus[]} {\bf bonuses},
+% {\tt Building[]} {\bf buildings},
+% {\tt Tree[]} {\bf trees} )
+% \label{l430}\label{l431}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getBonuses}
+{\tt public Bonus[] {\bf getBonuses}(  )
+\label{l432}\label{l433}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+visible bonuses (in random order). After each tick the bonus objects are recreated. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBuildings}
+\item{\vskip -1.9ex 
+\membername{getBuildings}
+{\tt public Building[] {\bf getBuildings}(  )
+\label{l434}\label{l435}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+visible buildings (in random order). After each tick the building objects are recreated. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHeight}
+\item{\vskip -1.9ex 
+\membername{getHeight}
+{\tt public double {\bf getHeight}(  )
+\label{l436}\label{l437}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the world height. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinions}
+\item{\vskip -1.9ex 
+\membername{getMinions}
+{\tt public Minion[] {\bf getMinions}(  )
+\label{l438}\label{l439}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+visible minions (in random order). After each tick the minion objects are recreated. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMyPlayer}
+\item{\vskip -1.9ex 
+\membername{getMyPlayer}
+{\tt public Player {\bf getMyPlayer}(  )
+\label{l440}\label{l441}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+your player. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPlayers}
+\item{\vskip -1.9ex 
+\membername{getPlayers}
+{\tt public Player[] {\bf getPlayers}(  )
+\label{l442}\label{l443}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+all players (in random order). After each tick the player objects are recreated. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getProjectiles}
+\item{\vskip -1.9ex 
+\membername{getProjectiles}
+{\tt public Projectile[] {\bf getProjectiles}(  )
+\label{l444}\label{l445}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+visible projectiles (in random order). After each tick the projectile objects are recreated. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTickCount}
+\item{\vskip -1.9ex 
+\membername{getTickCount}
+{\tt public int {\bf getTickCount}(  )
+\label{l446}\label{l447}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the base game duration in ticks. A real game duration may be lower. Equals to {\tt game.tickCount}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTickIndex}
+\item{\vskip -1.9ex 
+\membername{getTickIndex}
+{\tt public int {\bf getTickIndex}(  )
+\label{l448}\label{l449}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the current game tick. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTrees}
+\item{\vskip -1.9ex 
+\membername{getTrees}
+{\tt public Tree[] {\bf getTrees}(  )
+\label{l450}\label{l451}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+visible trees (in random order). After each tick the tree objects are recreated. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWidth}
+\item{\vskip -1.9ex 
+\membername{getWidth}
+{\tt public double {\bf getWidth}(  )
+\label{l452}\label{l453}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+the world width. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizards}
+\item{\vskip -1.9ex 
+\membername{getWizards}
+{\tt public Wizard[] {\bf getWizards}(  )
+\label{l454}\label{l455}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+visible wizards (in random order). After each tick the wizard objects are recreated. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+}
+}
+\newpage
+\def\packagename{\textless none\textgreater }
+\chapter{\bf Package \textless none\textgreater }{
+\vskip -.25in
+\hbox to \hsize{\it Package Contents\hfil Page}
+\rule{\hsize}{.7mm}
+\vskip .13in
+\hbox{\bf Interfaces}
+\entityintro{Strategy}{l456}{This interface contains the methods that each wizard strategy should implement.}
+\vskip .1in
+\rule{\hsize}{.7mm}
+\vskip .1in
+\newpage
+\section{Interfaces}{
+\startsection{Interface}{Strategy}{l456}{%
+{\small This interface contains the methods that each wizard strategy should implement.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public interface 
+Strategy}}
+}}}
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{move}
+{\tt public void {\bf move}( {\tt Wizard } {\bf self},
+{\tt World } {\bf world},
+{\tt Game } {\bf game},
+{\tt Move } {\bf move} )
+\label{l457}\label{l458}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Main strategy method, controlling the wizard.
+ The game engine calls this method once each time tick.
+}%end item
+  \end{itemize}
+}
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt self} - the wizard controlling by this strategy.}
+   \item{
+\sld
+{\tt world} - the current world snapshot.}
+   \item{
+\sld
+{\tt game} - many game constants.}
+   \item{
+\sld
+{\tt move} - the object that encapsulates all strategy instructions to the {\tt self} wizard.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+}
+}
+\end{document}

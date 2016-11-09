@@ -1,0 +1,6700 @@
+% Added by DocsPostProcessor:
+\setlength{\parskip}{0.125in}
+% \\ Added by DocsPostProcessor.
+
+% Replaced by DocsPostProcessor:
+% \documentclass[11pt]{report}
+\documentclass[a4paper]{report}
+% \\ Replaced by DocsPostProcessor.
+
+\def\bl{\mbox{}\newline\mbox{}\newline{}}
+
+% Added by DocsPostProcessor:
+\usepackage{amssymb,latexsym,amsmath,amscd,mathtext,ifthen}
+\usepackage[unicode]{hyperref}
+\usepackage{listings}
+\usepackage{literat}
+\usepackage{graphicx}
+\usepackage[top = 2.0cm]{geometry}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\input glyphtounicode
+\pdfgentounicode=1
+
+\setlength{\skip\footins}{0.5cm}
+\setlength{\footnotesep}{0.5cm}
+
+\newcommand\abs[1]{\left|#1\right|}
+% \\ Added by DocsPostProcessor.
+
+\usepackage{ifthen}
+\newcommand{\hide}[2]{
+\ifthenelse{\equal{#1}{inherited}}%
+{}%
+{}%
+}
+\newcommand{\entityintro}[3]{%
+  \hbox to \hsize{%
+    \vbox{%
+      \hbox to .2in{}%
+    }%
+    {\bf #1}%
+    \dotfill\pageref{#2}%
+  }
+  \makebox[\hsize]{%
+    \parbox{.4in}{}%
+    \parbox[l]{5in}{%
+      \vspace{1mm}\it%
+      #3%
+      \vspace{1mm}%
+    }%
+  }%
+}
+\newcommand{\isep}[0]{%
+\setlength{\itemsep}{-.4ex}
+}
+\newcommand{\sld}[0]{%
+\setlength{\topsep}{0em}
+\setlength{\partopsep}{0em}
+\setlength{\parskip}{0em}
+\setlength{\parsep}{-1em}
+}
+\newcommand{\headref}[3]{%
+\ifthenelse{#1 = 1}{%
+\addcontentsline{toc}{section}{\hspace{\qquad}\protect\numberline{}{#3}}%
+}{}%
+\ifthenelse{#1 = 2}{%
+\addcontentsline{toc}{subsection}{\hspace{\qquad}\protect\numerline{}{#3}}%
+}{}%
+\ifthenelse{#1 = 3}{%
+\addcontentsline{toc}{subsubsection}{\hspace{\qquad}\protect\numerline{}{#3}}%
+}{}%
+\label{#3}%
+\makebox[\textwidth][l]{#2 #3}%
+}%
+\newcommand{\membername}[1]{{\it #1}\linebreak}
+\newcommand{\divideents}[1]{\vskip -1em\indent\rule{2in}{.5mm}}
+\newcommand{\refdefined}[1]{
+\expandafter\ifx\csname r@#1\endcsname\relax
+\relax\else
+{$($ in \ref{#1}, page \pageref{#1}$)$}
+\fi}
+\newcommand{\startsection}[4]{
+\gdef\classname{#2}
+\subsection{\label{#3}{\bf {\sc #1} #2}}{
+\rule[1em]{\hsize}{4pt}\vskip -1em
+\vskip .1in 
+#4
+}%
+}
+\newcommand{\startsubsubsection}[2]{
+\subsubsection{\sc #1}{%
+\rule[1em]{\hsize}{2pt}%
+#2}
+}
+\usepackage{color}
+
+% Replaced by DocsPostProcessor:
+% \date{DoNotModifyDateHere}
+\date{Ноябрь --- декабрь, 2016}
+% \\ Replaced by DocsPostProcessor.
+
+
+% Removed by DocsPostProcessor:
+% \pagestyle{myheadings}
+% \\ Removed by DocsPostProcessor.
+
+\addtocontents{toc}{\protect\def\protect\packagename{}}
+\addtocontents{toc}{\protect\def\protect\classname{}}
+\markboth{\protect\packagename -- \protect\classname}{\protect\packagename -- \protect\classname}
+\oddsidemargin 0in
+\evensidemargin 0in
+% \topmargin -.8in
+\chardef\bslash=`\\
+\textheight 9.4in
+\textwidth 6.5in
+
+% Replaced by DocsPostProcessor:
+% \title{DoNotModifyTitleHere}
+\title{
+\includegraphics{images/raic-2015-logo-302x140.png}\\
+\vspace{0.61in}
+\textsc{\Huge CodeWizards 2016}\\
+\vspace{0.50in}
+\textsc{\LARGE Правила}\\
+\textsc{\small Версия 1.0.0}\\
+\vspace{2.75in}
+\includegraphics{images/mail-ru-and-ssu-logo.png}
+}
+% \\ Replaced by DocsPostProcessor.
+
+\begin{document}
+\maketitle
+\sloppy
+\raggedright
+\tableofcontents
+
+% Added by DocsPostProcessor:
+\markboth{qqq}{{\footnotesize CodeWizards 2016}}
+\input TutorialRu.tex
+\raggedright
+\sloppy
+% \\ Added by DocsPostProcessor.
+
+\gdef\packagename{}
+\gdef\classname{}
+\newpage
+\def\packagename{model}
+\chapter{\bf Package model}{
+\vskip -.25in
+\hbox to \hsize{\it Package Contents\hfil Page}
+\rule{\hsize}{.7mm}
+\vskip .13in
+\hbox{\bf Classes}
+\entityintro{ActionType}{l0}{Возможные действия волшебника.}
+\entityintro{Bonus}{l1}{Класс, определяющий бонус --- неподвижный полезный объект.}
+\entityintro{BonusType}{l2}{Тип бонуса.}
+\entityintro{Building}{l3}{Класс, определяющий строение.}
+\entityintro{BuildingType}{l4}{Тип строения.}
+\entityintro{CircularUnit}{l5}{Базовый класс для определения круглых объектов.}
+\entityintro{Faction}{l6}{Фракция юнита.}
+\entityintro{Game}{l7}{Предоставляет доступ к различным игровым константам.}
+\entityintro{LaneType}{l8}{Тип дорожки.}
+\entityintro{LivingUnit}{l9}{Класс, определяющий живого юнита круглой формы.}
+\entityintro{Message}{l10}{Класс определяет сообщение, которое верховный волшебник ({\tt wizard.master}) может отправлять другим членам
+ фракции, используя телепатическую связь.}
+\entityintro{Minion}{l11}{Класс, определяющий приспешника волшебника одной из фракций.}
+\entityintro{MinionType}{l12}{Тип приспешника.}
+\entityintro{Move}{l13}{Стратегия игрока может управлять волшебником посредством установки свойств объекта данного класса.}
+\entityintro{Player}{l14}{Содержит данные о текущем состоянии игрока.}
+\entityintro{Projectile}{l15}{Класс, определяющий снаряд.}
+\entityintro{ProjectileType}{l16}{Тип снаряда.}
+\entityintro{SkillType}{l17}{Тип умения.}
+\entityintro{Status}{l18}{Магический статус, влияющий на живого юнита.}
+\entityintro{StatusType}{l19}{Тип магического статуса, влияющего на живого юнита.}
+\entityintro{Tree}{l20}{Класс, определяющий дерево.}
+\entityintro{Unit}{l21}{Базовый класс для определения объектов (<<юнитов>>) на игровом поле.}
+\entityintro{Wizard}{l22}{Класс, определяющий волшебника.}
+\entityintro{World}{l23}{Этот класс описывает игровой мир.}
+
+% Removed by DocsPostProcessor:
+% \vskip .1in
+% \rule{\hsize}{.7mm}
+% \\ Removed by DocsPostProcessor.
+
+\vskip .1in
+\newpage
+\section{Classes}{
+\startsection{Class}{ActionType}{l0}{%
+{\small Возможные действия волшебника.
+ \bl 
+ Волшебник не может совершать новые действия, если он ещё не восстановился после своего предыдущего действия (значение
+ {\tt wizard.remainingActionCooldownTicks} больше {\tt 0}).
+ \bl 
+ Волшебник не может использовать действие, если оно ещё не восстановилось после его предыдущего применения (значение
+ {\tt remainingCooldownTicksByAction[actionType.ordinal()]} больше {\tt 0}).}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+ActionType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final ActionType NONE\begin{itemize}\item{\vskip -.9ex Ничего не делать.}\end{itemize}
+}
+\item{
+public static final ActionType STAFF\begin{itemize}\item{\vskip -.9ex Ударить посохом.
+ \bl 
+ Атака поражает все живые объекты в секторе от {\tt -game.staffSector $/$ 2.0} до {\tt game.staffSector $/$ 2.0}.
+ Расстояние от центра волшебника до центра цели не должно превышать значение
+ {\tt game.staffRange + livingUnit.radius}.}\end{itemize}
+}
+\item{
+public static final ActionType MAGIC\_MISSILE\begin{itemize}\item{\vskip -.9ex Создать магическую ракету.
+ \bl 
+ Магическая ракета является базовым заклинанием любого волшебника. Наносит урон при прямом попадании.
+ \bl 
+ При создании магической ракеты её центр совпадает с центром волшебника, направление определяется как
+ {\tt wizard.angle + move.castAngle}, а абсолютное значение скорости равно {\tt game.magicMissileSpeed}.
+ Столкновения магического снаряда и создавшего его волшебника игнорируются.
+ \bl 
+ Требует {\tt game.magicMissileManacost} единиц магической энергии.}\end{itemize}
+}
+\item{
+public static final ActionType FROST\_BOLT\begin{itemize}\item{\vskip -.9ex Создать ледяную стрелу.
+ \bl 
+ Ледяная стрела наносит урон при прямом попадании, а также замораживает цель.
+ \bl 
+ При создании ледяной стрелы её центр совпадает с центром волшебника, направление определяется как
+ {\tt wizard.angle + move.castAngle}, а абсолютное значение скорости равно {\tt game.frostBoltSpeed}.
+ Столкновения магического снаряда и создавшего его волшебника игнорируются.
+ \bl 
+ Требует {\tt game.frostBoltManacost} единиц магической энергии и изучения умения {\tt FROST\_BOLT}.}\end{itemize}
+}
+\item{
+public static final ActionType FIREBALL\begin{itemize}\item{\vskip -.9ex Создать огненный шар.
+ \bl 
+ Огненный шар взрывается при достижении максимальной дальности полёта или при столкновении с живым объектом.
+ Наносит урон всем близлежащим живым объектам, а также поджигает их.
+ \bl 
+ При создании огненного шара его центр совпадает с центром волшебника, направление определяется как
+ {\tt wizard.angle + move.castAngle}, а абсолютное значение скорости равно {\tt game.fireballSpeed}.
+ Столкновения магического снаряда и создавшего его волшебника игнорируются.
+ \bl 
+ Требует {\tt game.fireballManacost} единиц магической энергии и изучения умения {\tt FIREBALL}.}\end{itemize}
+}
+\item{
+public static final ActionType HASTE\begin{itemize}\item{\vskip -.9ex Временно ускорить волшебника с идентификатором {\tt move.statusTargetId} или самого себя, если такой волшебник
+ не найден.
+ \bl 
+ Требует {\tt game.hasteManacost} единиц магической энергии и изучения умения {\tt HASTE}.}\end{itemize}
+}
+\item{
+public static final ActionType SHIELD\begin{itemize}\item{\vskip -.9ex На время создать магический щит вокруг волшебника с идентификатором {\tt move.statusTargetId} или самого себя,
+ если такой волшебник не найден.
+ \bl 
+ Требует {\tt game.shieldManacost} единиц магической энергии и изучения умения {\tt SHIELD}.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Bonus}{l1}{%
+{\small Класс, определяющий бонус --- неподвижный полезный объект. Содержит также все свойства круглого юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Bonus}}
+\noindent\hbox{\vbox{{\bf extends} CircularUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Bonus}
+% {\tt public {\bf Bonus}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt BonusType } {\bf type} )
+% \label{l25}\label{l26}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public BonusType {\bf getType}(  )
+\label{l27}\label{l28}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает тип бонуса. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{BonusType}{l2}{%
+{\small Тип бонуса.
+ \bl 
+ В дополнение к основному эффекту каждый подобранный бонус даёт игроку {\tt game.bonusScoreAmount} баллов, а
+ волшебник получает такое же количество опыта.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+BonusType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final BonusType EMPOWER\begin{itemize}\item{\vskip -.9ex На некоторое время значительно увеличивает урон, наносимый волшебником при ударах посохом и попаданиях магических
+ снарядов в цель.}\end{itemize}
+}
+\item{
+public static final BonusType HASTE\begin{itemize}\item{\vskip -.9ex Значительно ускоряет перемещение волшебника.
+ \bl 
+ Аналогично действию одноимённого заклинания, но длительность статуса выше.}\end{itemize}
+}
+\item{
+public static final BonusType SHIELD\begin{itemize}\item{\vskip -.9ex Уменьшает урон, получаемый волшебником от прямых попаданий магических снарядов.
+ \bl 
+ Аналогично действию одноимённого заклинания, но длительность статуса выше.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Building}{l3}{%
+{\small Класс, определяющий строение. Фракционные строения самостоятельно атакуют противников в определённом радиусе.
+ \bl 
+ Строения не могут быть заморожены ({\tt FROZEN}).}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Building}}
+\noindent\hbox{\vbox{{\bf extends} LivingUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Building}
+% {\tt public {\bf Building}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses},
+% {\tt BuildingType } {\bf type},
+% {\tt double } {\bf visionRange},
+% {\tt double } {\bf attackRange},
+% {\tt int } {\bf damage},
+% {\tt int } {\bf cooldownTicks},
+% {\tt int } {\bf remainingActionCooldownTicks} )
+% \label{l29}\label{l30}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAttackRange}
+{\tt public double {\bf getAttackRange}(  )
+\label{l31}\label{l32}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра),
+ на котором данное строение может атаковать другие объекты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getCooldownTicks}
+{\tt public int {\bf getCooldownTicks}(  )
+\label{l33}\label{l34}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает интервал между атаками. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDamage}
+\item{\vskip -1.9ex 
+\membername{getDamage}
+{\tt public int {\bf getDamage}(  )
+\label{l35}\label{l36}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон одной атаки. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingActionCooldownTicks}
+{\tt public int {\bf getRemainingActionCooldownTicks}(  )
+\label{l37}\label{l38}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество тиков, оставшееся до следующей атаки. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public BuildingType {\bf getType}(  )
+\label{l39}\label{l40}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает тип строения. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVisionRange}
+\item{\vskip -1.9ex 
+\membername{getVisionRange}
+{\tt public double {\bf getVisionRange}(  )
+\label{l41}\label{l42}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра),
+ на котором данное строение обнаруживает другие объекты. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt LivingUnit}}{
+\par{\small 
+\refdefined{l9}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает магические статусы, влияющие на живого юнита. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{BuildingType}{l4}{%
+{\small Тип строения.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+BuildingType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final BuildingType GUARDIAN\_TOWER\begin{itemize}\item{\vskip -.9ex Охранная башня.}\end{itemize}
+}
+\item{
+public static final BuildingType FACTION\_BASE\begin{itemize}\item{\vskip -.9ex База фракции.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{CircularUnit}{l5}{%
+{\small Базовый класс для определения круглых объектов. Содержит также все свойства юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public abstract 
+class 
+CircularUnit}}
+\noindent\hbox{\vbox{{\bf extends} Unit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{CircularUnit}
+% {\tt protected {\bf CircularUnit}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius} )
+% \label{l43}\label{l44}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+\label{l45}\label{l46}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Faction}{l6}{%
+{\small Фракция юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+Faction}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final Faction ACADEMY\begin{itemize}\item{\vskip -.9ex Волшебники, последователи и охранные сооружения Академии.}\end{itemize}
+}
+\item{
+public static final Faction RENEGADES\begin{itemize}\item{\vskip -.9ex Волшебники, последователи и охранные сооружения Отступников.}\end{itemize}
+}
+\item{
+public static final Faction NEUTRAL\begin{itemize}\item{\vskip -.9ex Нейтральные юниты. Не нападют первыми, но при получении урона будут обороняться.}\end{itemize}
+}
+\item{
+public static final Faction OTHER\begin{itemize}\item{\vskip -.9ex Все остальные юниты в игре.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Game}{l7}{%
+{\small Предоставляет доступ к различным игровым константам.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Game}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Game}
+% {\tt public {\bf Game}( {\tt long } {\bf randomSeed},
+% {\tt int } {\bf tickCount},
+% {\tt double } {\bf mapSize},
+% {\tt boolean } {\bf skillsEnabled},
+% {\tt boolean } {\bf rawMessagesEnabled},
+% {\tt double } {\bf friendlyFireDamageFactor},
+% {\tt double } {\bf buildingDamageScoreFactor},
+% {\tt double } {\bf buildingEliminationScoreFactor},
+% {\tt double } {\bf minionDamageScoreFactor},
+% {\tt double } {\bf minionEliminationScoreFactor},
+% {\tt double } {\bf wizardDamageScoreFactor},
+% {\tt double } {\bf wizardEliminationScoreFactor},
+% {\tt double } {\bf teamWorkingScoreFactor},
+% {\tt int } {\bf victoryScore},
+% {\tt double } {\bf scoreGainRange},
+% {\tt int } {\bf rawMessageMaxLength},
+% {\tt double } {\bf rawMessageTransmissionSpeed},
+% {\tt double } {\bf wizardRadius},
+% {\tt double } {\bf wizardCastRange},
+% {\tt double } {\bf wizardVisionRange},
+% {\tt double } {\bf wizardForwardSpeed},
+% {\tt double } {\bf wizardBackwardSpeed},
+% {\tt double } {\bf wizardStrafeSpeed},
+% {\tt int } {\bf wizardBaseLife},
+% {\tt int } {\bf wizardLifeGrowthPerLevel},
+% {\tt int } {\bf wizardBaseMana},
+% {\tt int } {\bf wizardManaGrowthPerLevel},
+% {\tt double } {\bf wizardBaseLifeRegeneration},
+% {\tt double } {\bf wizardLifeRegenerationGrowthPerLevel},
+% {\tt double } {\bf wizardBaseManaRegeneration},
+% {\tt double } {\bf wizardManaRegenerationGrowthPerLevel},
+% {\tt double } {\bf wizardMaxTurnAngle},
+% {\tt int } {\bf wizardMaxResurrectionDelayTicks},
+% {\tt int } {\bf wizardMinResurrectionDelayTicks},
+% {\tt int } {\bf wizardActionCooldownTicks},
+% {\tt int } {\bf staffCooldownTicks},
+% {\tt int } {\bf magicMissileCooldownTicks},
+% {\tt int } {\bf frostBoltCooldownTicks},
+% {\tt int } {\bf fireballCooldownTicks},
+% {\tt int } {\bf hasteCooldownTicks},
+% {\tt int } {\bf shieldCooldownTicks},
+% {\tt int } {\bf magicMissileManacost},
+% {\tt int } {\bf frostBoltManacost},
+% {\tt int } {\bf fireballManacost},
+% {\tt int } {\bf hasteManacost},
+% {\tt int } {\bf shieldManacost},
+% {\tt int } {\bf staffDamage},
+% {\tt double } {\bf staffSector},
+% {\tt double } {\bf staffRange},
+% {\tt int[]} {\bf levelUpXpValues},
+% {\tt double } {\bf minionRadius},
+% {\tt double } {\bf minionVisionRange},
+% {\tt double } {\bf minionSpeed},
+% {\tt double } {\bf minionMaxTurnAngle},
+% {\tt int } {\bf minionLife},
+% {\tt int } {\bf factionMinionAppearanceIntervalTicks},
+% {\tt int } {\bf orcWoodcutterActionCooldownTicks},
+% {\tt int } {\bf orcWoodcutterDamage},
+% {\tt double } {\bf orcWoodcutterAttackSector},
+% {\tt double } {\bf orcWoodcutterAttackRange},
+% {\tt int } {\bf fetishBlowdartActionCooldownTicks},
+% {\tt double } {\bf fetishBlowdartAttackRange},
+% {\tt double } {\bf fetishBlowdartAttackSector},
+% {\tt double } {\bf bonusRadius},
+% {\tt int } {\bf bonusAppearanceIntervalTicks},
+% {\tt int } {\bf bonusScoreAmount},
+% {\tt double } {\bf dartRadius},
+% {\tt double } {\bf dartSpeed},
+% {\tt int } {\bf dartDirectDamage},
+% {\tt double } {\bf magicMissileRadius},
+% {\tt double } {\bf magicMissileSpeed},
+% {\tt int } {\bf magicMissileDirectDamage},
+% {\tt double } {\bf frostBoltRadius},
+% {\tt double } {\bf frostBoltSpeed},
+% {\tt int } {\bf frostBoltDirectDamage},
+% {\tt double } {\bf fireballRadius},
+% {\tt double } {\bf fireballSpeed},
+% {\tt double } {\bf fireballExplosionMaxDamageRange},
+% {\tt double } {\bf fireballExplosionMinDamageRange},
+% {\tt int } {\bf fireballExplosionMaxDamage},
+% {\tt int } {\bf fireballExplosionMinDamage},
+% {\tt double } {\bf guardianTowerRadius},
+% {\tt double } {\bf guardianTowerVisionRange},
+% {\tt double } {\bf guardianTowerLife},
+% {\tt double } {\bf guardianTowerAttackRange},
+% {\tt int } {\bf guardianTowerDamage},
+% {\tt int } {\bf guardianTowerCooldownTicks},
+% {\tt double } {\bf factionBaseRadius},
+% {\tt double } {\bf factionBaseVisionRange},
+% {\tt double } {\bf factionBaseLife},
+% {\tt double } {\bf factionBaseAttackRange},
+% {\tt int } {\bf factionBaseDamage},
+% {\tt int } {\bf factionBaseCooldownTicks},
+% {\tt int } {\bf burningDurationTicks},
+% {\tt int } {\bf burningSummaryDamage},
+% {\tt int } {\bf empoweredDurationTicks},
+% {\tt double } {\bf empoweredDamageFactor},
+% {\tt int } {\bf frozenDurationTicks},
+% {\tt int } {\bf hastenedDurationTicks},
+% {\tt double } {\bf hastenedBonusDurationFactor},
+% {\tt double } {\bf hastenedMovementBonusFactor},
+% {\tt double } {\bf hastenedRotationBonusFactor},
+% {\tt int } {\bf shieldedDurationTicks},
+% {\tt double } {\bf shieldedBonusDurationFactor},
+% {\tt double } {\bf shieldedDirectDamageAbsorptionFactor},
+% {\tt double } {\bf auraSkillRange},
+% {\tt double } {\bf rangeBonusPerSkillLevel},
+% {\tt int } {\bf magicalDamageBonusPerSkillLevel},
+% {\tt int } {\bf staffDamageBonusPerSkillLevel},
+% {\tt double } {\bf movementBonusFactorPerSkillLevel},
+% {\tt int } {\bf magicalDamageAbsorptionPerSkillLevel} )
+% \label{l47}\label{l48}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAuraSkillRange}
+{\tt public double {\bf getAuraSkillRange}(  )
+\label{l49}\label{l50}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает дальность действия аур. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBonusAppearanceIntervalTicks}
+\item{\vskip -1.9ex 
+\membername{getBonusAppearanceIntervalTicks}
+{\tt public int {\bf getBonusAppearanceIntervalTicks}(  )
+\label{l51}\label{l52}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает интервал появления бонусов.
+ \bl 
+ Каждый раз по прошествии указанного интервала симулятор игры проверяет количество бонусов на карте и создаёт
+ новый бонус, если оно равно нулю. Бонус создаётся в случайно выбранной точке из двух возможных:
+ ({\tt mapSize * 0.3}, {\tt mapSize * 0.3}) и ({\tt mapSize * 0.7}, {\tt mapSize * 0.7}). Если любая часть
+ области появления бонуса уже занята волшебником, то симулятор попытается создать бонус в другой точке из списка.
+ В случае неудачи создание бонуса не произойдёт вообще и будет отложено до окончания очередного интервала. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBonusRadius}
+\item{\vskip -1.9ex 
+\membername{getBonusRadius}
+{\tt public double {\bf getBonusRadius}(  )
+\label{l53}\label{l54}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус бонуса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBonusScoreAmount}
+\item{\vskip -1.9ex 
+\membername{getBonusScoreAmount}
+{\tt public int {\bf getBonusScoreAmount}(  )
+\label{l55}\label{l56}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество баллов, начисляемых игроку, волшебник которого подробрал бонус.
+ \bl 
+ Сам волшебник получает такое же количество опыта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBuildingDamageScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getBuildingDamageScoreFactor}
+{\tt public double {\bf getBuildingDamageScoreFactor}(  )
+\label{l57}\label{l58}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент опыта, получаемого волшебником при нанесении урона строениям противоположной
+ фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBuildingEliminationScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getBuildingEliminationScoreFactor}
+{\tt public double {\bf getBuildingEliminationScoreFactor}(  )
+\label{l59}\label{l60}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент опыта, получаемого волшебником за разрушение строения противоположной фракции.
+ \bl 
+ Применяется к максимальному количеству жизненной энергии строения. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBurningDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getBurningDurationTicks}
+{\tt public int {\bf getBurningDurationTicks}(  )
+\label{l61}\label{l62}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность действия статуса {\tt BURNING}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBurningSummaryDamage}
+\item{\vskip -1.9ex 
+\membername{getBurningSummaryDamage}
+{\tt public int {\bf getBurningSummaryDamage}(  )
+\label{l63}\label{l64}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает суммарный урон, получаемый живым юнитом за время действия статуса {\tt BURNING}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDartDirectDamage}
+\item{\vskip -1.9ex 
+\membername{getDartDirectDamage}
+{\tt public int {\bf getDartDirectDamage}(  )
+\label{l65}\label{l66}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон дротика. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDartRadius}
+\item{\vskip -1.9ex 
+\membername{getDartRadius}
+{\tt public double {\bf getDartRadius}(  )
+\label{l67}\label{l68}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус дротика. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDartSpeed}
+\item{\vskip -1.9ex 
+\membername{getDartSpeed}
+{\tt public double {\bf getDartSpeed}(  )
+\label{l69}\label{l70}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость полёта дротика. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getEmpoweredDamageFactor}
+\item{\vskip -1.9ex 
+\membername{getEmpoweredDamageFactor}
+{\tt public double {\bf getEmpoweredDamageFactor}(  )
+\label{l71}\label{l72}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает мультипликатор урона, наносимого живым юнитом под действием статуса {\tt EMPOWERED}.
+ \bl 
+ Мультипликатор применяется к ударам в ближнем бою, прямым попаданиям снарядов, а также взрыву <<Огненного шара>>,
+ но не применяется к урону, получаемому от статусов. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getEmpoweredDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getEmpoweredDurationTicks}
+{\tt public int {\bf getEmpoweredDurationTicks}(  )
+\label{l73}\label{l74}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность действия статуса {\tt EMPOWERED}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseAttackRange}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseAttackRange}
+{\tt public double {\bf getFactionBaseAttackRange}(  )
+\label{l75}\label{l76}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра), на котором база фракции может атаковать
+ другие объекты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseCooldownTicks}
+{\tt public int {\bf getFactionBaseCooldownTicks}(  )
+\label{l77}\label{l78}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными атаками базы фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseDamage}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseDamage}
+{\tt public int {\bf getFactionBaseDamage}(  )
+\label{l79}\label{l80}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон одной атаки базы фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseLife}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseLife}
+{\tt public double {\bf getFactionBaseLife}(  )
+\label{l81}\label{l82}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает начальное значение жизненной энергии базы фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseRadius}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseRadius}
+{\tt public double {\bf getFactionBaseRadius}(  )
+\label{l83}\label{l84}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус базы фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionBaseVisionRange}
+\item{\vskip -1.9ex 
+\membername{getFactionBaseVisionRange}
+{\tt public double {\bf getFactionBaseVisionRange}(  )
+\label{l85}\label{l86}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра), на котором база фракции обнаруживает другие
+ объекты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFactionMinionAppearanceIntervalTicks}
+\item{\vskip -1.9ex 
+\membername{getFactionMinionAppearanceIntervalTicks}
+{\tt public int {\bf getFactionMinionAppearanceIntervalTicks}(  )
+\label{l87}\label{l88}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает интервал, с которым появляются миньоны двух противостоящих фракций ({\tt ACADEMY} и
+ {\tt RENEGADES}).
+ \bl 
+ Миньоны каждой из этих фракций появляются тремя группами (по одной на дорожку) недалеко от своей базы. Группа
+ состоит и трёх орков и одного фетиша. Сразу после появления миньоны начинают продвижение по своей дорожке в
+ сторону базы противоположной фракции, при этом атакуя всех противников на своём пути. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFetishBlowdartActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getFetishBlowdartActionCooldownTicks}
+{\tt public int {\bf getFetishBlowdartActionCooldownTicks}(  )
+\label{l89}\label{l90}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными атаками фетиша. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFetishBlowdartAttackRange}
+\item{\vskip -1.9ex 
+\membername{getFetishBlowdartAttackRange}
+{\tt public double {\bf getFetishBlowdartAttackRange}(  )
+\label{l91}\label{l92}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает дальность полёта дротика, выпущенного фетишем. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFetishBlowdartAttackSector}
+\item{\vskip -1.9ex 
+\membername{getFetishBlowdartAttackSector}
+{\tt public double {\bf getFetishBlowdartAttackSector}(  )
+\label{l93}\label{l94}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает сектор метания дротика фетишем.
+ \bl 
+ Угол полёта дротика относительно направления фетиша ограничен интервалом от
+ {\tt -fetishBlowdartAttackSector $/$ 2.0} до {\tt fetishBlowdartAttackSector $/$ 2.0}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getFireballCooldownTicks}
+{\tt public int {\bf getFireballCooldownTicks}(  )
+\label{l95}\label{l96}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными заклинаниями <<Огненный шар>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballExplosionMaxDamage}
+\item{\vskip -1.9ex 
+\membername{getFireballExplosionMaxDamage}
+{\tt public int {\bf getFireballExplosionMaxDamage}(  )
+\label{l97}\label{l98}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон <<Огненного шара>> в эпицентре взрыва.
+ \bl 
+ Живой юнит получает {\tt fireballExplosionMaxDamage} единиц урона, если расстояние от центра взрыва до
+ ближайшей точки этого юнита не превышает {\tt fireballExplosionMaxDamageRange}. По мере увеличения расстояния
+ до {\tt fireballExplosionMinDamageRange}, урон <<Огненного шара>> равномерно снижается и достигает
+ {\tt fireballExplosionMinDamage}. Если расстояние от центра взрыва до ближайшей точки живого юнита превышает
+ {\tt fireballExplosionMinDamageRange}, то урон ему не наносится.
+ \bl 
+ Если живой юнит получил какой-либо урон от взрыва <<Огненного шара>>, то он загорается ({\tt BURNING}). 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballExplosionMaxDamageRange}
+\item{\vskip -1.9ex 
+\membername{getFireballExplosionMaxDamageRange}
+{\tt public double {\bf getFireballExplosionMaxDamageRange}(  )
+\label{l99}\label{l100}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус области, в которой живые юниты получают максимальный урон от взрыва <<Огненного шара>>. 
+}%end item
+\item{{\bf See Also}
+  \begin{itemize}
+   \item{{\tt Game.getFireballExplosionMaxDamage()} {\small 
+\refdefined{l101}}%end \small
+}%end item
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballExplosionMinDamage}
+\item{\vskip -1.9ex 
+\membername{getFireballExplosionMinDamage}
+{\tt public int {\bf getFireballExplosionMinDamage}(  )
+\label{l102}\label{l103}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон <<Огненного шара>> на периферии взрыва. 
+}%end item
+\item{{\bf See Also}
+  \begin{itemize}
+   \item{{\tt Game.getFireballExplosionMaxDamage()} {\small 
+\refdefined{l101}}%end \small
+}%end item
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballExplosionMinDamageRange}
+\item{\vskip -1.9ex 
+\membername{getFireballExplosionMinDamageRange}
+{\tt public double {\bf getFireballExplosionMinDamageRange}(  )
+\label{l104}\label{l105}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус области, в которой живые юниты получают какой-либо урон от взрыва <<Огненного шара>>. 
+}%end item
+\item{{\bf See Also}
+  \begin{itemize}
+   \item{{\tt Game.getFireballExplosionMaxDamage()} {\small 
+\refdefined{l101}}%end \small
+}%end item
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballManacost}
+\item{\vskip -1.9ex 
+\membername{getFireballManacost}
+{\tt public int {\bf getFireballManacost}(  )
+\label{l106}\label{l107}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество магической энергии, требуемой для заклинания <<Огненный шар>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballRadius}
+\item{\vskip -1.9ex 
+\membername{getFireballRadius}
+{\tt public double {\bf getFireballRadius}(  )
+\label{l108}\label{l109}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус <<Огненного шара>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFireballSpeed}
+\item{\vskip -1.9ex 
+\membername{getFireballSpeed}
+{\tt public double {\bf getFireballSpeed}(  )
+\label{l110}\label{l111}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость полёта <<Огненного шара>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFriendlyFireDamageFactor}
+\item{\vskip -1.9ex 
+\membername{getFriendlyFireDamageFactor}
+{\tt public double {\bf getFriendlyFireDamageFactor}(  )
+\label{l112}\label{l113}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент урона, наносимого волшебниками одной фракции друг другу в результате
+ дружественного огня.
+ \bl 
+ Значение зависит от режима игры, но не может выходить за границы интервала от {\tt 0.0} до {\tt 1.0}.
+ \bl 
+ Вне зависимости от режима игры, волшебники не могут наносить урон союзным миньонам и структурам. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltCooldownTicks}
+{\tt public int {\bf getFrostBoltCooldownTicks}(  )
+\label{l114}\label{l115}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными заклинаниями <<Ледяная стрела>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltDirectDamage}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltDirectDamage}
+{\tt public int {\bf getFrostBoltDirectDamage}(  )
+\label{l116}\label{l117}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон <<Ледяной стрелы>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltManacost}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltManacost}
+{\tt public int {\bf getFrostBoltManacost}(  )
+\label{l118}\label{l119}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество магической энергии, требуемой для заклинания <<Ледяная стрела>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltRadius}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltRadius}
+{\tt public double {\bf getFrostBoltRadius}(  )
+\label{l120}\label{l121}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус <<Ледяной стрелы>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrostBoltSpeed}
+\item{\vskip -1.9ex 
+\membername{getFrostBoltSpeed}
+{\tt public double {\bf getFrostBoltSpeed}(  )
+\label{l122}\label{l123}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость полёта <<Ледяной стрелы>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFrozenDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getFrozenDurationTicks}
+{\tt public int {\bf getFrozenDurationTicks}(  )
+\label{l124}\label{l125}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность действия статуса {\tt FROZEN}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerAttackRange}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerAttackRange}
+{\tt public double {\bf getGuardianTowerAttackRange}(  )
+\label{l126}\label{l127}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра), на котором охранная башня может атаковать
+ другие объекты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerCooldownTicks}
+{\tt public int {\bf getGuardianTowerCooldownTicks}(  )
+\label{l128}\label{l129}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными атаками охранной башни. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerDamage}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerDamage}
+{\tt public int {\bf getGuardianTowerDamage}(  )
+\label{l130}\label{l131}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон одной атаки охранной башни. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerLife}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerLife}
+{\tt public double {\bf getGuardianTowerLife}(  )
+\label{l132}\label{l133}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает начальное значение жизненной энергии охранной башни. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerRadius}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerRadius}
+{\tt public double {\bf getGuardianTowerRadius}(  )
+\label{l134}\label{l135}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус охранной башни. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getGuardianTowerVisionRange}
+\item{\vskip -1.9ex 
+\membername{getGuardianTowerVisionRange}
+{\tt public double {\bf getGuardianTowerVisionRange}(  )
+\label{l136}\label{l137}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра), на котором охранная башня обнаруживает другие
+ объекты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHasteCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getHasteCooldownTicks}
+{\tt public int {\bf getHasteCooldownTicks}(  )
+\label{l138}\label{l139}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными заклинаниями <<Ускорение>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHasteManacost}
+\item{\vskip -1.9ex 
+\membername{getHasteManacost}
+{\tt public int {\bf getHasteManacost}(  )
+\label{l140}\label{l141}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество магической энергии, требуемой для заклинания <<Ускорение>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHastenedBonusDurationFactor}
+\item{\vskip -1.9ex 
+\membername{getHastenedBonusDurationFactor}
+{\tt public double {\bf getHastenedBonusDurationFactor}(  )
+\label{l142}\label{l143}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает мультилпикатор длительности действия статуса {\tt HASTENED} в случае подбора бонуса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHastenedDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getHastenedDurationTicks}
+{\tt public int {\bf getHastenedDurationTicks}(  )
+\label{l144}\label{l145}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность действия статуса {\tt HASTENED}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHastenedMovementBonusFactor}
+\item{\vskip -1.9ex 
+\membername{getHastenedMovementBonusFactor}
+{\tt public double {\bf getHastenedMovementBonusFactor}(  )
+\label{l146}\label{l147}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает относительное увеличение скорости перемещения в результате дествия статуса {\tt HASTENED}.
+ \bl 
+ Увеличение скорости от действия статуса {\tt HASTENED} и увеличение скорости в результате изучения умений,
+ являющихся пререквизитами умения {\tt HASTE}, являются аддитивными. Таким образом, максимальное значение
+ скорости волшебника составляет
+ {\tt 1.0 + 4.0 * movementBonusFactorPerSkillLevel + hastenedMovementBonusFactor} от базовой. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHastenedRotationBonusFactor}
+\item{\vskip -1.9ex 
+\membername{getHastenedRotationBonusFactor}
+{\tt public double {\bf getHastenedRotationBonusFactor}(  )
+\label{l148}\label{l149}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает относительное увеличение скорости поворота в результате дествия статуса {\tt HASTENED}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getLevelUpXpValues}
+\item{\vskip -1.9ex 
+\membername{getLevelUpXpValues}
+{\tt public int[] {\bf getLevelUpXpValues}(  )
+\label{l150}\label{l151}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает последовательность неотрицательных целых чисел.
+ \bl 
+ Количество чисел равно количеству уровней, которые волшебник может получить в данном режиме игры. Значение с
+ индексом {\tt N} определяет количество опыта, которое необходимо набрать волшебнику уровня {\tt N} для
+ получения следующего уровня. Таким образом, количество опыта, необходимое волшебнику начального уровня для
+ получения уровня {\tt N}, равно сумме первых {\tt N} элементов. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicalDamageAbsorptionPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getMagicalDamageAbsorptionPerSkillLevel}
+{\tt public int {\bf getMagicalDamageAbsorptionPerSkillLevel}(  )
+\label{l152}\label{l153}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсолютное уменьшение урона, получаемого волшебником в результате прямых попаданий магических
+ снарядов, взрыва <<Огненного шара>> и атак строений, за каждое последовательное изучение умения, являющегося
+ одним из пререквизитов умения {\tt SHIELD}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicalDamageBonusPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getMagicalDamageBonusPerSkillLevel}
+{\tt public int {\bf getMagicalDamageBonusPerSkillLevel}(  )
+\label{l154}\label{l155}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсолютное увеличение урона, наносимого волшебником в результате прямых попаданий магических
+ снарядов и взрыва <<Огненного шара>>, за каждое последовательное изучение умения, являющегося одним из
+ пререквизитов умения {\tt FROST\_BOLT}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileCooldownTicks}
+{\tt public int {\bf getMagicMissileCooldownTicks}(  )
+\label{l156}\label{l157}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными заклинаниями <<Магическая
+ ракета>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileDirectDamage}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileDirectDamage}
+{\tt public int {\bf getMagicMissileDirectDamage}(  )
+\label{l158}\label{l159}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон <<Магической ракеты>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileManacost}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileManacost}
+{\tt public int {\bf getMagicMissileManacost}(  )
+\label{l160}\label{l161}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество магической энергии, требуемой для заклинания <<Магическая ракета>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileRadius}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileRadius}
+{\tt public double {\bf getMagicMissileRadius}(  )
+\label{l162}\label{l163}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус <<Магической ракеты>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMagicMissileSpeed}
+\item{\vskip -1.9ex 
+\membername{getMagicMissileSpeed}
+{\tt public double {\bf getMagicMissileSpeed}(  )
+\label{l164}\label{l165}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость полёта <<Магической ракеты>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMapSize}
+\item{\vskip -1.9ex 
+\membername{getMapSize}
+{\tt public double {\bf getMapSize}(  )
+\label{l166}\label{l167}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает размер (ширину и высоту) карты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionDamageScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getMinionDamageScoreFactor}
+{\tt public double {\bf getMinionDamageScoreFactor}(  )
+\label{l168}\label{l169}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент опыта, получаемого волшебником при нанесении урона миньонам другой фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionEliminationScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getMinionEliminationScoreFactor}
+{\tt public double {\bf getMinionEliminationScoreFactor}(  )
+\label{l170}\label{l171}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент опыта, получаемого волшебником за уничтожение миньона другой фракции.
+ \bl 
+ Применяется к максимальному количеству жизненной энергии миньона. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionLife}
+\item{\vskip -1.9ex 
+\membername{getMinionLife}
+{\tt public int {\bf getMinionLife}(  )
+\label{l172}\label{l173}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное значение жизненной энергии миньона. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionMaxTurnAngle}
+\item{\vskip -1.9ex 
+\membername{getMinionMaxTurnAngle}
+{\tt public double {\bf getMinionMaxTurnAngle}(  )
+\label{l174}\label{l175}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ограничение на изменение угла поворота миньона за один тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionRadius}
+\item{\vskip -1.9ex 
+\membername{getMinionRadius}
+{\tt public double {\bf getMinionRadius}(  )
+\label{l176}\label{l177}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус миньона. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionSpeed}
+\item{\vskip -1.9ex 
+\membername{getMinionSpeed}
+{\tt public double {\bf getMinionSpeed}(  )
+\label{l178}\label{l179}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость миньона при движении вперёд.
+ \bl 
+ Миньонам недоступно использование других видов движения, а также перемещение со скоростью, отличной от указанной. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinionVisionRange}
+\item{\vskip -1.9ex 
+\membername{getMinionVisionRange}
+{\tt public double {\bf getMinionVisionRange}(  )
+\label{l180}\label{l181}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра), на котором миньон обнаруживает другие
+ объекты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMovementBonusFactorPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getMovementBonusFactorPerSkillLevel}
+{\tt public double {\bf getMovementBonusFactorPerSkillLevel}(  )
+\label{l182}\label{l183}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает относительное увеличение скорости перемещения за каждое последовательное изучение умения,
+ являющегося одним из пререквизитов умения {\tt HASTE}.
+ \bl 
+ Увеличение скорости от действия статуса {\tt HASTENED} и увеличение скорости в результате изучения умений,
+ являющихся пререквизитами умения {\tt HASTE}, являются аддитивными. Таким образом, максимальное значение
+ скорости волшебника составляет
+ {\tt 1.0 + 4.0 * movementBonusFactorPerSkillLevel + hastenedMovementBonusFactor} от базовой. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOrcWoodcutterActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getOrcWoodcutterActionCooldownTicks}
+{\tt public int {\bf getOrcWoodcutterActionCooldownTicks}(  )
+\label{l184}\label{l185}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными атаками орка-дровосека. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOrcWoodcutterAttackRange}
+\item{\vskip -1.9ex 
+\membername{getOrcWoodcutterAttackRange}
+{\tt public double {\bf getOrcWoodcutterAttackRange}(  )
+\label{l186}\label{l187}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает дальность действия топора орка.
+ \bl 
+ Атака топором поражает все живые объекты, для каждого из которых верно, что расстояние от его центра до центра
+ орка-дровосека не превышает значение {\tt orcWoodcutterAttackRange + livingUnit.radius}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOrcWoodcutterAttackSector}
+\item{\vskip -1.9ex 
+\membername{getOrcWoodcutterAttackSector}
+{\tt public double {\bf getOrcWoodcutterAttackSector}(  )
+\label{l188}\label{l189}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает сектор действия топора орка.
+ \bl 
+ Атака топором поражает все живые объекты в секторе от {\tt -orcWoodcutterAttackSector $/$ 2.0} до
+ {\tt orcWoodcutterAttackSector $/$ 2.0}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOrcWoodcutterDamage}
+\item{\vskip -1.9ex 
+\membername{getOrcWoodcutterDamage}
+{\tt public int {\bf getOrcWoodcutterDamage}(  )
+\label{l190}\label{l191}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон одной атаки орка-дровосека. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRandomSeed}
+\item{\vskip -1.9ex 
+\membername{getRandomSeed}
+{\tt public long {\bf getRandomSeed}(  )
+\label{l192}\label{l193}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает некоторое число, которое ваша стратегия может использовать для инициализации генератора
+ случайных чисел. Данное значение имеет рекомендательный характер, однако позволит более точно воспроизводить
+ прошедшие игры. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRangeBonusPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getRangeBonusPerSkillLevel}
+{\tt public double {\bf getRangeBonusPerSkillLevel}(  )
+\label{l194}\label{l195}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсолютное увеличение дальности заклинаний волшебника за каждое последовательное изучение
+ умения, являющегося одним из пререквизитов умения {\tt ADVANCED\_MAGIC\_MISSILE}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRawMessageMaxLength}
+\item{\vskip -1.9ex 
+\membername{getRawMessageMaxLength}
+{\tt public int {\bf getRawMessageMaxLength}(  )
+\label{l196}\label{l197}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимально возможную длину низкоуровневого сообщения.
+ \bl 
+ Сообщения, длина которых превышает указанное значение, будут проигнорированы. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRawMessageTransmissionSpeed}
+\item{\vskip -1.9ex 
+\membername{getRawMessageTransmissionSpeed}
+{\tt public double {\bf getRawMessageTransmissionSpeed}(  )
+\label{l198}\label{l199}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает скорость отправки сообщения.
+ \bl 
+ Если текстовая часть сообщения пуста, то адресат получит его уже в следующий игровой тик. В противном случае,
+ момент получения сообщения будет отложен на {\tt ceil(message.rawMessage.length $/$ rawMessageTransmissionSpeed)}
+ игровых тиков. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getScoreGainRange}
+\item{\vskip -1.9ex 
+\membername{getScoreGainRange}
+{\tt public double {\bf getScoreGainRange}(  )
+\label{l200}\label{l201}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние, на котором волшебник получает опыт при уничтожении союзником юнита
+ другой фракции.
+ \bl 
+ При уничтожении противника опыт равномерно распределяется между всеми волшебниками, находящимися на расстоянии от
+ цели, на превышающем {\tt scoreGainRange}, а также юнитом, нанёсшим урон, если это тоже волшебник.
+ \bl 
+ При нанесении противнику урона, не приводящему к уничтожению юнита, данный параметр не применяется, а опыт
+ полностью достаётся атакующему волшебнику. В случае атаки миньона или строения опыт не достаётся никому.
+ \bl 
+ Учитывается расстояние между центрами юнитов. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getShieldCooldownTicks}
+{\tt public int {\bf getShieldCooldownTicks}(  )
+\label{l202}\label{l203}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными заклинаниями <<Щит>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldedBonusDurationFactor}
+\item{\vskip -1.9ex 
+\membername{getShieldedBonusDurationFactor}
+{\tt public double {\bf getShieldedBonusDurationFactor}(  )
+\label{l204}\label{l205}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает мультилпикатор длительности действия статуса {\tt SHIELDED} в случае подбора бонуса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldedDirectDamageAbsorptionFactor}
+\item{\vskip -1.9ex 
+\membername{getShieldedDirectDamageAbsorptionFactor}
+{\tt public double {\bf getShieldedDirectDamageAbsorptionFactor}(  )
+\label{l206}\label{l207}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает часть урона, поглощаемую щитом.
+ \bl 
+ Снижение урона применяется к ударам в ближнем бою, прямым попаданиям снарядов, а также взрыву <<Огненного шара>>,
+ но не применяется к урону, получаемому от статусов. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldedDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getShieldedDurationTicks}
+{\tt public int {\bf getShieldedDurationTicks}(  )
+\label{l208}\label{l209}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает длительность действия статуса {\tt SHIELDED}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getShieldManacost}
+\item{\vskip -1.9ex 
+\membername{getShieldManacost}
+{\tt public int {\bf getShieldManacost}(  )
+\label{l210}\label{l211}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество магической энергии, требуемой для заклинания <<Щит>>. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getStaffCooldownTicks}
+{\tt public int {\bf getStaffCooldownTicks}(  )
+\label{l212}\label{l213}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между двумя последовательными ударами посохом. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffDamage}
+\item{\vskip -1.9ex 
+\membername{getStaffDamage}
+{\tt public int {\bf getStaffDamage}(  )
+\label{l214}\label{l215}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовый урон удара посохом.
+ \bl 
+ Эффективный урон может быть выше в результате действия некоторых аур и$/$или изучения волшебником некоторых
+ умений. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffDamageBonusPerSkillLevel}
+\item{\vskip -1.9ex 
+\membername{getStaffDamageBonusPerSkillLevel}
+{\tt public int {\bf getStaffDamageBonusPerSkillLevel}(  )
+\label{l216}\label{l217}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает абсолютное увеличение урона, наносимого волшебником в ближнем бою, за каждое последовательное
+ изучение умения, являющегося одним из пререквизитов умения {\tt FIREBALL}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffRange}
+\item{\vskip -1.9ex 
+\membername{getStaffRange}
+{\tt public double {\bf getStaffRange}(  )
+\label{l218}\label{l219}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает дальность действия посоха волшебника.
+ \bl 
+ Атака посохом поражает все живые объекты, для каждого из которых верно, что расстояние от его центра до центра
+ волшебника не превышает значение {\tt staffRange + livingUnit.radius}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStaffSector}
+\item{\vskip -1.9ex 
+\membername{getStaffSector}
+{\tt public double {\bf getStaffSector}(  )
+\label{l220}\label{l221}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает сектор действия посоха волшебника.
+ \bl 
+ Атака посохом поражает все живые объекты в секторе от {\tt -staffSector $/$ 2.0} до {\tt staffSector $/$ 2.0}.
+ Этим же интервалом ограничены относительный угол снаряда, а также зона применения магического статуса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTeamWorkingScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getTeamWorkingScoreFactor}
+{\tt public double {\bf getTeamWorkingScoreFactor}(  )
+\label{l222}\label{l223}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает мультипликатор опыта, применяемый в случае уничтожения юнита противника при участии двух или
+ более волшебников.
+ \bl 
+ После применения мультипликатора количество опыта округляется вниз до ближайшего целого значения. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTickCount}
+\item{\vskip -1.9ex 
+\membername{getTickCount}
+{\tt public int {\bf getTickCount}(  )
+\label{l224}\label{l225}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовую длительность игры в тиках. Реальная длительность может отличаться от этого значения в
+ меньшую сторону. Эквивалентно {\tt world.tickCount}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVictoryScore}
+\item{\vskip -1.9ex 
+\membername{getVictoryScore}
+{\tt public int {\bf getVictoryScore}(  )
+\label{l226}\label{l227}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество баллов, получаемых всеми игроками фракции в случае победы --- разрушения базы
+ противоположной фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getWizardActionCooldownTicks}
+{\tt public int {\bf getWizardActionCooldownTicks}(  )
+\label{l228}\label{l229}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку между любыми двумя последовательными действиями волшебника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBackwardSpeed}
+\item{\vskip -1.9ex 
+\membername{getWizardBackwardSpeed}
+{\tt public double {\bf getWizardBackwardSpeed}(  )
+\label{l230}\label{l231}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовое ограничение скорости волшебника при движении назад.
+ \bl 
+ Эффективное ограничение может быть выше в результате действия некоторых аур и$/$или изучения волшебником некоторых
+ умений, а также в результате действия статуса {\tt HASTENED}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBaseLife}
+\item{\vskip -1.9ex 
+\membername{getWizardBaseLife}
+{\tt public int {\bf getWizardBaseLife}(  )
+\label{l232}\label{l233}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное значение жизненной энергии волшебника на уровне {\tt 0}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBaseLifeRegeneration}
+\item{\vskip -1.9ex 
+\membername{getWizardBaseLifeRegeneration}
+{\tt public double {\bf getWizardBaseLifeRegeneration}(  )
+\label{l234}\label{l235}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество жизненной энергии, которое волшебник уровня {\tt 0} восстанавливает за один тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBaseMana}
+\item{\vskip -1.9ex 
+\membername{getWizardBaseMana}
+{\tt public int {\bf getWizardBaseMana}(  )
+\label{l236}\label{l237}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное значение магической энергии волшебника на уровне {\tt 0}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardBaseManaRegeneration}
+\item{\vskip -1.9ex 
+\membername{getWizardBaseManaRegeneration}
+{\tt public double {\bf getWizardBaseManaRegeneration}(  )
+\label{l238}\label{l239}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество магической энергии, которое волшебник уровня {\tt 0} восстанавливает за один тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardCastRange}
+\item{\vskip -1.9ex 
+\membername{getWizardCastRange}
+{\tt public double {\bf getWizardCastRange}(  )
+\label{l240}\label{l241}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовую дальность заклинаний волшебника.
+ \bl 
+ Эффективная дальность ({\tt wizard.castRange}) может быть выше в результате действия некоторых аур и$/$или
+ изучения волшебником некоторых умений. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardDamageScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getWizardDamageScoreFactor}
+{\tt public double {\bf getWizardDamageScoreFactor}(  )
+\label{l242}\label{l243}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент опыта, получаемого волшебником при нанесении урона волшебникам противоположной
+ фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardEliminationScoreFactor}
+\item{\vskip -1.9ex 
+\membername{getWizardEliminationScoreFactor}
+{\tt public double {\bf getWizardEliminationScoreFactor}(  )
+\label{l244}\label{l245}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает коэффициент опыта, получаемого волшебником за разрушение телесной оболочки волшебника
+ противоположной фракции.
+ \bl 
+ Применяется к максимальному количеству жизненной энергии волшебника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardForwardSpeed}
+\item{\vskip -1.9ex 
+\membername{getWizardForwardSpeed}
+{\tt public double {\bf getWizardForwardSpeed}(  )
+\label{l246}\label{l247}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовое ограничение скорости волшебника при движении вперёд.
+ \bl 
+ Эффективное ограничение может быть выше в результате действия некоторых аур и$/$или изучения волшебником некоторых
+ умений, а также в результате действия статуса {\tt HASTENED}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardLifeGrowthPerLevel}
+\item{\vskip -1.9ex 
+\membername{getWizardLifeGrowthPerLevel}
+{\tt public int {\bf getWizardLifeGrowthPerLevel}(  )
+\label{l248}\label{l249}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает прирост жизненной энергии волшебника за уровень. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardLifeRegenerationGrowthPerLevel}
+\item{\vskip -1.9ex 
+\membername{getWizardLifeRegenerationGrowthPerLevel}
+{\tt public double {\bf getWizardLifeRegenerationGrowthPerLevel}(  )
+\label{l250}\label{l251}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает прирост скорости регенерации жизненной энергии волшебника за один уровень. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardManaGrowthPerLevel}
+\item{\vskip -1.9ex 
+\membername{getWizardManaGrowthPerLevel}
+{\tt public int {\bf getWizardManaGrowthPerLevel}(  )
+\label{l252}\label{l253}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает прирост магической энергии волшебника за уровень. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardManaRegenerationGrowthPerLevel}
+\item{\vskip -1.9ex 
+\membername{getWizardManaRegenerationGrowthPerLevel}
+{\tt public double {\bf getWizardManaRegenerationGrowthPerLevel}(  )
+\label{l254}\label{l255}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает прирост скорости регенерации магической энергии волшебника за один уровень. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardMaxResurrectionDelayTicks}
+\item{\vskip -1.9ex 
+\membername{getWizardMaxResurrectionDelayTicks}
+{\tt public int {\bf getWizardMaxResurrectionDelayTicks}(  )
+\label{l256}\label{l257}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимально возможную задержку возрождения волшебника после смерти его телесной оболочки.
+ \bl 
+ Если волшебник погибает сразу после своего возрождения, то он будет автоматически воскрешён на своей начальной
+ позиции (или недалеко от неё, если это невозможно) через {\tt wizardMaxResurrectionDelayTicks} тиков. Каждый
+ игровой тик жизни волшебника уменьшшает эту задержку на единицу. Задержка возрождения не может стать меньше, чем
+ {\tt wizardMinResurrectionDelayTicks}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardMaxTurnAngle}
+\item{\vskip -1.9ex 
+\membername{getWizardMaxTurnAngle}
+{\tt public double {\bf getWizardMaxTurnAngle}(  )
+\label{l258}\label{l259}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовое ограничение на изменение угла поворота волшебника за один тик.
+ \bl 
+ Эффективное ограничение может быть выше в {\tt 1.0 + hastenedRotationBonusFactor} раз в результате действия
+ статуса {\tt HASTENED}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardMinResurrectionDelayTicks}
+\item{\vskip -1.9ex 
+\membername{getWizardMinResurrectionDelayTicks}
+{\tt public int {\bf getWizardMinResurrectionDelayTicks}(  )
+\label{l260}\label{l261}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает минимально возможную задержку возрождения волшебника после смерти его телесной оболочки.
+ \bl 
+ Если волшебник погибает сразу после своего возрождения, то он будет автоматически воскрешён на своей начальной
+ позиции (или недалеко от неё, если это невозможно) через {\tt wizardMaxResurrectionDelayTicks} тиков. Каждый
+ игровой тик жизни волшебника уменьшшает эту задержку на единицу. Задержка возрождения не может стать меньше, чем
+ {\tt wizardMinResurrectionDelayTicks}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardRadius}
+\item{\vskip -1.9ex 
+\membername{getWizardRadius}
+{\tt public double {\bf getWizardRadius}(  )
+\label{l262}\label{l263}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус волшебника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardStrafeSpeed}
+\item{\vskip -1.9ex 
+\membername{getWizardStrafeSpeed}
+{\tt public double {\bf getWizardStrafeSpeed}(  )
+\label{l264}\label{l265}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовое ограничение скорости волшебника при движении боком.
+ \bl 
+ Эффективное ограничение может быть выше в результате действия некоторых аур и$/$или изучения волшебником некоторых
+ умений, а также в результате действия статуса {\tt HASTENED}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardVisionRange}
+\item{\vskip -1.9ex 
+\membername{getWizardVisionRange}
+{\tt public double {\bf getWizardVisionRange}(  )
+\label{l266}\label{l267}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра), на котором волшебник обнаруживает другие
+ объекты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isRawMessagesEnabled}
+\item{\vskip -1.9ex 
+\membername{isRawMessagesEnabled}
+{\tt public boolean {\bf isRawMessagesEnabled}(  )
+\label{l268}\label{l269}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true}, если и только если верховные волшебники в данной игре могут передавать
+ низкоуровневые сообщения другим волшебникам своей фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isSkillsEnabled}
+\item{\vskip -1.9ex 
+\membername{isSkillsEnabled}
+{\tt public boolean {\bf isSkillsEnabled}(  )
+\label{l270}\label{l271}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true}, если и только если в данной игре волшебники могут повышать свой уровень
+ (накапливая опыт) и изучать новые умения. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{LaneType}{l8}{%
+{\small Тип дорожки.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+LaneType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final LaneType TOP\begin{itemize}\item{\vskip -.9ex Верхняя. Проходит через левый нижний, левый верхний и правый верхний углы карты.}\end{itemize}
+}
+\item{
+public static final LaneType MIDDLE\begin{itemize}\item{\vskip -.9ex Центральная. Напрямую соединяет левый нижний и правый верхний углы карты.}\end{itemize}
+}
+\item{
+public static final LaneType BOTTOM\begin{itemize}\item{\vskip -.9ex Нижняя. Проходит через левый нижний, правый нижний и правый верхний углы карты.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{LivingUnit}{l9}{%
+{\small Класс, определяющий живого юнита круглой формы.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public abstract 
+class 
+LivingUnit}}
+\noindent\hbox{\vbox{{\bf extends} CircularUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{LivingUnit}
+% {\tt protected {\bf LivingUnit}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses} )
+% \label{l272}\label{l273}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+\label{l274}\label{l275}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+\label{l276}\label{l277}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+\label{l278}\label{l279}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает магические статусы, влияющие на живого юнита. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Message}{l10}{%
+{\small Класс определяет сообщение, которое верховный волшебник ({\tt wizard.master}) может отправлять другим членам
+ фракции, используя телепатическую связь.
+ \bl 
+ Сообщение отправляется персонально каждому волшебнику. Другие волшебники не могут его перехватить.
+ \bl 
+ Адресат получает сообщение в следующий игровой тик или позднее, в зависимости от размера сообщения.
+ \bl 
+ Волшебник волен проигнорировать как любую отдельную часть сообщения, так и всё сообщение целиком, однако это может
+ привести к поражению дружественной фракции.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Message}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Message}
+% {\tt public {\bf Message}( {\tt LaneType } {\bf lane},
+% {\tt SkillType } {\bf skillToLearn},
+% {\tt byte[]} {\bf rawMessage} )
+% \label{l280}\label{l281}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLane}
+{\tt public LaneType {\bf getLane}(  )
+\label{l282}\label{l283}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает указание контролировать определённую дорожку. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRawMessage}
+\item{\vskip -1.9ex 
+\membername{getRawMessage}
+{\tt public byte[] {\bf getRawMessage}(  )
+\label{l284}\label{l285}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текстовое сообщение на забытом древнем языке.
+ \bl 
+ Максимальная длина сообщения составляет {\tt game.rawMessageMaxLength}. При этом, скорость отправки сообщения
+ зависит от его длины. Если текстовая часть сообщения пуста, то адресат получит его уже в следующий игровой тик.
+ В противном случае, момент получения сообщения будет отложен на
+ {\tt ceil(rawMessage.length $/$ game.rawMessageTransmissionSpeed)} игровых тиков.
+ \bl 
+ Значение поля может быть доступно не во всех режимах игры. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSkillToLearn}
+\item{\vskip -1.9ex 
+\membername{getSkillToLearn}
+{\tt public SkillType {\bf getSkillToLearn}(  )
+\label{l286}\label{l287}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает указание изучить какое-либо умение.
+ \bl 
+ Умение может требовать предварительного изучения других умений или быть недоступно для изучения в данный момент в
+ связи с низким уровнем волшебника. Волшебнику рекомендуется запомнить указание и двигаться в направлении его
+ реализации. При этом, более позднее указание должно считаться более приоритетным.
+ \bl 
+ Значение поля может быть доступно не во всех режимах игры. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Minion}{l11}{%
+{\small Класс, определяющий приспешника волшебника одной из фракций. Содержит также все свойства живого юнита.
+ \bl 
+ Миньоны, оставшиеся по той или иной причине без хозяина, часто объединяются в небольшие группы и селятся в лесах.
+ Они крайне настороженно относятся ко всем другим волшебникам и их миньонам.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Minion}}
+\noindent\hbox{\vbox{{\bf extends} LivingUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Minion}
+% {\tt public {\bf Minion}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses},
+% {\tt MinionType } {\bf type},
+% {\tt double } {\bf visionRange},
+% {\tt int } {\bf damage},
+% {\tt int } {\bf cooldownTicks},
+% {\tt int } {\bf remainingActionCooldownTicks} )
+% \label{l288}\label{l289}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getCooldownTicks}
+{\tt public int {\bf getCooldownTicks}(  )
+\label{l290}\label{l291}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает интервал между атаками. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDamage}
+\item{\vskip -1.9ex 
+\membername{getDamage}
+{\tt public int {\bf getDamage}(  )
+\label{l292}\label{l293}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает урон одной атаки. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingActionCooldownTicks}
+{\tt public int {\bf getRemainingActionCooldownTicks}(  )
+\label{l294}\label{l295}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество тиков, оставшееся до следующей атаки. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public MinionType {\bf getType}(  )
+\label{l296}\label{l297}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает тип миньона. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVisionRange}
+\item{\vskip -1.9ex 
+\membername{getVisionRange}
+{\tt public double {\bf getVisionRange}(  )
+\label{l298}\label{l299}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра),
+ на котором данный миньон обнаруживает другие объекты. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt LivingUnit}}{
+\par{\small 
+\refdefined{l9}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает магические статусы, влияющие на живого юнита. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{MinionType}{l12}{%
+{\small Тип приспешника.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+MinionType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final MinionType ORC\_WOODCUTTER\begin{itemize}\item{\vskip -.9ex Боец ближнего боя и, по совместительству, мастер на все руки. Помогает волшебнику в хозяйстве.
+ \bl 
+ Не так силён, как воин орков, но для потерявшего бдительность противника может быть весьма опасен.}\end{itemize}
+}
+\item{
+public static final MinionType FETISH\_BLOWDART\begin{itemize}\item{\vskip -.9ex Магическое создание, поражающее противников хозяина острыми дротиками. В мирное время занимается охотой.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Move}{l13}{%
+{\small Стратегия игрока может управлять волшебником посредством установки свойств объекта данного класса.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Move}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Move}
+% {\tt public {\bf Move}(  )
+% \label{l300}\label{l301}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAction}
+{\tt public ActionType {\bf getAction}(  )
+\label{l302}\label{l303}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее действие волшебника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getCastAngle}
+\item{\vskip -1.9ex 
+\membername{getCastAngle}
+{\tt public double {\bf getCastAngle}(  )
+\label{l304}\label{l305}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущий угол полёта магического снаряда. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxCastDistance}
+\item{\vskip -1.9ex 
+\membername{getMaxCastDistance}
+{\tt public double {\bf getMaxCastDistance}(  )
+\label{l306}\label{l307}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущую установку для дальней границы боевого применения магического снаряда. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMessages}
+\item{\vskip -1.9ex 
+\membername{getMessages}
+{\tt public Message[] {\bf getMessages}(  )
+\label{l308}\label{l309}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущие сообщения для волшебников дружественной фракции. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinCastDistance}
+\item{\vskip -1.9ex 
+\membername{getMinCastDistance}
+{\tt public double {\bf getMinCastDistance}(  )
+\label{l310}\label{l311}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущую установку для ближней границы боевого применения магического снаряда. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSkillToLearn}
+\item{\vskip -1.9ex 
+\membername{getSkillToLearn}
+{\tt public SkillType {\bf getSkillToLearn}(  )
+\label{l312}\label{l313}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает выбранное для изучения умение. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeed}
+\item{\vskip -1.9ex 
+\membername{getSpeed}
+{\tt public double {\bf getSpeed}(  )
+\label{l314}\label{l315}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущую установку скорости перемещения. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatusTargetId}
+\item{\vskip -1.9ex 
+\membername{getStatusTargetId}
+{\tt public long {\bf getStatusTargetId}(  )
+\label{l316}\label{l317}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор текущей цели для применения магического статуса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStrafeSpeed}
+\item{\vskip -1.9ex 
+\membername{getStrafeSpeed}
+{\tt public double {\bf getStrafeSpeed}(  )
+\label{l318}\label{l319}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущую установку скорости перемещения боком. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTurn}
+\item{\vskip -1.9ex 
+\membername{getTurn}
+{\tt public double {\bf getTurn}(  )
+\label{l320}\label{l321}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущий угол поворота волшебника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{setAction}
+\item{\vskip -1.9ex 
+\membername{setAction}
+{\tt public void {\bf setAction}( {\tt ActionType } {\bf action} )
+\label{l322}\label{l323}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает действие волшебника.
+ \bl 
+ Действие может быть проигнорировано игровым симулятором, если у волшебника недостаточно магической энергии для
+ его совершения и$/$или волшебник ещё не успел восстановиться после предыдущего действия.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setCastAngle}
+\item{\vskip -1.9ex 
+\membername{setCastAngle}
+{\tt public void {\bf setCastAngle}( {\tt double } {\bf castAngle} )
+\label{l324}\label{l325}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает угол полёта магического снаряда.
+ \bl 
+ Угол полёта задаётся в радианах относительно текущего направления волшебника и ограничен интервалом от
+ {\tt -game.staffSector $/$ 2.0} до {\tt game.staffSector $/$ 2.0}.
+ \bl 
+ Значения, выходящие за интервал, будут приведены к ближайшей его границе.
+ Положительные значения соответствуют повороту по часовой стрелке.
+ \bl 
+ Параметр будет проигнорирован игровым симулятором, если действие волшебника не связано с созданием магического
+ снаряда.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setMaxCastDistance}
+\item{\vskip -1.9ex 
+\membername{setMaxCastDistance}
+{\tt public void {\bf setMaxCastDistance}( {\tt double } {\bf maxCastDistance} )
+\label{l326}\label{l327}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает дальнюю границу боевого применения магического снаряда.
+ \bl 
+ Если расстояние от центра снаряда до точки его появления больше, чем значение данного параметра, то снаряд
+ убирается из игрового мира. При этом, снаряд типа {\tt FIREBALL} детонирует.
+ \bl 
+ Значение параметра по умолчанию заведомо выше максимальной дальности полёта любого типа снарядов в игре.
+ \bl 
+ Параметр будет проигнорирован игровым симулятором, если действие волшебника не связано с созданием магического
+ снаряда.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setMessages}
+\item{\vskip -1.9ex 
+\membername{setMessages}
+{\tt public void {\bf setMessages}( {\tt Message[]} {\bf messages} )
+\label{l328}\label{l329}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает сообщения для волшебников дружественной фракции.
+ \bl 
+ Доступно для использования только верховному волшебнику ({\tt wizard.master}). Если используется, количество
+ сообщений должно быть строго равно количеству волшебников дружественной фракции (живых или ожидающих возрождения)
+ за исключением самого верховного волшебника. Нарушение данных условий может привести к игнорированию параметра
+ игровым симулятором или даже к обрыву соединения со стратегией участника.
+ \bl 
+ Сообщения адресуются в порядке возрастания идентификаторов волшебников. Отдельные сообщения могут быть пустыми
+ (равны {\tt null}), если это поддерживается языком программирования, который использует стратегия. В противном
+ случае все элементы должны быть корректными сообщениями.
+ \bl 
+ Игровой симулятор вправе проигнорировать сообщение конкретному волшебнику, если для него в системе уже
+ зарегистрировано и ещё им не получено другое сообщение. Если в тик получения сообщения волшебник мёртв, то
+ данное сообщение будет удалено из игрового мира и волшебник никогда его не получит.
+ \bl 
+ Отправка сообщений доступна не во всех режимах игры.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setMinCastDistance}
+\item{\vskip -1.9ex 
+\membername{setMinCastDistance}
+{\tt public void {\bf setMinCastDistance}( {\tt double } {\bf minCastDistance} )
+\label{l330}\label{l331}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает ближнюю границу боевого применения магического снаряда.
+ \bl 
+ Если расстояние от центра снаряда до точки его появления меньше, чем значение данного параметра, то боевые
+ свойства снаряда игнорируются. Снаряд беспрепятственно проходит сквозь все другие игровые объекты, за исключением
+ деревьев.
+ \bl 
+ Значение параметра по умолчанию равно {\tt 0.0}. Столкновения снаряда и юнита, который его создал,
+ игнорируются.
+ \bl 
+ Параметр будет проигнорирован игровым симулятором, если действие волшебника не связано с созданием магического
+ снаряда.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setSkillToLearn}
+\item{\vskip -1.9ex 
+\membername{setSkillToLearn}
+{\tt public void {\bf setSkillToLearn}( {\tt SkillType } {\bf skillToLearn} )
+\label{l332}\label{l333}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Задаёт установку изучить указанное умение до начала следующего игрового тика.
+ \bl 
+ Установка будет проигнорирована игровым симулятором, если текущий уровень волшебника меньше либо равен количеству
+ уже изученных умений. Некоторые умения также могут требовать предварительного изучения других умений.
+ \bl 
+ Изучение умений доступно не во всех режимах игры.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setSpeed}
+\item{\vskip -1.9ex 
+\membername{setSpeed}
+{\tt public void {\bf setSpeed}( {\tt double } {\bf speed} )
+\label{l334}\label{l335}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Задаёт установку скорости перемещения на один тик.
+ \bl 
+ Установка скорости перемещения по умолчанию лежит в интервале от {\tt -game.wizardBackwardSpeed} до
+ {\tt game.wizardForwardSpeed}, однако границы интервала могут быть расширены в зависимости от изученных
+ волшебником умений, от действия некоторых аур, а также в случае действия статуса {\tt HASTENED}.
+ \bl 
+ Значения, выходящие за интервал, будут приведены к ближайшей его границе.
+ Положительные значения соответствуют движению вперёд.
+ \bl 
+ Если {\tt hypot(speed $/$ maxSpeed, strafeSpeed $/$ maxStrafeSpeed)} больше {\tt 1.0}, то обе установки скорости
+ перемещения ({\tt speed} и {\tt strafeSpeed}) будут поделены игровым симулятором на это значение.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setStatusTargetId}
+\item{\vskip -1.9ex 
+\membername{setStatusTargetId}
+{\tt public void {\bf setStatusTargetId}( {\tt long } {\bf statusTargetId} )
+\label{l336}\label{l337}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает идентификатор цели для применения магического статуса.
+ \bl 
+ Допустимыми целями являются только волшебники дружественной фракции. Если волшебник с указанным идентификатором
+ не найден, то статус применяется непосредственно к волшебнику, совершающему действие. Относительный угол до цели
+ должен лежать в интервале от {\tt -game.staffSector $/$ 2.0} до {\tt game.staffSector $/$ 2.0}, а максимальная
+ дистанция ограничена дальностью полёта магического снаряда этого волшебника. Её базовое значение равно
+ {\tt game.wizardCastRange}, однако оно может быть увеличено после изучения некоторых умений.
+ \bl 
+ Значение параметра по умолчанию равно {\tt -1}.
+ \bl 
+ Параметр будет проигнорирован игровым симулятором, если действие волшебника не связано с применением магического
+ статуса.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setStrafeSpeed}
+\item{\vskip -1.9ex 
+\membername{setStrafeSpeed}
+{\tt public void {\bf setStrafeSpeed}( {\tt double } {\bf strafeSpeed} )
+\label{l338}\label{l339}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Задаёт установку скорости перемещения боком на один тик.
+ \bl 
+ Установка скорости перемещения по умолчанию лежит в интервале от {\tt -game.wizardStrafeSpeed} до
+ {\tt game.wizardStrafeSpeed}, однако границы интервала могут быть расширены в зависимости от изученных
+ волшебником умений, от действия некоторых аур, а также в случае действия статуса {\tt HASTENED}.
+ \bl 
+ Значения, выходящие за интервал, будут приведены к ближайшей его границе.
+ Положительные значения соответствуют движению направо.
+ \bl 
+ Если {\tt hypot(speed $/$ maxSpeed, strafeSpeed $/$ maxStrafeSpeed)} больше {\tt 1.0}, то обе установки скорости
+ перемещения ({\tt speed} и {\tt strafeSpeed}) будут поделены игровым симулятором на это значение.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\divideents{setTurn}
+\item{\vskip -1.9ex 
+\membername{setTurn}
+{\tt public void {\bf setTurn}( {\tt double } {\bf turn} )
+\label{l340}\label{l341}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Устанавливает угол поворота волшебника.
+ 
+% Removed by DocsPostProcessor:
+% \textless p$/$\textgreater
+% \\ Removed by DocsPostProcessor.
+ 
+ Угол поворота задаётся в радианах относительно текущего направления волшебника и обычно ограничен интервалом от
+ {\tt -game.wizardMaxTurnAngle} до {\tt game.wizardMaxTurnAngle}. Если на волшебника действует магический
+ статус {\tt HASTENED}, то нижнюю и правую границу интервала необходимо умножить на
+ {\tt 1.0 + game.hastenedRotationBonusFactor}.
+ \bl 
+ Значения, выходящие за интервал, будут приведены к ближайшей его границе.
+ Положительные значения соответствуют повороту по часовой стрелке.
+}%end item
+  \end{itemize}
+}
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Player}{l14}{%
+{\small Содержит данные о текущем состоянии игрока.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Player}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Player}
+% {\tt public {\bf Player}( {\tt long } {\bf id},
+% {\tt boolean } {\bf me},
+% {\tt String } {\bf name},
+% {\tt boolean } {\bf strategyCrashed},
+% {\tt int } {\bf score},
+% {\tt Faction } {\bf faction} )
+% \label{l342}\label{l343}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+\label{l344}\label{l345}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный игрок. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+\label{l346}\label{l347}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор игрока. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getName}
+\item{\vskip -1.9ex 
+\membername{getName}
+{\tt public String {\bf getName}(  )
+\label{l348}\label{l349}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает имя игрока. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getScore}
+\item{\vskip -1.9ex 
+\membername{getScore}
+{\tt public int {\bf getScore}(  )
+\label{l350}\label{l351}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество баллов, набранное игроком. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isMe}
+\item{\vskip -1.9ex 
+\membername{isMe}
+{\tt public boolean {\bf isMe}(  )
+\label{l352}\label{l353}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true} в том и только в том случае, если этот игрок ваш. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isStrategyCrashed}
+\item{\vskip -1.9ex 
+\membername{isStrategyCrashed}
+{\tt public boolean {\bf isStrategyCrashed}(  )
+\label{l354}\label{l355}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает специальный флаг --- показатель того, что стратегия игрока <<упала>>.
+ Более подробную информацию можно найти в документации к игре. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Projectile}{l15}{%
+{\small Класс, определяющий снаряд. Содержит также все свойства круглого юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Projectile}}
+\noindent\hbox{\vbox{{\bf extends} CircularUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Projectile}
+% {\tt public {\bf Projectile}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt ProjectileType } {\bf type},
+% {\tt long } {\bf ownerUnitId},
+% {\tt long } {\bf ownerPlayerId} )
+% \label{l356}\label{l357}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getOwnerPlayerId}
+{\tt public long {\bf getOwnerPlayerId}(  )
+\label{l358}\label{l359}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор игрока, юнит которого создал данный снаряд или {\tt -1}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOwnerUnitId}
+\item{\vskip -1.9ex 
+\membername{getOwnerUnitId}
+{\tt public long {\bf getOwnerUnitId}(  )
+\label{l360}\label{l361}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор юнита, создавшего данный снаряд. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public ProjectileType {\bf getType}(  )
+\label{l362}\label{l363}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает тип снаряда. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{ProjectileType}{l16}{%
+{\small Тип снаряда.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+ProjectileType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final ProjectileType MAGIC\_MISSILE\begin{itemize}\item{\vskip -.9ex Магическая ракета. Небольшой сгусток чистой энергии, который наносит урон при прямом попадании.}\end{itemize}
+}
+\item{
+public static final ProjectileType FROST\_BOLT\begin{itemize}\item{\vskip -.9ex Ледяная стрела. Наносит урон при прямом попадании, а также замораживает цель на {\tt game.frozenDurationTicks}
+ тиков. Замороженная цель не может перемещаться и совершать какие-либо действия.}\end{itemize}
+}
+\item{
+public static final ProjectileType FIREBALL\begin{itemize}\item{\vskip -.9ex Огненный шар. Взрывается при достижении максимальной дальности полёта или при столкновении с живым объектом.
+ Наносит урон всем живым объектам, если расстояние от центра шара до центра объекта не превышает
+ {\tt game.fireballExplosionMinDamageRange + livingUnit.radius}, а также поджигает их ({\tt BURNING}).
+ Мгновенный урон уменьшается по мере удаления от эпицентра взрыва.}\end{itemize}
+}
+\item{
+public static final ProjectileType DART\begin{itemize}\item{\vskip -.9ex Дротик. Заострённый предмет, летящий на большой скорости. Наносит урон при прямом попадании.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{SkillType}{l17}{%
+{\small Тип умения. Изучение умений может быть доступно не во всех режимах игры (смотрите документацию к
+ {\tt game.skillsEnabled}).
+ \bl 
+ Умения делятся на три категории: активные, пассивные и ауры.
+ \begin{itemize}
+ \item{\vskip -.8ex 
+ Активные умения наделяют волшебника способностью использовать определённое действие, недоступное ранее.
+ \textless $/$li\textgreater 
+ }
+\item{\vskip -.8ex 
+ Пассивные умения действуют постоянно, улучшая одну из характеристик волшебника на некоторое значение. При наличии
+ нескольких пассивных умений, влияющих на одну характеристику, учитывается только то, которое даёт максимальный
+ эффект.
+ \textless $/$li\textgreater 
+ }
+\item{\vskip -.8ex 
+ Ауры действуют постоянно, улучшая на некоторое значение одну из характеристик самого волшебника, а также всех союзных
+ волшебников на расстоянии, не превышающем {\tt game.auraSkillRange}. При наличии нескольких аур, влияющих на одну
+ характеристику, учитывается только та, которая даёт максимальный эффект.
+ \textless $/$li\textgreater 
+ }
+\end{itemize}
+}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+SkillType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final SkillType RANGE\_BONUS\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Пассивное умение. Увеличивает максимально возможную дальность полёта магического снаряда, а также дальность
+ применения магических статусов на {\tt game.rangeBonusPerSkillLevel}.}\end{itemize}
+}
+\item{
+public static final SkillType RANGE\_BONUS\_AURA\_1\begin{itemize}\item{\vskip -.9ex Аура. Увеличивает максимально возможную дальность полёта магического снаряда, а также дальность
+ применения магических статусов на {\tt game.rangeBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt RANGE\_BONUS\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType RANGE\_BONUS\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Пассивное умение. Увеличивает максимально возможную дальность полёта магического снаряда, а также дальность
+ применения магических статусов на {\tt 2.0 * game.rangeBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt RANGE\_BONUS\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType RANGE\_BONUS\_AURA\_2\begin{itemize}\item{\vskip -.9ex Аура. Увеличивает максимально возможную дальность полёта магического снаряда, а также дальность
+ применения магических статусов на {\tt 2.0 * game.rangeBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt RANGE\_BONUS\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType ADVANCED\_MAGIC\_MISSILE\begin{itemize}\item{\vskip -.9ex Пассивное умение. Убирает задержку на примение действия {\tt MAGIC\_MISSILE}.
+ Общая задержка на действия волшебника {\tt game.wizardActionCooldownTicks} всё ещё применяется.
+ \bl 
+ Требуется предварительно изучить умение {\tt RANGE\_BONUS\_AURA\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_BONUS\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Пассивное умение. Увеличивает урон, наносимый при прямом попадании магического снаряда, на
+ {\tt game.magicalDamageBonusPerSkillLevel}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_BONUS\_AURA\_1\begin{itemize}\item{\vskip -.9ex Аура. Увеличивает урон, наносимый при прямом попадании магического снаряда, на
+ {\tt game.magicalDamageBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MAGICAL\_DAMAGE\_BONUS\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_BONUS\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Пассивное умение. Увеличивает урон, наносимый при прямом попадании магического снаряда, на
+ {\tt 2.0 * game.magicalDamageBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MAGICAL\_DAMAGE\_BONUS\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_BONUS\_AURA\_2\begin{itemize}\item{\vskip -.9ex Аура. Увеличивает урон, наносимый при прямом попадании магического снаряда, на
+ {\tt 2.0 * game.magicalDamageBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MAGICAL\_DAMAGE\_BONUS\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType FROST\_BOLT\begin{itemize}\item{\vskip -.9ex Активное умение. Позволяет волшебнику использовать действие {\tt FROST\_BOLT}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MAGICAL\_DAMAGE\_BONUS\_AURA\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType STAFF\_DAMAGE\_BONUS\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Пассивное умение. Увеличивает урон, наносимый при ударе посохом, на {\tt game.staffDamageBonusPerSkillLevel}.}\end{itemize}
+}
+\item{
+public static final SkillType STAFF\_DAMAGE\_BONUS\_AURA\_1\begin{itemize}\item{\vskip -.9ex Аура. Увеличивает урон, наносимый при ударе посохом, на {\tt game.staffDamageBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt STAFF\_DAMAGE\_BONUS\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType STAFF\_DAMAGE\_BONUS\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Пассивное умение. Увеличивает урон, наносимый при ударе посохом, на
+ {\tt 2.0 * game.staffDamageBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt STAFF\_DAMAGE\_BONUS\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType STAFF\_DAMAGE\_BONUS\_AURA\_2\begin{itemize}\item{\vskip -.9ex Аура. Увеличивает урон, наносимый при ударе посохом, на {\tt 2.0 * game.staffDamageBonusPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt STAFF\_DAMAGE\_BONUS\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType FIREBALL\begin{itemize}\item{\vskip -.9ex Активное умение. Позволяет волшебнику использовать действие {\tt FIREBALL}.
+ \bl 
+ Требуется предварительно изучить умение {\tt STAFF\_DAMAGE\_BONUS\_AURA\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Пассивное умение. Увеличивает скорость перемещения в {\tt 1.0 + game.movementBonusFactorPerSkillLevel} раз.
+ \bl 
+ Увеличение скорости от изучения пассивных умений и увеличение скорости в результате действия аур аддитивны.
+ Таким образом, умения {\tt MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_2} и {\tt MOVEMENT\_BONUS\_FACTOR\_AURA\_2} суммарно
+ увеличат скорость перемещения в {\tt 1.0 + 4.0 * game.movementBonusFactorPerSkillLevel} раз.}\end{itemize}
+}
+\item{
+public static final SkillType MOVEMENT\_BONUS\_FACTOR\_AURA\_1\begin{itemize}\item{\vskip -.9ex Аура. Увеличивает скорость перемещения в {\tt 1.0 + game.movementBonusFactorPerSkillLevel} раз.
+ \bl 
+ Требуется предварительно изучить умение {\tt MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Пассивное умение. Увеличивает скорость перемещения в {\tt 1.0 + 2.0 * game.movementBonusFactorPerSkillLevel}
+ раз.
+ \bl 
+ Требуется предварительно изучить умение {\tt MOVEMENT\_BONUS\_FACTOR\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MOVEMENT\_BONUS\_FACTOR\_AURA\_2\begin{itemize}\item{\vskip -.9ex Аура. Увеличивает скорость перемещения в {\tt 1.0 + 2.0 * game.movementBonusFactorPerSkillLevel} раз.
+ \bl 
+ Требуется предварительно изучить умение {\tt MOVEMENT\_BONUS\_FACTOR\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType HASTE\begin{itemize}\item{\vskip -.9ex Активное умение. Позволяет волшебнику использовать действие {\tt HASTE}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MOVEMENT\_BONUS\_FACTOR\_AURA\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_ABSORPTION\_PASSIVE\_1\begin{itemize}\item{\vskip -.9ex Пассивное умение. Уменьшает урон, получаемый при прямом попадании магического снаряда, на
+ {\tt game.magicalDamageAbsorptionPerSkillLevel}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_ABSORPTION\_AURA\_1\begin{itemize}\item{\vskip -.9ex Аура. Уменьшает урон, получаемый при прямом попадании магического снаряда, на
+ {\tt game.magicalDamageAbsorptionPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MAGICAL\_DAMAGE\_ABSORPTION\_PASSIVE\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_ABSORPTION\_PASSIVE\_2\begin{itemize}\item{\vskip -.9ex Пассивное умение. Уменьшает урон, получаемый при прямом попадании магического снаряда, на
+ {\tt 2.0 * game.magicalDamageAbsorptionPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MAGICAL\_DAMAGE\_ABSORPTION\_AURA\_1}.}\end{itemize}
+}
+\item{
+public static final SkillType MAGICAL\_DAMAGE\_ABSORPTION\_AURA\_2\begin{itemize}\item{\vskip -.9ex Аура. Уменьшает урон, получаемый при прямом попадании магического снаряда, на
+ {\tt 2.0 * game.magicalDamageAbsorptionPerSkillLevel}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MAGICAL\_DAMAGE\_ABSORPTION\_PASSIVE\_2}.}\end{itemize}
+}
+\item{
+public static final SkillType SHIELD\begin{itemize}\item{\vskip -.9ex Активное умение. Позволяет волшебнику использовать действие {\tt SHIELD}.
+ \bl 
+ Требуется предварительно изучить умение {\tt MAGICAL\_DAMAGE\_ABSORPTION\_AURA\_2}.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Status}{l18}{%
+{\small Магический статус, влияющий на живого юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Status}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Status}
+% {\tt public {\bf Status}( {\tt long } {\bf id},
+% {\tt StatusType } {\bf type},
+% {\tt long } {\bf wizardId},
+% {\tt long } {\bf playerId},
+% {\tt int } {\bf remainingDurationTicks} )
+% \label{l364}\label{l365}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+\label{l366}\label{l367}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальынй идентификатор статуса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPlayerId}
+\item{\vskip -1.9ex 
+\membername{getPlayerId}
+{\tt public long {\bf getPlayerId}(  )
+\label{l368}\label{l369}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор игрока, волшебник которого наложил данный статус, или $\{$code -1$\}$. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingDurationTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingDurationTicks}
+{\tt public int {\bf getRemainingDurationTicks}(  )
+\label{l370}\label{l371}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает оставшуюся длительность действия статуса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getType}
+\item{\vskip -1.9ex 
+\membername{getType}
+{\tt public StatusType {\bf getType}(  )
+\label{l372}\label{l373}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает тип магического статуса. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizardId}
+\item{\vskip -1.9ex 
+\membername{getWizardId}
+{\tt public long {\bf getWizardId}(  )
+\label{l374}\label{l375}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор волшебника, наложившего данный статус, или $\{$code -1$\}$. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{StatusType}{l19}{%
+{\small Тип магического статуса, влияющего на живого юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public final 
+class 
+StatusType}}
+\noindent\hbox{\vbox{{\bf extends} Enum}}
+}}}
+\startsubsubsection{Fields}{
+\begin{itemize}
+\item{
+public static final StatusType BURNING\begin{itemize}\item{\vskip -.9ex Юнит горит. Каждый тик ему наносится некоторый урон.}\end{itemize}
+}
+\item{
+public static final StatusType EMPOWERED\begin{itemize}\item{\vskip -.9ex Юнит наносит больше урона, чем обычно. Не применимо к урону, растянутому во времени.}\end{itemize}
+}
+\item{
+public static final StatusType FROZEN\begin{itemize}\item{\vskip -.9ex Юнит заморожен. Он не может перемещаться и выполнять какие-либо действия.}\end{itemize}
+}
+\item{
+public static final StatusType HASTENED\begin{itemize}\item{\vskip -.9ex Скорость поворота и перемещения юнита увеличена.}\end{itemize}
+}
+\item{
+public static final StatusType SHIELDED\begin{itemize}\item{\vskip -.9ex Юнит получает меньше урона, чем обычно. Не применимо к урону, растянутому во времени.}\end{itemize}
+}
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt Enum}}{
+\par{\small 
+\refdefined{l24}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{clone}
+{\tt protected final Object {\bf clone}(  )
+}%end signature
+}%end item
+\divideents{compareTo}
+\item{\vskip -1.9ex 
+\membername{compareTo}
+{\tt public final int {\bf compareTo}( {\tt Enum } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{equals}
+\item{\vskip -1.9ex 
+\membername{equals}
+{\tt public final boolean {\bf equals}( {\tt Object } {\bf arg0} )
+}%end signature
+}%end item
+\divideents{finalize}
+\item{\vskip -1.9ex 
+\membername{finalize}
+{\tt protected final void {\bf finalize}(  )
+}%end signature
+}%end item
+\divideents{getDeclaringClass}
+\item{\vskip -1.9ex 
+\membername{getDeclaringClass}
+{\tt public final Class {\bf getDeclaringClass}(  )
+}%end signature
+}%end item
+\divideents{hashCode}
+\item{\vskip -1.9ex 
+\membername{hashCode}
+{\tt public final int {\bf hashCode}(  )
+}%end signature
+}%end item
+\divideents{name}
+\item{\vskip -1.9ex 
+\membername{name}
+{\tt public final String {\bf name}(  )
+}%end signature
+}%end item
+\divideents{ordinal}
+\item{\vskip -1.9ex 
+\membername{ordinal}
+{\tt public final int {\bf ordinal}(  )
+}%end signature
+}%end item
+\divideents{toString}
+\item{\vskip -1.9ex 
+\membername{toString}
+{\tt public String {\bf toString}(  )
+}%end signature
+}%end item
+\divideents{valueOf}
+\item{\vskip -1.9ex 
+\membername{valueOf}
+{\tt public static Enum {\bf valueOf}( {\tt Class } {\bf arg0},
+{\tt String } {\bf arg1} )
+}%end signature
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Tree}{l20}{%
+{\small Класс, определяющий дерево. Содержит также все свойства живого юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Tree}}
+\noindent\hbox{\vbox{{\bf extends} LivingUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Tree}
+% {\tt public {\bf Tree}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses} )
+% \label{l376}\label{l377}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt LivingUnit}}{
+\par{\small 
+\refdefined{l9}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает магические статусы, влияющие на живого юнита. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{Unit}{l21}{%
+{\small Базовый класс для определения объектов (<<юнитов>>) на игровом поле.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public abstract 
+class 
+Unit}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Unit}
+% {\tt protected {\bf Unit}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction} )
+% \label{l378}\label{l379}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+\label{l380}\label{l381}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+\label{l382}\label{l383}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+\label{l384}\label{l385}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+\label{l386}\label{l387}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+\label{l388}\label{l389}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+\label{l390}\label{l391}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+\label{l392}\label{l393}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+\label{l394}\label{l395}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+\label{l396}\label{l397}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+\label{l398}\label{l399}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+\label{l400}\label{l401}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+\startsection{Class}{Wizard}{l22}{%
+{\small Класс, определяющий волшебника. Содержит также все свойства живого юнита.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+Wizard}}
+\noindent\hbox{\vbox{{\bf extends} LivingUnit}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{Wizard}
+% {\tt public {\bf Wizard}( {\tt long } {\bf id},
+% {\tt double } {\bf x},
+% {\tt double } {\bf y},
+% {\tt double } {\bf speedX},
+% {\tt double } {\bf speedY},
+% {\tt double } {\bf angle},
+% {\tt Faction } {\bf faction},
+% {\tt double } {\bf radius},
+% {\tt int } {\bf life},
+% {\tt int } {\bf maxLife},
+% {\tt Status[]} {\bf statuses},
+% {\tt long } {\bf ownerPlayerId},
+% {\tt boolean } {\bf me},
+% {\tt int } {\bf mana},
+% {\tt int } {\bf maxMana},
+% {\tt double } {\bf visionRange},
+% {\tt double } {\bf castRange},
+% {\tt int } {\bf xp},
+% {\tt int } {\bf level},
+% {\tt SkillType[]} {\bf skills},
+% {\tt int } {\bf remainingActionCooldownTicks},
+% {\tt int[]} {\bf remainingCooldownTicksByAction},
+% {\tt boolean } {\bf master},
+% {\tt Message[]} {\bf messages} )
+% \label{l402}\label{l403}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getCastRange}
+{\tt public double {\bf getCastRange}(  )
+\label{l404}\label{l405}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра волшебника),
+ которое может преодолеть выпущенный им магический снаряд.
+ \bl 
+ Также является максимально возможной дальностью применения заклинаний, накладывающих на цель магический статус
+ ({\tt HASTE} и {\tt SHIELD}). 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getLevel}
+\item{\vskip -1.9ex 
+\membername{getLevel}
+{\tt public int {\bf getLevel}(  )
+\label{l406}\label{l407}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущий уровень волшебника.
+ \bl 
+ Начальный уровень каждого волшебника равен {\tt 0}, а максимальный --- {\tt game.levelUpXpValues.length}.
+ \bl 
+ В некоторых режимах игры рост уровня волшебника может быть заблокирован. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMana}
+\item{\vskip -1.9ex 
+\membername{getMana}
+{\tt public int {\bf getMana}(  )
+\label{l408}\label{l409}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее количество магической энергии волшебника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxMana}
+\item{\vskip -1.9ex 
+\membername{getMaxMana}
+{\tt public int {\bf getMaxMana}(  )
+\label{l410}\label{l411}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное количество магической энергии волшебника. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMessages}
+\item{\vskip -1.9ex 
+\membername{getMessages}
+{\tt public Message[] {\bf getMessages}(  )
+\label{l412}\label{l413}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает сообщения, предназначенные данному волшебнику, если есть право на их просмотр.
+ \bl 
+ Стратегия может просматривать только сообщения, адресатом которых является управляемый ею волшебник. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getOwnerPlayerId}
+\item{\vskip -1.9ex 
+\membername{getOwnerPlayerId}
+{\tt public long {\bf getOwnerPlayerId}(  )
+\label{l414}\label{l415}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает идентификатор игрока, которому принадлежит волшебник. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingActionCooldownTicks}
+\item{\vskip -1.9ex 
+\membername{getRemainingActionCooldownTicks}
+{\tt public int {\bf getRemainingActionCooldownTicks}(  )
+\label{l416}\label{l417}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество тиков, оставшееся до любого следующего действия.
+ \bl 
+ Для совершения произвольного действия {\tt actionType} необходимо, чтобы оба значения
+ {\tt remainingActionCooldownTicks} и {\tt remainingCooldownTicksByAction[actionType.ordinal()]} были равны
+ нулю. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getRemainingCooldownTicksByAction}
+\item{\vskip -1.9ex 
+\membername{getRemainingCooldownTicksByAction}
+{\tt public int[] {\bf getRemainingCooldownTicksByAction}(  )
+\label{l418}\label{l419}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает массив целых неотрицательных чисел. Каждая ячейка массива содержит значение количества тиков,
+ оставшегося до совершения следующего действия с соответствующим индексом.
+ \bl 
+ Например, {\tt remainingCooldownTicksByAction[0]} соответствует действию {\tt NONE} и всегда равно нулю.
+ {\tt remainingCooldownTicksByAction[1]} соответствует действию {\tt STAFF} и равно количеству тиков,
+ оставшемуся до совершения данного действия. {\tt remainingCooldownTicksByAction[2]} соответствует действию
+ {\tt MAGIC\_MISSILE} и так далее.
+ \bl 
+ Для совершения произвольного действия {\tt actionType} необходимо, чтобы оба значения
+ {\tt remainingActionCooldownTicks} и {\tt remainingCooldownTicksByAction[actionType.ordinal()]} были равны
+ нулю. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSkills}
+\item{\vskip -1.9ex 
+\membername{getSkills}
+{\tt public SkillType[] {\bf getSkills}(  )
+\label{l420}\label{l421}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает умения, изученные волшебником. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getVisionRange}
+\item{\vskip -1.9ex 
+\membername{getVisionRange}
+{\tt public double {\bf getVisionRange}(  )
+\label{l422}\label{l423}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное расстояние (от центра до центра),
+ на котором данный волшебник обнаруживает другие объекты. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getXp}
+\item{\vskip -1.9ex 
+\membername{getXp}
+{\tt public int {\bf getXp}(  )
+\label{l424}\label{l425}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает количество очков опыта, полученное волшебником в процессе игры. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isMaster}
+\item{\vskip -1.9ex 
+\membername{isMaster}
+{\tt public boolean {\bf isMaster}(  )
+\label{l426}\label{l427}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true} в том и только том случае, если этот волшебник является верховным.
+ \bl 
+ Количество верховных волшебников в каждой фракции строго равно одному. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{isMe}
+\item{\vskip -1.9ex 
+\membername{isMe}
+{\tt public boolean {\bf isMe}(  )
+\label{l428}\label{l429}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает {\tt true} в том и только том случае, если этот волшебник ваш. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+\startsubsubsection{Methods inherited from class {\tt LivingUnit}}{
+\par{\small 
+\refdefined{l9}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getLife}
+{\tt public int {\bf getLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает текущее количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMaxLife}
+\item{\vskip -1.9ex 
+\membername{getMaxLife}
+{\tt public int {\bf getMaxLife}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает максимальное количество жизненной энергии. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getStatuses}
+\item{\vskip -1.9ex 
+\membername{getStatuses}
+{\tt public Status[] {\bf getStatuses}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает магические статусы, влияющие на живого юнита. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt CircularUnit}}{
+\par{\small 
+\refdefined{l5}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getRadius}
+{\tt public double {\bf getRadius}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает радиус объекта. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+\startsubsubsection{Methods inherited from class {\tt Unit}}{
+\par{\small 
+\refdefined{l21}\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getAngle}
+{\tt public final double {\bf getAngle}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает угол поворота объекта в радианах. Нулевой угол соответствует направлению оси абсцисс.
+ Положительные значения соответствуют повороту по часовой стрелке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к указанной точке. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getAngleTo}
+\item{\vskip -1.9ex 
+\membername{getAngleTo}
+{\tt public double {\bf getAngleTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, к центру которого необходимо определить угол.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает ориентированный угол [{\tt -PI}, {\tt PI}] между направлением
+ данного объекта и вектором из центра данного объекта к центру указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt double } {\bf x},
+{\tt double } {\bf y} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt x} - X-координата точки.}
+   \item{
+\sld
+{\tt y} - Y-координата точки.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние до точки от центра данного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getDistanceTo}
+\item{\vskip -1.9ex 
+\membername{getDistanceTo}
+{\tt public double {\bf getDistanceTo}( {\tt Unit } {\bf unit} )
+}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt unit} - Объект, до центра которого необходимо определить расстояние.}
+  \end{itemize}
+}%end item
+\item{{\bf Returns} - 
+Возвращает расстояние от центра данного объекта до центра указанного объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getFaction}
+\item{\vskip -1.9ex 
+\membername{getFaction}
+{\tt public Faction {\bf getFaction}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает фракцию, к которой принадлежит данный юнит. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getId}
+\item{\vskip -1.9ex 
+\membername{getId}
+{\tt public long {\bf getId}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает уникальный идентификатор объекта. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedX}
+\item{\vskip -1.9ex 
+\membername{getSpeedX}
+{\tt public final double {\bf getSpeedX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-составляющую скорости объекта. Ось абсцисс направлена слева направо.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getSpeedY}
+\item{\vskip -1.9ex 
+\membername{getSpeedY}
+{\tt public final double {\bf getSpeedY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-составляющую скорости объекта. Ось ординат направлена сверху вниз.
+ \bl 
+ Для юнитов, способных мгновенно менять свою скорость, возвращается значение перемещения за последний тик. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getX}
+\item{\vskip -1.9ex 
+\membername{getX}
+{\tt public final double {\bf getX}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает X-координату центра объекта. Ось абсцисс направлена слева направо. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getY}
+\item{\vskip -1.9ex 
+\membername{getY}
+{\tt public final double {\bf getY}(  )
+}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает Y-координату центра объекта. Ось ординат направлена сверху вниз. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}}
+}
+}
+\startsection{Class}{World}{l23}{%
+{\small Этот класс описывает игровой мир. Содержит также описания всех игроков и игровых объектов (<<юнитов>>).}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public 
+class 
+World}}
+\noindent\hbox{\vbox{{\bf extends} Object}}
+}}}
+
+% Removed by DocsPostProcessor:
+% \startsubsubsection{Constructors}{
+% \vskip -2em
+% \begin{itemize}
+% \item{\vskip -1.9ex 
+% \membername{World}
+% {\tt public {\bf World}( {\tt int } {\bf tickIndex},
+% {\tt int } {\bf tickCount},
+% {\tt double } {\bf width},
+% {\tt double } {\bf height},
+% {\tt Player[]} {\bf players},
+% {\tt Wizard[]} {\bf wizards},
+% {\tt Minion[]} {\bf minions},
+% {\tt Projectile[]} {\bf projectiles},
+% {\tt Bonus[]} {\bf bonuses},
+% {\tt Building[]} {\bf buildings},
+% {\tt Tree[]} {\bf trees} )
+% \label{l430}\label{l431}}%end signature
+% }%end item
+% \end{itemize}
+% }
+% \\ Removed by DocsPostProcessor.
+
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{getBonuses}
+{\tt public Bonus[] {\bf getBonuses}(  )
+\label{l432}\label{l433}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список видимых бонусов (в случайном порядке).
+ После каждого тика объекты, задающие бонусы, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getBuildings}
+\item{\vskip -1.9ex 
+\membername{getBuildings}
+{\tt public Building[] {\bf getBuildings}(  )
+\label{l434}\label{l435}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список видимых строений (в случайном порядке).
+ После каждого тика объекты, задающие строения, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getHeight}
+\item{\vskip -1.9ex 
+\membername{getHeight}
+{\tt public double {\bf getHeight}(  )
+\label{l436}\label{l437}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает высоту мира. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMinions}
+\item{\vskip -1.9ex 
+\membername{getMinions}
+{\tt public Minion[] {\bf getMinions}(  )
+\label{l438}\label{l439}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список видимых последователей (в случайном порядке).
+ После каждого тика объекты, задающие последователей, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getMyPlayer}
+\item{\vskip -1.9ex 
+\membername{getMyPlayer}
+{\tt public Player {\bf getMyPlayer}(  )
+\label{l440}\label{l441}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает вашего игрока. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getPlayers}
+\item{\vskip -1.9ex 
+\membername{getPlayers}
+{\tt public Player[] {\bf getPlayers}(  )
+\label{l442}\label{l443}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список игроков (в случайном порядке).
+ После каждого тика объекты, задающие игроков, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getProjectiles}
+\item{\vskip -1.9ex 
+\membername{getProjectiles}
+{\tt public Projectile[] {\bf getProjectiles}(  )
+\label{l444}\label{l445}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список видимых магических снарядов (в случайном порядке).
+ После каждого тика объекты, задающие снаряды, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTickCount}
+\item{\vskip -1.9ex 
+\membername{getTickCount}
+{\tt public int {\bf getTickCount}(  )
+\label{l446}\label{l447}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает базовую длительность игры в тиках. Реальная длительность может отличаться от этого значения в
+ меньшую сторону. Эквивалентно {\tt game.tickCount}. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTickIndex}
+\item{\vskip -1.9ex 
+\membername{getTickIndex}
+{\tt public int {\bf getTickIndex}(  )
+\label{l448}\label{l449}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает номер текущего тика. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getTrees}
+\item{\vskip -1.9ex 
+\membername{getTrees}
+{\tt public Tree[] {\bf getTrees}(  )
+\label{l450}\label{l451}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список видимых деревьев (в случайном порядке).
+ После каждого тика объекты, задающие деревья, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWidth}
+\item{\vskip -1.9ex 
+\membername{getWidth}
+{\tt public double {\bf getWidth}(  )
+\label{l452}\label{l453}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает ширину мира. 
+}%end item
+\end{itemize}
+}%end item
+\divideents{getWizards}
+\item{\vskip -1.9ex 
+\membername{getWizards}
+{\tt public Wizard[] {\bf getWizards}(  )
+\label{l454}\label{l455}}%end signature
+\begin{itemize}
+\sld
+\item{{\bf Returns} - 
+Возвращает список видимых волшебников (в случайном порядке).
+ После каждого тика объекты, задающие волшебников, пересоздаются. 
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+}
+}
+\newpage
+\def\packagename{\textless none\textgreater }
+\chapter{\bf Package \textless none\textgreater }{
+\vskip -.25in
+\hbox to \hsize{\it Package Contents\hfil Page}
+\rule{\hsize}{.7mm}
+\vskip .13in
+\hbox{\bf Interfaces}
+\entityintro{Strategy}{l456}{Стратегия --- интерфейс, содержащий описание методов искусственного интеллекта волшебника.}
+\vskip .1in
+\rule{\hsize}{.7mm}
+\vskip .1in
+\newpage
+\section{Interfaces}{
+\startsection{Interface}{Strategy}{l456}{%
+{\small Стратегия --- интерфейс, содержащий описание методов искусственного интеллекта волшебника.
+ Каждая пользовательская стратегия должна реализовывать этот интерфейс.
+ Может отсутствовать в некоторых языковых пакетах, если язык не поддерживает интерфейсы.}
+\vskip .1in 
+\startsubsubsection{Declaration}{
+\fbox{\vbox{
+\hbox{\vbox{\small public interface 
+Strategy}}
+}}}
+\startsubsubsection{Methods}{
+\vskip -2em
+\begin{itemize}
+\item{\vskip -1.9ex 
+\membername{move}
+{\tt public void {\bf move}( {\tt Wizard } {\bf self},
+{\tt World } {\bf world},
+{\tt Game } {\bf game},
+{\tt Move } {\bf move} )
+\label{l457}\label{l458}}%end signature
+\begin{itemize}
+\sld
+\item{
+\sld
+{\bf Usage}
+  \begin{itemize}\isep
+   \item{
+Основной метод стратегии, осуществляющий управление волшебником.
+ Вызывается каждый тик для каждого волшебника.
+}%end item
+  \end{itemize}
+}
+\item{
+\sld
+{\bf Parameters}
+\sld\isep
+  \begin{itemize}
+\sld\isep
+   \item{
+\sld
+{\tt self} - Волшебник, которым данный метод будет осуществлять управление.}
+   \item{
+\sld
+{\tt world} - Текущее состояние мира.}
+   \item{
+\sld
+{\tt game} - Различные игровые константы.}
+   \item{
+\sld
+{\tt move} - Результатом работы метода является изменение полей данного объекта.}
+  \end{itemize}
+}%end item
+\end{itemize}
+}%end item
+\end{itemize}
+}
+\hide{inherited}{
+}
+}
+}
+}
+\end{document}
