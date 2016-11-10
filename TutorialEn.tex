@@ -146,9 +146,9 @@ control a wizard in a special game world (read more about the features of the wo
 Rules of the competition are based on the MOBA genre, which is popular in the world of computer games. In each game you will face five strategies of
 others players. Also you will have four allies. Five strategies located on the same side are faction: Academy
 or Renegades. The main goal of these five players is to destruct the base of the opposing faction.
-The main personal goal of every wizard is to collect the highest possible number of points.
+The main personal goal of every wizard is to collect the highest possible number of score points.
 The title of winner of the game, as well as all the other places are
-distributed in accordance with the number of points. Two or more players can share one place if their scores are equal. The player gets
+distributed in accordance with the number of score points. Two or more players can share one place if their scores are equal. The player gets
 points if his wizard damages, destroys or is just near in the time of death a of a unit of another faction. Also the player gets
 points for some other actions. All players of the faction get a significant number of points in case of reaching the main team goal.
 
@@ -213,7 +213,7 @@ Tournament stages:
             ignored by other Wizards’ strategies.} other Wizards to a certain lane. In this mode, the Wizards can only use
             staff hit and <<Magic Missile>> spell, while the living energy of all structures is limited to half of
             the normal level. Damage ratio on accidental hit of a friendly Wizard equals $25\%$. Regardless of the stage
-            in the championship, a Wizard cannot damage friendly minions and structures. Round $1$, like all subsequent stages, consists of
+            of the championship friendly minions and structures take $0\%$ of damage. Round $1$, like all subsequent stages, consists of
             two parts, with a short break between them (the Sandbox is resumed during the break), which allows the players to improve their strategies.
             For games in each part, the latest strategy sent by a player before the beginning of that part is chosen by the system. Games are conducted in waves. In each
             wave, each player takes part in exactly one game. The number of waves in each part is determined by the testing system capacity, but it is
@@ -266,6 +266,9 @@ indicate guardian towers), blue steel color indicates the Renegades’ structure
 corner of the map for Academy and $5$ in the upper right corner of the map for Renegades) indicate the Wizards’ spawning positions. It should be noted that
 coordinates of the circle centers and tree radiuses in the forests can be different between games. New trees can also appear in the course of
 the game.
+
+The game engine transforms coordinates and directions before send it to the strategy of renegade wizard. So the strategy always ``think''
+that it plays for the bottom left side, and the enemy is in the top right corner.
 
 \includegraphics{images/map.png}
 
@@ -333,15 +336,15 @@ Comparative characteristics of the living units are shown in the table below:
 
 \begin{tabular}{| l | l | l | l | l | l | l |}
             \hline
-            Living unit characteristics                 & Wizard                    & Orc   & Fetish & Guardian Tower           & Faction Base          & Tree  \\
+            Living unit characteristics            & Wizard                & Orc   & Fetish & Guardian Tower         & Faction Base           & Tree    \\
             \hline
-            Radius                                  & $35$                      & $25$  & $25$  & $50$                  & $100$                     & $20-50$ \\
-            Max Energy                          & $100$\footnotemark[5] & $100$ & $100$ & $1000$\footnotemark[6] & $2000$\footnotemark[6] & $6-36$  \\
-            Eyesight radius                     & $600$                     & $400$ & $400$ & $600$             & $800$                     & ---    \\
-            Long-range combat distance\footnotemark[7] & $500$                  & ---   & $300$ & $1000$                & $100$                     & ---    \\
-            Close combat distance\footnotemark[8] & $70$                & $50$  & ---   & $600$                     & $800$                     & ---    \\
-            Interval between attacks                & $30$\footnotemark[9]  & $60$  & $30$  & $240$                         & $240$                     & ---    \\
-            Damage from one attack                              & $12$\footnotemark[10] & $12$  & $6$   & $24$              & $36$                      & ---    \\
+            Radius                                 & $35$                  & $25$  & $25$   & $50$                   & $100$                  & $20-50$ \\
+            Max life                               & $100$\footnotemark[5] & $100$ & $100$  & $1000$\footnotemark[6] & $2000$\footnotemark[6] & $6-36$  \\
+            Vision range                           & $600$                 & $400$ & $400$  & $600$                  & $800$                  & ---     \\
+            Ranged attack distance\footnotemark[7] & $500$                 & ---   & $300$  & $600$                  & $800$                  & ---     \\
+            Melee attack distance\footnotemark[8]  & $70$                  & $50$  & ---    & ---                    & ---                    & ---     \\
+            Attack cooldown                        & $30$\footnotemark[9]  & $60$  & $30$   & $240$                  & $240$                  & ---     \\
+            Attack damage                          & $12$\footnotemark[10] & $12$  & $6$    & $36$                   & $48$                   & ---     \\
             \hline
 \end{tabular}
  
@@ -382,8 +385,11 @@ the distance of $100$ between the center of the fireball and the closest point o
 get the burning status (\texttt{BURNING}). It remains in effect for $240$ ticks, causing $24$ units of damage over this time. Damage from several
 statuses of the same type is accumulated.
  
-A building attack does not create a projectile. Damage is caused instantly due to a magic energy charge.
- 
+A building attack does not create a projectile. Damage is caused instantly due to a magic blast.
+
+The second Guardian Tower on the lane is immune to damage if the first tower is alive. To be able to attack the opposite Faction Base the
+wizards should destroy both enemy towers on any lane.
+
 \section{Wizard characteristics}
  
 The main characteristics of every living unit are current and maximum amount of living energy. However, a wizard also has several
@@ -425,7 +431,7 @@ enables the wizard to cast a new spell or substantially improves an existing spe
             skill in this group allows the wizard to cast the <<Fireball>> spell, which causes damage to a group of opponents, in addition to
             setting them on fire.
             \item Passive skills and auras in the fourth group increase the wizard’s maximum possible movement distance in one tick by $5\%$ for each level.
-            The total bonus from the four skills is $20\%$, while aura adds $10\%$ movement to friendly wizards
+            The total increase from the four skills is $20\%$, while aura adds $10\%$ movement to friendly wizards
             nearby. The last skill in this group enables the wizard to use the <<Haste>> spell, which gives a friendly
             wizard the \texttt{HASTENED} status for $600$ ticks. This status adds an extra $30\%$ to the unit’s movement speed, in addition to
             increasing the turning speed by $50\%$. Several statuses of the same type are not accumulated.
@@ -449,7 +455,7 @@ These instructions are processed in the following order:
             \item Then wizards randomly perform actions, set in \texttt{move.action}:
             \begin{itemize}
             \item \texttt{NONE}. \textit{Don't do anything.}
-            \item \texttt{STAFF}. \textit{Strike with the staff.} The attack will strike all alive objects in the sector from $-\pi / 12$ to $\pi / 12$.
+            \item \texttt{STAFF}. \textit{Strike with the staff.} The attack will strike all living units which centers are in the sector of $-\pi / 12$ to $\pi / 12$.
                     The distance from the center of the wizard to the nearest target point must not exceed $70$. If the wizard died in the result
                     of the staff strike of another wizard, made earlier within the same tick, then the staff strike will still be performed. The dead
                     wizard will not gain experience for the caused damage, nevertheless, the player whose strategy controls this wizard, will receive
@@ -481,8 +487,8 @@ These instructions are processed in the following order:
             \hline
             Characteristics of the act & Staff strike & Acceleration & Shield   \\
             \hline
-            Delay           & $60$          & $120$         & $120$ \\
-            Price               & ---               & $48$          & $48$  \\
+            Cooldown           & $60$          & $120$         & $120$ \\
+            Manacost               & ---               & $48$          & $48$  \\
             \hline
             \end{tabular}
  
@@ -490,8 +496,8 @@ These instructions are processed in the following order:
             \hline
             Characteristics of the act & Magic Missile    & Frost Bolt & Fireball \\
             \hline
-            Delay           & $60$\footnotemark[12] & $90$                  & $120$         \\
-            Price               & $12$                      & $36$          & $48$          \\
+            Cooldown           & $60$\footnotemark[12] & $90$                  & $120$         \\
+            Manacost               & $12$                      & $36$          & $48$          \\
             \hline
             \end{tabular}
             \item Then wizards are again randomly put in order and they are moved.
@@ -514,7 +520,8 @@ These instructions are processed in the following order:
             to relocate those, whose position has not yet changed within this tick, This happens until all the wizards have been relocated.
             If in the course of the next iteration none of the wizards was moved, then the operation will be terminated.
  
-            \item All wizards turn for the angle set by the strategy.
+    \item All wizards turn for the angle set by the strategy. By default the absolute angle change can not be higher than $\pi / 30$.
+          Hastened wizard turns $1.5$ times faster.
 \end{itemize}
  
 \footnotetext[12]{Delay in the application of the spell <<Magic Missile>> may be less in the result of learning of some skills.}
@@ -540,11 +547,12 @@ the distance.
  
 In the forest area neutral minions may appear with some probability. Usually they are not aggressive, but if one of the minions is damaged,
 all the neutral minions in the area will rush to the offender, attacking anyone on their way.
+
+A minion can move strictly forward not faster than $3$ ticks$^{-1}$. The absolute angle change of a minion can not be higher than $\pi / 30$.
  
-Each $2500$ ticks a bonus may appear on the map. If there is at least one bonus on the map already, a new bonus will not be created. The bonus
-is created at a randomly chosen point from two possible: $(1200, 1200)$ or $(2800, 2800)$. If any part of the area where the bonus should appear is
-already occupied by a wizard, then the simulator tries to create the bonus in the different point from the list. In case of failure, the creation of the bonus will be postponed till the end
-of the relevant interval.
+Every $2500$ ticks up to two bonuses may appear on the map. The bonuses are created at the two following points: $(1200, 1200)$ and
+$(2800, 2800)$. If any part of the new bonus area is already occupied by a wizard or by an existing bonus, then the creation of the bonus
+will be postponed till the end of the next interval.
  
 \section{Collision of units}
 
@@ -578,7 +586,7 @@ the wizard is dead in the tick when points are scored and is waiting for respawn
             distributed among all friendly wizards, the distance to whom from the target does not exceed $600$. At that, if the number of
             such wizards is more than one, then the total reward increases by $67\%$. Rounding is done down to the nearest
             integer.
-            \item Collection of any bonus gives $100$ points/experience points.
+            \item Collection of any bonus gives $200$ score/experience points.
             \item In case of destruction of the opposing faction base, all friendly players receive $1000$ points. The game is finished in this case.
 \end{itemize}
  
