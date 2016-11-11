@@ -283,21 +283,21 @@ are awarded to all game participants.
 \begin{itemize}
   \item The process of the strategy unexpectedly exited, or there was a problem with communication protocol between the strategy and a game server. 
   \item The strategy exceed one of the time limits.
-For one tick the strategy has $5$ seconds of real time. For all the game the strategy process usually has
+For one tick the strategy has $10$ seconds of wall time. For all the game the strategy process usually has
         \begin{equation}
-        20\times\textit{<game\_duration\_in\_ticks>}+5000
+        20\times\textit{<game\_duration\_in\_ticks>}+10000
         \end{equation}
         milliseconds of wall time and
         \begin{equation}
-        10\times\textit{<game\_duration\_in\_ticks>}+5000
+        10\times\textit{<game\_duration\_in\_ticks>}+10000
         \end{equation}
         milliseconds of processor time. The master wizard strategy has
         \begin{equation}
-        30\times\textit{<game\_duration\_in\_ticks>}+5000
+        30\times\textit{<game\_duration\_in\_ticks>}+10000
         \end{equation}
         milliseconds of wall time and
         \begin{equation}
-        20\times\textit{<game\_duration\_in\_ticks>}+5000
+        20\times\textit{<game\_duration\_in\_ticks>}+10000
         \end{equation}
         milliseconds of processor time.\footnote[3]{Despite the limit for the wall time is notably higher, than limit for the processor time,
         artificial <<slowdowning>> of strategy with commands like <<\texttt{sleep}>> is prohibited (any  other attempts to slowdown/destabilize
