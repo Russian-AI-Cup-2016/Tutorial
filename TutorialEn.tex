@@ -336,15 +336,15 @@ Comparative characteristics of the living units are shown in the table below:
 
 \begin{tabular}{| l | l | l | l | l | l | l |}
             \hline
-            Living unit characteristics            & Wizard                & Orc   & Fetish & Guardian Tower         & Faction Base           & Tree    \\
+            Living unit characteristics            & Wizard                & Orc   & Fetish & Guardian Tower        & Faction Base           & Tree    \\
             \hline
-            Radius                                 & $35$                  & $25$  & $25$   & $50$                   & $100$                  & $20-50$ \\
-            Max life                               & $100$\footnotemark[5] & $100$ & $100$  & $1000$\footnotemark[6] & $2000$\footnotemark[6] & $6-36$  \\
-            Vision range                           & $600$                 & $400$ & $400$  & $600$                  & $800$                  & ---     \\
-            Ranged attack distance\footnotemark[7] & $500$                 & ---   & $300$  & $600$                  & $800$                  & ---     \\
-            Melee attack distance\footnotemark[8]  & $70$                  & $50$  & ---    & ---                    & ---                    & ---     \\
-            Attack cooldown                        & $30$\footnotemark[9]  & $60$  & $30$   & $240$                  & $240$                  & ---     \\
-            Attack damage                          & $12$\footnotemark[10] & $12$  & $6$    & $36$                   & $48$                   & ---     \\
+            Radius                                 & $35$                  & $25$  & $25$   & $50$                  & $100$                  & $20-50$ \\
+            Max life                               & $100$\footnotemark[5] & $100$ & $100$  & $500$\footnotemark[6] & $1000$\footnotemark[6] & $6-30$  \\
+            Vision range                           & $600$                 & $400$ & $400$  & $600$                 & $800$                  & ---     \\
+            Ranged attack distance\footnotemark[7] & $500$                 & ---   & $300$  & $600$                 & $800$                  & ---     \\
+            Melee attack distance\footnotemark[8]  & $70$                  & $50$  & ---    & ---                   & ---                    & ---     \\
+            Attack cooldown                        & $30$\footnotemark[9]  & $60$  & $30$   & $240$                 & $240$                  & ---     \\
+            Attack damage                          & $12$\footnotemark[10] & $12$  & $6$    & $36$                  & $48$                   & ---     \\
             \hline
 \end{tabular}
  
@@ -564,7 +564,7 @@ will be postponed till the end of the next interval.
             for $2400$ ticks, depending on the bonus type:
             \begin{itemize}
             \item \texttt{EMPOWER} increases the damage caused by a wizard in the result of the staff strike and in case of hitting the target
-                    with the magic projectile by $2$.
+                    with the magic projectile by $1.5$ times.
             \item \texttt{HASTE} speeds up the movement of a wizard similar to the cognominal spell.
             \item \texttt{SHIELD} decreases the damage, received by a wizard, similar to the cognominal spell.
             \end{itemize}
@@ -577,17 +577,17 @@ All types of collisions not described in this document are ignored by the game s
 The wizard receives experience in the same amount and in the same cases, when the player, controlling the wizard, receives points, except for when
 the wizard is dead in the tick when points are scored and is waiting for respawn. Points are given for the following actions:
 \begin{itemize}
-            \item Causing damage to buildings and wizards of the opposing faction. Damages are accounted with a coefficient of $0.25$. Rounding
-            is done down to the nearest integer. Points for damages are given only to the player, whose wizard caused these
-            damages.
-            \item Destruction of buildings or wizards of the opposing faction, as well as minions of any faction, different from the wizard's faction.
-            Total reward for buildings and minions is $25\%$ of the maximum amount of their life energy, for wizards ---
-            $100\%$. Destruction may be done by the wizard himself or by any other unit from his faction. Experience is equally
-            distributed among all friendly wizards, the distance to whom from the target does not exceed $600$. At that, if the number of
-            such wizards is more than one, then the total reward increases by $67\%$. Rounding is done down to the nearest
-            integer.
-            \item Collection of any bonus gives $200$ score/experience points.
-            \item In case of destruction of the opposing faction base, all friendly players receive $1000$ points. The game is finished in this case.
+    \item Causing damage to buildings and wizards of the opposing faction. Damages are accounted with coefficients of $0.5$ and $0.25$
+        respectively. Rounding is done down to the nearest integer. Points for damages are given only to the player, whose wizard caused
+        these damages.
+    \item Destruction of buildings or wizards of the opposing faction, as well as minions of any faction, different from the wizard's faction.
+        Total reward for buildings is $50\%$ of the maximum amount of their life energy, for minions is $25\%$, for wizards is $100\%$. Destruction
+        may be done by the wizard himself or by any other unit from his faction. Experience is equally
+        distributed among all friendly wizards, the distance to whom from the target does not exceed $600$. At that, if the number of
+        such wizards is more than one, then the total reward increases by $67\%$. Rounding is done down to the nearest
+        integer.
+    \item Collection of any bonus gives $150$ score/experience points.
+    \item In case of destruction of the opposing faction base, all friendly players receive $1000$ points. The game is finished in this case.
 \end{itemize}
  
 \chapter{Creation of the strategy}
