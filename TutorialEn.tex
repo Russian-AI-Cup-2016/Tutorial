@@ -433,11 +433,11 @@ enables the wizard to cast a new spell or substantially improves an existing spe
             \item Passive skills and auras in the fourth group increase the wizard’s maximum possible movement distance in one tick by $5\%$ for each level.
             The total increase from the four skills is $20\%$, while aura adds $10\%$ movement to friendly wizards
             nearby. The last skill in this group enables the wizard to use the <<Haste>> spell, which gives a friendly
-            wizard the \texttt{HASTENED} status for $600$ ticks. This status adds an extra $30\%$ to the unit’s movement speed, in addition to
+            wizard the \texttt{HASTENED} status for $1200$ ticks. This status adds an extra $30\%$ to the unit’s movement speed, in addition to
             increasing the turning speed by $50\%$. Several statuses of the same type are not accumulated.
             \item Passive skills and auras in the fifth group decrease the damage received from magic projectiles and structure attacks by $1$ for each level.
             The last skill in this group allows the wizard to cast the <<Shield>> spell, which gives a friendly wizard the
-            \texttt{SHIELDED} status for $600$ ticks. This status reduces any direct damage by $25\%$. The only exception is the damage from
+            \texttt{SHIELDED} status for $1200$ ticks. This status reduces any direct damage by $25\%$. The only exception is the damage from
             \texttt{BURNING} status. Several statuses of the same type are not accumulated.
 \end{itemize}
  
@@ -475,7 +475,7 @@ These instructions are processed in the following order:
                     found. The target must be located in the sector from $-\pi / 12$ to $\pi / 12$, and the distance to it must not exceed
                     \texttt{wizard.castRange}. Value \texttt{wizard.castRange} for a wizard of the zero level is equal to $500$, but it may
                     grow to $600$ after some skills are learned. If the wizard died in the result of the staff strike of another wizard,
-                    made earlier within the same tick, the status will not be applied.
+                    made earlier within the same tick, the status will not be applied. The wizard that casts a status spell on any friendly wizard automatically gets the same status.
             \end{itemize}
  
             There must be not less than $30$ ticks between any two consecutive acts of the wizard, different from \texttt{NONE}. For each
