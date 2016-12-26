@@ -437,8 +437,8 @@ enables the wizard to cast a new spell or substantially improves an existing spe
             increasing the turning speed by $50\%$. Several statuses of the same type are not accumulated.
             \item Passive skills and auras in the fifth group decrease the damage received from magic projectiles and structure attacks by $1$ for each level.
             The last skill in this group allows the wizard to cast the <<Shield>> spell, which gives a friendly wizard the
-            \texttt{SHIELDED} status for $1200$ ticks. This status reduces any direct damage by $33.3\%$. The only exception is the damage from
-            \texttt{BURNING} status. Several statuses of the same type are not accumulated.
+            \texttt{SHIELDED} status for $1200$ ticks. This status reduces any direct damage and the duration of negative statuses by $33.3\%$.
+            Several statuses of the same type are not accumulated.
 \end{itemize}
  
 You can find the full list of available skills in the documentation to enumeration \texttt{SkillType} (Chapter 4).
@@ -537,6 +537,8 @@ the opportunity to send text messages. Field \texttt{message.rawMessage} is a by
 $1024$. Usually wizards receive messages in the next tick after the dispatch, but if there is a text part, the receipt
 will be delayed for \texttt{ceil(message.rawMessage.length / 2.0)} game ticks. If there is a registered message in the system for one of the
 wizards, but it has not yet been received by him, then new messages to this wizard will be ignored.
+
+At the zero tick game engine automatically assigns a lane to each wizard, except masters, and sends the appropriate messages.
  
 \section{Other game objects}
  
@@ -584,9 +586,15 @@ the wizard is dead in the tick when points are scored and is waiting for respawn
         Total reward for buildings is $50\%$ of the maximum amount of their life energy, for minions is $25\%$, for wizards is $100\%$. Destruction
         may be done by the wizard himself or by any other unit from his faction. Experience is equally
         distributed among all friendly wizards, the distance to whom from the target does not exceed $600$. At that, if the number of
-        such wizards is more than one, then the total reward increases by $67\%$. Rounding is done down to the nearest
-        integer.
+        such wizards is more than one, then the total reward increases by $67\%$. The destruction of buildings and minions on the lane, that
+        is recommended by the master wizard, as well as the destruction of neutral minions provides $20\%$ more score points. This prize is
+        not activated for the lane, that has three or more wizards assigned. The master wizard always gets $20\%$ more experience by killing
+        minions and buildings. Rounding is done down to the nearest integer.
     \item Collection of any bonus gives $150$ score/experience points.
+    \item If a wizard learns a skill, that is recommended by the master, he gains $25$ experience points. If the recommendation is not set,
+        a wizard gains additional score for learning of any skill.
+    \item If a wizard applies a positive status to a same faction wizard, he gains $25$ experience points. A spell target should not be
+        affected by the status of the same type.
     \item In case of destruction of the opposing faction base, all friendly players receive $1000$ points. The game is finished in this case.
 \end{itemize}
  
